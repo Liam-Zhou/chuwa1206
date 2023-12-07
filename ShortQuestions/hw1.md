@@ -40,3 +40,24 @@ git commit -m"some notes"
 git push
 ```
 
+## Q4 How to clone a repo from Github 
+
+```
+git clone *HTTP/SSH link of that repo*
+```
+## Q5 How to create a new branch and checkout to that branch
+
+Checkout my answer in Q3:
+> git checkout -b newBranchName
+
+## Q6 How to merge the branch_test to master branch in command
+
+```
+git checkout master
+git pull origin master
+git merge branch_test
+git add .
+git commit -m "Merge brach_test into master"
+git push origin master
+
+```
