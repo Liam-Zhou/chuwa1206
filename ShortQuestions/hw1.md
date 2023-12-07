@@ -76,3 +76,22 @@ git stash pop
 ## Q8 How do you understand  **PR is based on Branch**
 
 A PR is a feature used in collaborative development platforms. It's a request to merge code changes from one branch into another. The branch from which the PR is created is usually a separate branch in the Git repository where specific work, like adding a feature or fixing a bug, is done. A PR allows team members to review code changes in that separate branch and decide whether to merge thoes changes into the main codebase. PR and Branch both serve the porpuse of having developers work on different tasks simultaneously without interfering with the main codebase. Therefore, we can say that *PR is based on Branch*.
+
+
+## Q9 What is maven's role ? what is it used to do?
+
+Maven is a project management and build tool. It provides a standardized build process and consistent project structure. Maven is used to build Java project, manage project dependencies, handle documentations and reporting, etc. It can be extended with plugins to perform additional tasks.
+
+## Q10 What is the lifecycle of maven? 
+1. prepare resources: Resource copying can be customized in this phase.
+2. validate: Checks if all necessary information is available and valid.
+3. compile: Compiles the source code of the project.
+4. test: Runs tests using a suitable unit testing framework. 
+5. package: Takes the compiled code and packages it in its distributable format(JAR/WAR) as mentioned in POM.xml.
+7. install: Installs the package into the local/remote repository.
+8. deploy: Copies the final package to the remote repository.
+
+## Q11 What is the difference between package and install in maven lifecycle  
+- The **package** phase takes the compiled code and other resources (like properties files, XML configuration files) and packages them together into a distributable format such as JAR or WAR, but it does not install anything in the local Maven repository.
+
+- The **install** phase takes the packaged artifact such as JAR or WAR and installs it in the local Maven repository.
