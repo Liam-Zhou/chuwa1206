@@ -8,7 +8,9 @@ Date: 12/07/2023
 
 
 
-# 1. Learn MarkDown and show all of basic usage in the ShortQuestions/README.md
+# 1
+
+Learn MarkDown and show all of basic usage in the ShortQuestions/README.md
 
 没有在ShortQuestions文件夹内找到README.md，因为平常我自己用md写文档也比较多，那么就记录一下平常不经常使用容易忘的：
 
@@ -100,19 +102,9 @@ The background color is `#ffffff` for light mode and `#000000` for dark mode.
 
 
 
+# 2
 
-
-
-
-
-
-
-
-
-
-
-
-# practice git using the platform. list the git commands you learned
+practice git using the platform. list the git commands you learned
 
 ## 初始化
 
@@ -163,7 +155,7 @@ git revert
 
 
 
-# 2
+# 3
 
 What is the basic steps to init a git repo in you local ?
 
@@ -171,7 +163,7 @@ What is the basic steps to init a git repo in you local ?
 
 run `git init`, after add files, use `git add .` add all files, the do the `git commit -m "initial commit`, then `git push` to GitHub.
 
-# 3
+# 4
 
 How to clone a repo from Github ?
 
@@ -179,19 +171,19 @@ Find github ssh or https, copy it. Then `git clone (add pastes ssh)`
 
 
 
-# 4
+# 5
 
 How to create a new branch and checkout to that branch ?
 
 `git checkout -b newBranch`
 
-# 5
+# 6
 
 How to merge the branch_test to master branch in command ? show me the commands
 
 checkout out to the main branch, then `git merge branch_tesh`
 
-# 6
+# 7
 
 How to stash your new code before leaving branch branch_learn_stash and pop your stash when you checkout back to **branch_learn_stash ? try commands way and intellij way.
 
@@ -217,7 +209,7 @@ To switch branches, go to the bottom-right corner, click on the Git branch name,
 
 
 
-# 7
+# 8
 
 How do you understand PR is based on Branch?
 
@@ -225,7 +217,7 @@ How do you understand PR is based on Branch?
 
 
 
-# 8
+# 9
 
 What is maven role ? what it be used to do ?
 
@@ -233,7 +225,7 @@ Maven is a software project management tool, primarily used for Java projects. I
 
 
 
-# 9
+# 10
 
 What is the lifecycle of maven? could you tell me the details ?
 
@@ -249,13 +241,13 @@ The lifecycle of Maven is a central part of its build process, defining the phas
 
 
 
-# 10
+# 11
 
 what is the difference between package and install in maven lifecycle ?
 
 Packaging is about turning the code into a complete file, while installation is about placing this file in a location that is easily accessible to other projects.
 
-# 11
+# 12
 
 What is plugins in maven, list some plugins.
 
@@ -275,7 +267,7 @@ In Maven, plugins are the primary way of adding functionality to the build proce
 
 
 
-# 12
+# 13
 
 In Repo/MavenProject directory, create a maven Module using Intellij, named it as belows:
 
@@ -283,11 +275,12 @@ In Repo/MavenProject directory, create a maven Module using Intellij, named it a
 
 2. artifactID: java-core
 
-
-
-![CleanShot 2023-12-07 at 15.00.29@2x](hw1.assets/CleanShot 2023-12-07 at 15.00.29@2x.jpg)
+![CleanShot 2023-12-07 at 15.17.32@2x](./assets/CleanShot 2023-12-07 at 15.17.32@2x.jpg)
 
 
 
 
 
+# 14
+
+Do Code Review: Go over the PRs in your repo, tried to leave some useful or useful comments in other students' PR, please don't merge it.
