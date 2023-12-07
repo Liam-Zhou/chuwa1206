@@ -275,7 +275,7 @@ In Repo/MavenProject directory, create a maven Module using Intellij, named it a
 
 2. artifactID: java-core
 
-![CleanShot 2023-12-07 at 15.17.32@2x](./assets/CleanShot 2023-12-07 at 15.17.32@2x.jpg)
+![CleanShot 2023-12-07 at 15.17.32@2x](./assets/CleanShot%202023-12-07%20at%2015.17.32@2x.jpg)
 
 
 
