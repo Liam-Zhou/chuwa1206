@@ -95,3 +95,16 @@ Maven is a project management and build tool. It provides a standardized build p
 - The **package** phase takes the compiled code and other resources (like properties files, XML configuration files) and packages them together into a distributable format such as JAR or WAR, but it does not install anything in the local Maven repository.
 
 - The **install** phase takes the packaged artifact such as JAR or WAR and installs it in the local Maven repository.
+
+## Q12 What is plugins in maven, list some plugins.
+
+Plugins are used to extend its capabilities and to interact with a project's lifecycle. Each plugin provides a set of goals, which are executed during certain phases of the lifecycle. Command for plugins follow this pattern: mvn [plugin-name]:[goal-name]
+Examples:
+
+1. Compile the main source code: mvn compiler:compile
+2. Compile the test source code: mvn compiler:testCompile
+3. Run unit tests: mvn surefire:test
+4. Package the project into a JAR file: mvn jar:jar
+5. Clean up after the build: mvn clean:clean
+6. Install the package into the local repository: mvn install:install
+7. Deploy the built package to a remote repository: mvn deploy:deploy
