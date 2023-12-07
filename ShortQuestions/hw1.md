@@ -98,13 +98,13 @@ Maven is a project management and build tool. It provides a standardized build p
 
 ## Q10 What is the lifecycle of maven? 
 
-1. prepare resources: Resource copying can be customized in this phase.
-2. validate: Checks if all necessary information is available and valid.
-3. compile: Compiles the source code of the project.
-4. test: Runs tests using a suitable unit testing framework. 
-5. package: Takes the compiled code and packages it in its distributable format(JAR/WAR) as mentioned in POM.xml.
-7. install: Installs the package into the local/remote repository.
-8. deploy: Copies the final package to the remote repository.
+1. **prepare resources**: Resource copying can be customized in this phase.
+2. **validate**: Checks if all necessary information is available and valid.
+3. **compile**: Compiles the source code of the project.
+4. **test**: Runs tests using a suitable unit testing framework. 
+5. **package**: Takes the compiled code and packages it in its distributable format(JAR/WAR) as mentioned in POM.xml.
+7. **install**: Installs the package into the local/remote repository.
+8. **deploy**: Copies the final package to the remote repository.
 
 ## Q11 What is the difference between package and install in maven lifecycle
 
