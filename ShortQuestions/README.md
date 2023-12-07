@@ -34,7 +34,7 @@
         - [x] Task completed
         - [ ] Task not completed
 
-2. 
+2. ![Proof of practicing Git](./git_practice.png)
 3. `git init`
 4. `git clone <link to repo>`
 5.  `git branch <branch name>; git checkout <branch name>`
