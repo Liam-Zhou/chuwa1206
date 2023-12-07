@@ -1,6 +1,27 @@
 # Assignment 1
 
 1. 
+    - Styling text
+        - **Bold**
+        - *Italic*
+        - ~~Strikethrough~~
+        - **Bold and _italic_**
+        - ***All bold and italic***
+        - Here is <sub>subscript</sub>
+        - Here is <sup>superscript</sup>
+    - Quote Text
+        - > Here is quote
+    - Quote Code
+        - Here is quote code `git status`
+        -   ```
+            blocks of quote code
+            git init
+            git add .
+            git commit -m "Hello world"
+            git push origin main
+            ```
+    - Color Models
+        - Let's try `#0969DA`, `rgb(9, 105, 218)`, `hsl(H,S,L)`
 2. 
 3. `git init`
 4. `git clone <link to repo>`
