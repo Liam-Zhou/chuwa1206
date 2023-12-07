@@ -76,16 +76,16 @@ git checkout branch_learn_stash
 git stash pop
 ```
 - IntelliJ
- - In the **Version Control Tool Window**, right-click on the uncommitted changes.
- - Select **Git > Stash Changes**.
- - Click **OK** to create the stash.
- - When you're ready to apply a stash, go to the **Version Control Tool Window**.
- - Click on the **Log** tab.
- - At the top of this window, you'll see a drop-down menu that says Branches. 
- - Click on it and select **Stashes**.
- - You'll see a list of your stashed changes.
- - Right-click on the stash you want to apply.
- - Select **Apply Stash**. You can also choose to **Pop Stash** (which applies the stash and then removes it from the stash list).
+	- In the **Version Control Tool Window**, right-click on the uncommitted changes.
+ 	- Select **Git > Stash Changes**.
+ 	- Click **OK** to create the stash.
+ 	- When you're ready to apply a stash, go to the **Version Control Tool Window**.
+ 	- Click on the **Log** tab.
+ 	- At the top of this window, you'll see a drop-down menu that says Branches. 
+ 	- Click on it and select **Stashes**.
+ 	- You'll see a list of your stashed changes.
+ 	- Right-click on the stash you want to apply.
+ 	- Select **Apply Stash**. You can also choose to **Pop Stash** (which applies the stash and then removes it from the stash list).
 
 ## Q8 How do you understand  **PR is based on Branch**
 
