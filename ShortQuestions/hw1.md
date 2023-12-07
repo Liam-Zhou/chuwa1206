@@ -1,4 +1,6 @@
 # **HW1**
+<!-- This content will not appear in the rendered Markdown -->
+
 ## Q1 Learn MarkDown
 Please see below. For more information, checkout 
 [README](../README.md)
@@ -43,7 +45,7 @@ git push
 ## Q4 How to clone a repo from Github 
 
 ```
-git clone *HTTP/SSH link of that repo*
+git clone link_of_that_repo
 ```
 ## Q5 How to create a new branch and checkout to that branch
 
@@ -59,5 +61,18 @@ git merge branch_test
 git add .
 git commit -m "Merge brach_test into master"
 git push origin master
+```
+
+## Q7 How to stash your new code before leaving branch branch_learn_stash and pop your stash when you checkout back to **branch_learn_stash**
 
 ```
+git checkout branch_learn_stash
+git stash
+git checkout another-branch
+git checkout branch_learn_stash
+git stash pop
+```
+
+## Q8 How do you understand  **PR is based on Branch**
+
+A PR is a feature used in collaborative development platforms. It's a request to merge code changes from one branch into another. The branch from which the PR is created is usually a separate branch in the Git repository where specific work, like adding a feature or fixing a bug, is done. A PR allows team members to review code changes in that separate branch and decide whether to merge thoes changes into the main codebase. PR and Branch both serve the porpuse of having developers work on different tasks simultaneously without interfering with the main codebase. Therefore, we can say that *PR is based on Branch*.
