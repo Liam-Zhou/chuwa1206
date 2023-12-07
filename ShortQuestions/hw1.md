@@ -67,6 +67,7 @@ git push origin master
 
 ## Q7 How to stash your new code before leaving branch branch_learn_stash and pop your stash when you checkout back to **branch_learn_stash**
 
+- commands
 ```
 git checkout branch_learn_stash
 git stash
@@ -74,6 +75,17 @@ git checkout another-branch
 git checkout branch_learn_stash
 git stash pop
 ```
+- IntelliJ
+ - In the **Version Control Tool Window**, right-click on the uncommitted changes.
+ - Select **Git > Stash Changes**.
+ - Click **OK** to create the stash.
+ - When you're ready to apply a stash, go to the **Version Control Tool Window**.
+ - Click on the **Log** tab.
+ - At the top of this window, you'll see a drop-down menu that says Branches. 
+ - Click on it and select **Stashes**.
+ - You'll see a list of your stashed changes.
+ - Right-click on the stash you want to apply.
+ - Select **Apply Stash**. You can also choose to **Pop Stash** (which applies the stash and then removes it from the stash list).
 
 ## Q8 How do you understand  **PR is based on Branch**
 
@@ -117,8 +129,10 @@ Examples:
 1. This is white `#ffffff` 
 2. This is a random image
 ![Doge](https://www.coindesk.com/resizer/hT3coI2n5o-10RK8IH3hvn0OQ0I=/1056x595/filters:quality(80):format(webp)/cloudfront-us-east-1.images.arcpublishing.com/coindesk/LDAX4HAT2BEHFLXGF52WDJYX5Y.jpg)
-3. Tasks and nested list: 
+3. Tasks: 
 	- [x] Q1 - Q12
 	- [x] additional show cases
-4. This assignment is created by @chuwa :+1
-5. > [!NOTE] This is a Note
+	- [x] create a maven project
+4. This assignment is created by @chuwa
+> [!NOTE] 
+> This is a Note
