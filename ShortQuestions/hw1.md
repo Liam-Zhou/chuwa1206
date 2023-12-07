@@ -67,9 +67,9 @@ git stash pop
 
 #### intellj way
 
-![](./images/Screenshot 2023-12-07 at 16.05.30.png)
+![](images/Screenshot 2023-12-07 at 16.05.30.png)
 
-![Screenshot 2023-12-07 at 16.06.29](./images/Screenshot 2023-12-07 at 16.06.29.png)
+![Screenshot 2023-12-07 at 16.06.29](images/Screenshot 2023-12-07 at 16.06.29.png)
 
 
 
