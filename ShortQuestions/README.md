@@ -34,7 +34,32 @@
         - [x] Task completed
         - [ ] Task not completed
 
-2. ![Proof of practicing Git](./git_practice.png)
+2. 
+```
+git commit
+git branch
+git checkout
+git checkout -b <branch name>
+git init
+git add .
+git merge
+git rebase
+git rebase -i
+git cherry-pick
+Relative ref (^ and ~) and chaining
+git reset
+git revert
+git tag
+git describe
+git clone
+git push
+git pull
+git fetch
+git fork
+```
+![Proof of practicing Git](./git_practice.png)
+![Proof of practicing Git2](./git_practice2.png)
+
 3. `git init`
 4. `git clone <link to repo>`
 5.  `git branch <branch name>; git checkout <branch name>`
