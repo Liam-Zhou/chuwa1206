@@ -1,36 +1,42 @@
-1. What is the basic steps to init a git repo in you local ?
+1. list the git commands you learned
+
+   git init\
+   git clone \<url>\
+   git checkout \<branch>
+
+2. What is the basic steps to init a git repo in you local ?
 
    git init
 
-2. How to clone a repo from Github ?
+3. How to clone a repo from Github ?
 
    git clone \<url\>
 
-3. How to create a new branch and checkout to that branch ?
+4. How to create a new branch and checkout to that branch ?
 
    git branch \<branch_name>\
    git checkout \<branch_name>
 
-4. How to merge the branch_test to master branch in command ? show me the commands
+5. How to merge the branch_test to master branch in command ? show me the commands
 
    git checkout master\
    git merge branch_test
 
-5. How to stash your new code before leaving branch branch_learn_stash and pop your stash when you
+6. How to stash your new code before leaving branch branch_learn_stash and pop your stash when you
    checkout back to \*\*branch_learn_stash ? try commands way and intellij way.
 
    git stash\
    git stash pop
 
-6. How do you understand PR is based on Branch?
+7. How do you understand PR is based on Branch?
 
    We can submit PR to any branches.
 
-7. What is maven role ? what it be used to do ?
+8. What is maven role ? what it be used to do ?
 
    Maven is used for managing dependencies and building projects.
 
-8. What is the lifecycle of maven? could you tell me the details ?
+9. What is the lifecycle of maven? could you tell me the details ?
 
    - prepare-resources
 
@@ -60,12 +66,12 @@
 
      copies final package into remote repository
 
-9. what is the difference between package and install in maven lifecycle ?
+10. what is the difference between package and install in maven lifecycle ?
 
-   **package** generates JAR/WAR packages\
-   **install** installs the package into local/remote maven repository
+    **package** generates JAR/WAR packages\
+    **install** installs the package into local/remote maven repository
 
-10. What is plugins in maven, list some plugins.
+11. What is plugins in maven, list some plugins.
 
     Maven executes actions using the plugins.\
     Maven plugins include clean and compiler
