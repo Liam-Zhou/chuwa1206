@@ -21,7 +21,19 @@
             git push origin main
             ```
     - Color Models
-        - Let's try `#0969DA`, `rgb(9, 105, 218)`, `hsl(H,S,L)`
+        - Color Models works in PR, discussions and issues. `#f03c15`, `rgb(9, 105, 218)`, `hsl(H,S,L)`
+    - Links
+        - [My GitHub Homepage](https://github.com/frank-z-chen)
+    - Lists
+        - Unordered List
+            - Nested List
+                1. Numbered List
+                2. Numbered List
+                3. Numbered List
+    - Task Lists
+        - [x] Task completed
+        - [ ] Task not completed
+
 2. 
 3. `git init`
 4. `git clone <link to repo>`
