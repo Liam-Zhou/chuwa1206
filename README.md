@@ -1,37 +1,45 @@
-# HW1 
-1. answer in [ShortQuestions/README.md](https://github.com/Liam-Zhou/chuwa1206/tree/yuxi/hw1/ShortQuestions)
-2. ```git checkout ``` 
+# Chuwa Training
 
-    ```git stauts```
 
-3. ```git init```
-4.  ```git clone [repo url]```
-5. use ```git status``` to make sure in the right repository. Then use ```git branch newBranchName``` to create new branch. ```git checkout newBranchName```. Also, this can be done in one-step, ```git checkout -b newBranchName```.
-6. 
-(1) switch branch ```git checkout master```
 
-(2) before merging, need to update master branch ```git pull origin master```
+## How to record your assignments by using this repo:
 
-(3) merge ```git merge branch_test```
+### Clone this repo:
+open your teminal, run below command.
 
-(4) ```git push origin master```
+```bash
+cd your_work_dir
+git clone https://github.com/Liam-Zhou/chuwa1206
+```
 
-7. ```git stash``` 
+### Student TODO: send your github email address to me by slack. I will add you to this repo
 
-```git checkout master```
+### Create your feature branch to implement the assignment.
 
-```git checkout branch_learn_stash```
+```bash
+git branch firstName_lastName/master
+git checkout firstName_lastName/master
 
-```git stash pop```
+example: 
+HW1:
+git checkout -b firstName_lastName/hw1
+git add .
+git commit -m "commit_message"
+git push origin firstName_lastName/hw1
+```
+write your assignment under this feature branch.
 
-In intellij, right-click on the file and select **Git** then **Stash Changes**, if you want to get back, go to **Version Control**, **Stash** -> **Pop Stash**. 
+**short questions assignments -> shortQuestions directory**
 
-8. Pull request is proposes changes from a secific branch in a repo. And it can includes the difference between two branches. 
+**coding assignments -> coding directory**
 
-9. Maven is a dependency management tool which also can compile code, build project, generate documentation and reporting. It uses a pom.xml file to manage and build dependency. 
-
-10. First is clean lifecycle, ```mvn clean``` would do pre-clean and clean. Second, default lifecycle, includes validate, compile, test, package, verify, install, and deploy. Third, site lifecycle, includes, pre-sites, site,post-sites, site-deploy. 
-
-11. Package means take compiled code and package it into JAR format. Install means copye the package to local Maven repository. 
-
-12. Plugins in Maven are sued to add capabilities to Maven build process and can be executed during build lifecycle. For example, Maven Compiler, Surefile, JAR, clean, Install, Deploy, 
+### How to Raise a PR
+working on your homework branch, ie. **firstName_lastName/hw1**
+```bash
+git push origin firstName_lastName/hw1
+```
+then open your github, **Compare and Pull** or **New pull request**
+```text
+to **firstName_lastName/notes** from **firstName_lastName/hw1**
+```
+You should always raise your PRs to your own firstName_lastName/notes branch, **Please don't raise your PR to main branch**
