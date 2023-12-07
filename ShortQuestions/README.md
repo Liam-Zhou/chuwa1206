@@ -1,45 +1,27 @@
-# Chuwa Training
+1. Show all the Markdown basic usage.
+### tittle
+quote: 
+> text is quaote.
 
+quote code:
 
-
-## How to record your assignments by using this repo:
-
-### Clone this repo:
-open your teminal, run below command.
-
-```bash
-cd your_work_dir
-git clone https://github.com/Liam-Zhou/chuwa1206
 ```
-
-### Student TODO: send your github email address to me by slack. I will add you to this repo
-
-### Create your feature branch to implement the assignment.
-
-```bash
-git branch firstName_lastName/master
-git checkout firstName_lastName/master
-
-example: 
-HW1:
-git checkout -b firstName_lastName/hw1
-git add .
-git commit -m "commit_message"
-git push origin firstName_lastName/hw1
+System.out.println("hello world")
 ```
-write your assignment under this feature branch.
+use links:
 
-**short questions assignments -> shortQuestions directory**
+[Google](https://www.google.com/)
 
-**coding assignments -> coding directory**
+Lists:
+- Java
+- python
+- C++
 
-### How to Raise a PR
-working on your homework branch, ie. **firstName_lastName/hw1**
-```bash
-git push origin firstName_lastName/hw1
-```
-then open your github, **Compare and Pull** or **New pull request**
-```text
-to **firstName_lastName/notes** from **firstName_lastName/hw1**
-```
-You should always raise your PRs to your own firstName_lastName/notes branch, **Please don't raise your PR to main branch**
+1. Java
+2. Python
+3. C++
+
+Nested Lists:
+1. Java
+    - OOP
+        - Abstraction 
