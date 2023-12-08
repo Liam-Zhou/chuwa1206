@@ -73,7 +73,15 @@ Find the Git - slash/unslash button for the operations.
 packaging in POM.xml.
 6. `install`: installs the package in local/remote maven
 repository.
-1. `deploy`: copies the final package to the remote repository and deploy to server
+7. `deploy`: copies the final package to the remote repository and deploy to server
 
+### Q11
+The "package" phase is to take the compiled code and packaging it into a distributable format, typically a JAR/WAR file, making it ready for distribution or deployment.
 
+The "install" phase goes a step further. It installs the JAR/WAR file into the local/remote Maven repository so that making the project available to be used by other projects.
 
+### Q12 - Maven plugins
+Plugins are tools that extend Maven's capabilities. 
+Examples:
+- Maven Clean Plugin
+- Maven Compiler Plugin 
