@@ -209,5 +209,5 @@ some Maven plugins:
 1. **Compiler Plugin:** Compiles Java source code.
 2. **Surefire Plugin:** Runs unit tests.
 3. **Jar Plugin:** Creates a JAR file of the project.
-4. **Clean Plugin:** Deletes the `target` directory and other files generated during the build.
+4. **Clean Plugin:** Deletes the `target`directory and other files generated during the build.
 5. **Surefire Plugin**: Runs unit tests.
