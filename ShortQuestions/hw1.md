@@ -118,6 +118,6 @@
         - javadoc: Generates Javadoc for the project.
     
 
-13. See [MavenProject/pom.xml](..\MavenProject\pom.xml)
+13. See [MavenProject/pom.xml](../MavenProject/pom.xml)
 14. Do Code Review: Go over the PRs in your repo, tried to leave some useful or useful comments in other
     students' PR, please don't merge it.
