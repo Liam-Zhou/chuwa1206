@@ -102,7 +102,7 @@ git checkout -b new_branch
 ```sh
 git checkout master
 git pull
-git merge "merge message" branch_test
+git merge -m "merge message" branch_test
 ```
 
 ## 7 How to stash new code before leaving branch and pop the stash when checkout back to it
