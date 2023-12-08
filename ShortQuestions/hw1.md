@@ -1,7 +1,7 @@
 # HW1
 
 
-1. See [ ShortQuestions/README.md](\README.md).
+1. See [ ShortQuestions/README.md](/README.md).
 
 
 2. list the git commands you learned
