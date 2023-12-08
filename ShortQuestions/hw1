@@ -1,0 +1,76 @@
+## 1. markdown practice
+
+###### 1) titles
+# title1
+## title2
+### title3
+#### title4
+##### title5
+###### title6
+
+###### 2)bold
+**sentences**
+__sentences__
+
+###### 3)Italic Type
+*sentences*
+_sentences_
+
+###### 4）Link
+[Click me](http://example.com)
+
+###### 5) Image
+![This is image description](http://example.com/image.jpg)
+
+###### 6) Code block
+`myCode();`
+```java
+System.out.print("code");
+```
+
+###### 7) List
+* item1
+* item2
+* item3
+
+1. item1
+2. item1
+3. item1
+
+## 2. git commands
+git add, git commit, git branch, git checkout, git merge，git stash, git stash pop, git push, git remote
+
+## 3. init git repo
+cd /path/to/my/project
+git init
+
+## 4. clone git repo
+git clone git@github.com:Liam-Zhou/chuwa1206.git
+
+## 5. create git  branch and checkout into
+git checkout -b branch_name
+
+## 6. merge test branch into master branch
+git checkout master
+git merge branch_test
+
+## 7. save code and pop when checkout back
+git stash
+git checkout anotherbranchname
+git checkout lastbranch
+git stash pop
+
+## 8.how to understand PRs are based on branches
+PRs are based on branches in that when you create a PR, you're proposing changes from your branch to be merged into another branch, typically the main branch of the repository.
+
+## 9.Maven's role
+Maven is a build automation tool used primarily for Java projects. It handles project building, dependency management, project information management, documentation, reporting and others.
+
+## 10.Maven's Life cycle
+The Maven lifecycle is a series of phases that define the order in which goals are executed. The main phases are validate, compile, test, package, verify, install, and deploy.
+
+## 11.In Maven's Life cycle, what's the difference between install and package
+package takes the compiled code and packages it into its distributable format, such as a JAR. install takes the package and places it in your local Maven repository, making it available for use as a dependency in other projects on your system.
+
+## 12.Maven's Plugin
+Maven plugins are components that extend Maven's capabilities. Examples include maven-compiler-plugin, maven-surefire-plugin, and maven-jar-plugin.
