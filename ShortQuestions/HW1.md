@@ -136,6 +136,9 @@ A Pull Request (PR) is a feature provided by version control systems like Git, a
 
 ## Q9 What is maven role ? what it be used to do ?
 
+Apache Maven is a widely used build automation and project management tool in the Java ecosystem. Its primary role is to simplify and manage the build process of a software project.
+It can be used to manage dependencies and build project.
+
 ## Q10 What is the lifecycle of maven?
 1. **prepare resources**: Resource copying can be customized in this phase.
 2. **validate**: Validates the project, making sure it is correct and all necessary information is available.
