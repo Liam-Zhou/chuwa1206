@@ -74,3 +74,4 @@ package takes the compiled code and packages it into its distributable format, s
 
 ## 12.Maven's Plugin
 Maven plugins are components that extend Maven's capabilities. Examples include maven-compiler-plugin, maven-surefire-plugin, and maven-jar-plugin.
+
