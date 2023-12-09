@@ -3,9 +3,7 @@
 ## 1.  Write up Example code to demonstrate the three foundmental concepts of OOP. 
 1. Encapsulation
 Encapsulation is a process of Binding data and methods within a class. Think of it like showing the essential details of a class by using the access control modifiers (public, private, protected
- ).
-
-To achieve encapsulation in Java:
+ ). To achieve encapsulation in Java:
 	- Declare the variables of a class as private.
 	- Provide public setter and getter methods to modify and view the variable values.
 
@@ -67,7 +65,7 @@ public class Main {
 2. Polymorphism
 Polymorphism is the process in which an object or function takes different forms. There are 2 types of Polymorphism :
 
-- Compile Time (static) Polymorphism (Method Overloading)
+	- Compile Time (static) Polymorphism (Method Overloading)
 ```
 public class MathOperations {
 
@@ -82,7 +80,7 @@ public class MathOperations {
 ```
 
 
-- Run Time (dynamic) Polymorphism (Method Overriding)
+	- Run Time (dynamic) Polymorphism (Method Overriding)
 ```
 class Shape {
     public void draw() {
@@ -120,7 +118,7 @@ public class Main {
 3. Inheritance
 Inheritance provides a way to create a new class from an existing class. The new class is a specialized version of the existing class such that it inherits all the non-private fields (variables) and methods of the existing class. 
 
-- Single Inheritance
+	- Single Inheritance
 ```
 class Bicycle {
     public int gear;
@@ -162,7 +160,7 @@ class MountainBike extends Bicycle {
 
 ```
 
-- Multiple Inheritance (using interfaces)
+	- Multiple Inheritance (using interfaces)
 ```
 public interface Flyer {
     void fly();
@@ -207,15 +205,29 @@ Wrapper classes in Java provide a way to use primitive data types (int, char, fl
 - boolean ➔ Boolean
 
 We need wrapper class for multiple reasons:
-1. Use in Collections: Java collections such as ArrayList, HashMap, etc., can only hold objects and cannot store primitive types. 
-2. Use of Object Methods: Wrapper classes provide a way to use methods and properties of objects. For example, the Integer class has methods like `.compareTo()`, `.toString()`, `.equals()`, and others.
-3. Null Assignment: Primitives cannot be null, but their wrapper class objects can be. This is useful in scenarios where you may need to represent the absence of a value (e.g., in a database).
-4. Type Safety: Wrapper classes help in enforcing type safety in generic code.
-5. Class-Level Operations: Since primitives are not objects, operations like serialization, synchronization, etc., require the use of object counterparts.
+1. **Use in Collections**: Java collections such as `ArrayList`, `HashMap`, etc., can only hold objects and cannot store primitive types. 
+2. **Use of Object Methods**: Wrapper classes provide a way to use methods and properties of objects. For example, the Integer class has methods like `.compareTo()`, `.toString()`, `.equals()`, and others.
+3. **Null Assignment**: Primitives cannot be null, but their wrapper class objects can be. This is useful in scenarios where you may need to represent the absence of a value (e.g., in a database).
+4. **Type Safety**: Wrapper classes help in enforcing type safety in generic code.
+5. **Class-Level Operations**: Since primitives are not objects, operations like serialization, synchronization, etc., require the use of object counterparts.
 
 ## 3.  What is the difference between HashMap and HashTable?
+| Feature                      | HashMap                          | HashTable                        |
+|------------------------------|----------------------------------|----------------------------------|
+| Synchronization              | Not synchronized (not thread-safe) | Synchronized (thread-safe)      |
+| Null Values                  | Allows one null key and multiple null values | Does not allow null keys or values |
+| Performance                  | Generally faster due to no synchronization | Slower due to synchronization    |
+| Iterators                    | Fail-fast iterators               | Iterators are not fail-fast      |
+| Subclass                     | Subclass of `AbstractMap`         | Subclass of `Dictionary`         |
+| Method Synchronization       | Methods are not synchronized      | Methods are synchronized         |
+
 
 ## 4.  What is String pool in Java and why we need String pool?
+The String Pool in Java is a special storage area in the Java heap memory. It's used to store a collection of `String` literals. When you create a `String` using string literals, Java first checks the string pool to see if an identical string already exists. If a match is found, the reference to the existing string is returned instead of creating a new one. 
+
+We need String pool because
+1. Memory Efficiency: The primary purpose of the String Pool is to reduce memory usage and improve performance. Since strings are immutable in Java, it makes sense to reuse them. If each string literal created a new object, it would lead to a significant memory overhead, especially considering how frequently strings are used.
+2. Faster Comparisons: Comparing strings using `==` operator is much faster than using `equals()` method as it compares object references rather than the content. 
 
 ## 5.  What is Java garbage collection?
 
