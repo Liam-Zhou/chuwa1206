@@ -1,4 +1,4 @@
-1. Demonstrate in OOPDemo directory.
+1. Demonstrate in codingQuestions/coding1/OOPDemo directory.
 2. A wrapper class in Java is a class that encapsulates a primitive data type into an object. These classes are part of the java.lang package and are as follows:
     - `Boolean` for the `boolean` primitive type.
     - `Byte` for the `byte` primitive type.
@@ -61,7 +61,7 @@ We need wrapper class in Java due to the following reasons:
 14. 
     - Interface is a blueprint of a behavior. It contains abstract methods, static final variables, default and static methods. It can achieve multiple inheritance by extending multiple interfaces. Concrete classes implementing interfaces must provide implementation for the abstract methods. Interfaces are public. Interface does not have constructor.
     - Abstract class contains a mix of abstract methods and concrete methods. It cannot be instantiated on its own. Concrete classes extending abstract class must provide implementation for the abstract methods. Abstract class can have any visibility. Abstract class has constructor.
-15. See code in codingQuestions/coding1 directory.
+15. See code in codingQuestions/coding1/ParkingLot directory.
 16. 
     Implementation of Queue interface includes:
     - AbstractQueue: This class provides skeletal implementations of some Queue operations.
