@@ -1,4 +1,4 @@
-1. https://github.com/Liam-Zhou/chuwa1206/tree/yuxi/hw2/HW2/src/main/java/com/chuwa/learn
+1. This is the [link](https://github.com/Liam-Zhou/chuwa1206/tree/yuxi/hw2/HW2/src/main/java/com/chuwa/learn)
 2. Wrapper class can provide a way to use primitive data types. The reason use a wrapper is it can support primitive data types and also allow primitives to be used where objects are required. It also can be assigned as ```null```. The wrapper also can provide useful methods for converting, comparing, and processing value. 
 3. HashMap allows one null key and multipe null values. HashTable does not allow null keys or null values. HashMap is not synchronized which means not thread-safe. HashTable is synchronized and thread-safe. HashMap can be iterated by Iterator. HashTable can be iterated by Iterator and Enumeration. 
 4. String pool is a place which Java used to keep string literals. String in Java is immutable. The reason we use is because this can make String comparison faster and more efficient in memory usage. 
@@ -12,5 +12,5 @@
 12. Polymorphism is the ability ofan object take on many forms. Java implements them by override and overload. 
 13. Encapsulation means bundling attributes and methods that operate on the data into a single unit or class and restricting direct access to some of the object's components. Java can use private variables and getter settet method to access these private variables. The reason we want to use encapsulation is it can prevent unauthorized access and modification. 
 14. Interface is a blueprint. Only contain abstract methods, static methods, default methods and final variables. Cannot have constructor. Abstract Class can provide a base for subclass. It can contain abstract methods and constructors. One class can implement many interfaces but only can extend one abstract class.
-15. https://github.com/Liam-Zhou/chuwa1206/tree/yuxi/hw2/CodeQuestions
+15. [link](https://github.com/Liam-Zhou/chuwa1206/tree/yuxi/hw2/CodeQuestions)
 16. Queue interface is a part of Java Collections Framework and provide functionality of a basic queue, a fist-in-first-out data structure. LinkedList implements both "List" and "Queue".can add and remove items from both sides of the quese. PriorityQueue meaning elements are ordered according to their natural ordering or by a "Comparator" provide at queue construction time. ArrayDeque can be use as a stack and a queue. 
