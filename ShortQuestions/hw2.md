@@ -65,7 +65,7 @@ public class Main {
 2. Polymorphism
 Polymorphism is the process in which an object or function takes different forms. There are 2 types of Polymorphism :
 
-	- Compile Time (static) Polymorphism (Method Overloading)
+Compile Time (static) Polymorphism (Method Overloading)
 ```
 public class MathOperations {
 
@@ -78,7 +78,8 @@ public class MathOperations {
     }
 }
 ```
-	- Run Time (dynamic) Polymorphism (Method Overriding)
+
+Run Time (dynamic) Polymorphism (Method Overriding)
 
 ```
 class Shape {
@@ -117,7 +118,8 @@ public class Main {
 3. Inheritance
 Inheritance provides a way to create a new class from an existing class. The new class is a specialized version of the existing class such that it inherits all the non-private fields (variables) and methods of the existing class. 
 
-	- Single Inheritance
+Single Inheritance
+
 ```
 class Bicycle {
     public int gear;
@@ -159,8 +161,8 @@ class MountainBike extends Bicycle {
 
 ```
 
-	- Multiple Inheritance (using interfaces)
-	
+Multiple Inheritance (using interfaces)
+
 ```
 public interface Flyer {
     void fly();
