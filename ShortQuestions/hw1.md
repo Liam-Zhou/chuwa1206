@@ -25,7 +25,7 @@ Use `git status` to list all new or modified files that haven't yet been committ
 
 1.5
 
-The background color is `#RRGGBB` for light mode and `#000000` for dark mode.
+The background color is `#ffffff` for light mode and `#000000` for dark mode.
 
 1.6
 
