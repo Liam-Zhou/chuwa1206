@@ -144,20 +144,19 @@ public class Main {
                         printSelectLevelMenu(parkingLot);
                         break;
                     }
-                    ParkingSpace space = null;
                     try {
-                        space = parkingLot.park(level, vehicle);
+                        ParkingSpace space = parkingLot.park(level, vehicle);
+                        print("Parked in " + space.getSize(), GREEN);
+                        state = State.TOP;
+                        printTopMenu();
                     } catch (IllegalArgumentException e) {
                         print(e.getMessage(), YELLOW);
-                    }
-                    if (space == null) {
                         printSelectLevelMenu(parkingLot);
-                        break;
-                    } else {
-                        print("Parked in " + space.getSize(), GREEN);
+                    } catch (IllegalStateException e) {
+                        print(e.getMessage(), YELLOW);
+                        state = State.TOP;
+                        printTopMenu();
                     }
-                    state = State.TOP;
-                    printTopMenu();
                     break;
                 case VACATE:
                     if (parkingLot.vacate(input)) {

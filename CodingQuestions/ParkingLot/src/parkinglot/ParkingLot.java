@@ -28,7 +28,7 @@ public class ParkingLot {
             throw new IllegalStateException("Attempting to park with null Vehicle");
         }
         if (occupiedSpaces.containsKey(vehicle.getLicensePlate())) {
-            throw new IllegalArgumentException("Vehicle with license " + vehicle.getLicensePlate() + " is already parked");
+            throw new IllegalStateException("Vehicle with license " + vehicle.getLicensePlate() + " is already parked");
         }
         ParkingSpace space = this.levels.get(level).getSpaceForVehicleSize(vehicle);
         if (space == null) {

@@ -3,6 +3,7 @@ package parkinglot;
 import vehicle.Vehicle;
 import vehicle.VehicleSize;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class ParkingLotLevel {
@@ -10,6 +11,8 @@ public class ParkingLotLevel {
     private final List<ParkingSpace> parkingSpaces;
 
     public ParkingLotLevel(List<ParkingSpace> parkingSpaces) {
+        // sort ascending on vehicle size so compact does not take large until all compact spaces are gone.
+        parkingSpaces.sort(Comparator.comparing(ParkingSpace::getSize));
         this.parkingSpaces = parkingSpaces;
     }
 
