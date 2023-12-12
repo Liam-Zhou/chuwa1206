@@ -251,7 +251,7 @@
 
 16. What are Queue interface implementations and what are the differences and when to use what?
 
-    ![](/Users/yinchen/chuwa_training/ShortQuestions/iScreen Shoter - Google Chrome - 231211182806.jpg)
+    ![](iScreen Shoter - Google Chrome - 231211182806.jpg)
 
     - LinkedList: LinkedList is implemented to implements thelink list data structure. It is a linear data structure where the elements are not stored in contiguous locations and every element is a separate object with a data part and address part. The elements are linked using pointers and addresses. Each element is known as a node. It is usually used when there are more insertions and deletions than searching.
     - PriorityQueue: PriorityQueue class is implemented and provides a way to process the objects based on the priority. It is known that a queue follows the First-In-First-Out algorithm, but sometimes the elements of the queue are needed to be processed according to the priority.
