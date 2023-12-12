@@ -1,5 +1,6 @@
 1.
 // Example of Encapsulation
+
 class Employee {
     private String name;
     private int salary;
@@ -28,6 +29,7 @@ class Employee {
 }
 
 // Example of Inheritance
+
 class Manager extends Employee {
     private int bonus;
 
@@ -46,6 +48,7 @@ class Manager extends Employee {
 }
 
 // Example of Polymorphism
+
 class Company {
     public void paySalary(Employee employee) {
         System.out.println("Paying salary to " + employee.getName() + " : $" + employee.getSalary());
@@ -60,6 +63,7 @@ public class Main {
         Company company = new Company();
 
         // Polymorphism: Manager is also an Employee
+       
         company.paySalary(employee);
         company.paySalary(manager);
     }
