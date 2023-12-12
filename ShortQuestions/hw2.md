@@ -97,7 +97,7 @@ The wrapper classes in Java are as follows:
 7. **Character**
 8. **Boolean**
 
-### Why we need wrapper classes:
+### Why we need wrapper classes
 
 1. **Object Required:**
    - In Java, collections (like `ArrayList`, `HashMap`) work with objects, and they cannot store primitive data types directly. Wrapper classes provide a way to work with primitive types in the context of objects.
@@ -115,14 +115,14 @@ The wrapper classes in Java are as follows:
 
  1. **HashMap is not thread safe, but hashTable is thread safe.**
     1. But Hashtable using Sychhronized, it is not very efficent. while, we also have ConcurrentHashMap which is using partial lock to achieve thread safe, and it is more efficent.
-    2. usually HashMap is more efficent than HashTable since it is not thread safe. 
+    2. usually HashMap is more efficent than HashTable since it is not thread safe.
  2. **HashMap map allow Null as key and value, but HashTabes does not allow null key or value.**
  3. **HashMap's iterator is fail-fast, but HashTable's is not. (fail fast means after the itertor was created, if the content or the structor or the collections is changed, it will throw an ConcurrentModificationException.)**
- 4. 
+ 4.
 
 ## 4. What is String pool in Java and why we need String pool?
 
-String pool in java is a pool of stored strings in heap memory. We can treat is as constant of string. When we try to creat a `string` jvm will check the pool first, the jvm will allocate a new string only if there is match in the current pool. 
+String pool in java is a pool of stored strings in heap memory. We can treat is as constant of string. When we try to creat a `string` jvm will check the pool first, the jvm will allocate a new string only if there is match in the current pool.
 
 why we need String pool.
 
@@ -137,6 +137,7 @@ there is some method of how JVM do the GC.
     2. tracin collector. from the GC root, try to reach the object, if a object is not reachable, will do the GC later.
 
 ## 6. What are access modifiers and their scopes in Java?
+
 Access modifiers are used to determine the visibility or accessibility of a class, method or varibale. it is a fundation of encapsulation.
 |access modifier|descript|
 |---------------|--------|
@@ -147,7 +148,7 @@ Access modifiers are used to determine the visibility or accessibility of a clas
 
 ## 7.  What is final key word? (Filed, Method, Class)
 
-`final`keyword can be used to varibale, method, or class, it means no further modification, overrident, or extended. 
+`final`keyword can be used to varibale, method, or class, it means no further modification, overrident, or extended.
     1. **Final variable:** creat a constant.
     2. **Final method:** method cannot be overriden, this will prevent modification of the method.
     3. **final class:** not extended. it prevent other class from inheriting from it.  
@@ -176,14 +177,15 @@ Access modifiers are used to determine the visibility or accessibility of a clas
 
 - `super:` refers to supperclass of current class, it can invoke the supperclass's method.
 - `this:` refers to current class, it usually used to differentiate parameter variable and filed variable.
-- 
+-
+
 ## 11. What is the Java load sequence?
 
 1. `loading:`class loader will load classes into JVM. *classes will be loaded only if they are needed - think of lazy load*
-2. `linking`: 
+2. `linking`:
    1. `verification:` ensure class file is structurally correct.
    2. `preparation:` Allocat memory.
-   3. `resolution:` direct reference to the method or feild names. 
+   3. `resolution:` direct reference to the method or feild names.
 
 3. `initialization:` initialize static fields and static blocks.
    - The sequence for loading classes is as follows: the base class is loaded first, and after the base class is loaded, the subclass is loaded.
@@ -202,7 +204,6 @@ The technique of polymorphism is called dynamic binding, which means that during
 1. There must be an inheritance relationship.
 2. There must be method overriding.
 3. There must be a reference to the base class pointing to an object of the subclass.
-
 
 ## 13. What is Encapsulation ? How Java implements it? And why we need encapsulation?
 
@@ -250,4 +251,3 @@ Using encapsulation provides three key benefits:
 1. `linkedList:` when need frently modification of both end of the queue.
 2. `priorityqueue:` when we have different `weight` for each item. by nature ordering or customized.
 3. `ArrayDeque:` it is recommaned by java doc of queue. we can use it both as queue or stack. In other word, use arrayDeque if we need fast insertion and removals, especially from both ends.
-
