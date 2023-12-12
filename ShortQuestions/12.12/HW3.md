@@ -83,7 +83,7 @@ This is Java's design. Finally is typically used for cleanup activities, like cl
   - Template Method Pattern
   - Mediator Pattern
 
-# 11
+# Q11
 SOLID stands for Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion.
 - Single responsibility means a class should only have one responsibility. Furthermore, it should only have one reason to change.
 - Open/Closed principle means classes should be open for extension but closed for modification.
@@ -91,7 +91,7 @@ SOLID stands for Single Responsibility, Open/Closed, Liskov Substitution, Interf
 - Interface Segregation means larger interfaces should be split into smaller ones.
 - Dependency Inversion means decoupling of software modules so that all modules will depend on abstractions.
 
-# 12
+# Q12
 There are several ways to achieve thread-safe singleton patterns in Java, including using synchronized access method, double-checked locking principle, and Bill Pugh Singleton Implementation. The one that is promoted in the class is Bill Pugh Singleton Implementation. Class initialization phase in JVM is thread safe and we do not need synchronization. Plus, this implementation is lazy because the singleton is not created until getInstance() is called and subclass is accessed.
 ```
 public class BillPughSingleton {
@@ -108,9 +108,9 @@ public class BillPughSingleton {
 }
 ```
 
-# 13
+# Q13
 - Open/Closed principle means classes should be open for extension but closed for modification. Unless you are debugging the current class, it is not advisable to modify the class to add more functionalities because modifying the class can potentially introduce new bugs. Instead, you should create a new class to extend the previous class.
 
-# 14
+# Q14
 Choose 3. It means if a method is present in class A, it should also be present in class B so that the object of 
 type B could substitute object of type A
