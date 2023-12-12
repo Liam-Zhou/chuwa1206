@@ -1,14 +1,13 @@
 package com.chuwa.parkinglot;
-import com.chuwa.vehicles.Car;
+import com.chuwa.vehicles.Vehicles;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class ParkingLot {
     private static class Slot{
         private final int ID;
-        private Car car;
+        private Vehicles veh;
 
         public int getID() {
             return ID;
@@ -18,23 +17,23 @@ public class ParkingLot {
 //            this.ID = ID;
 //        }
 
-        public Car getCar() {
-            return car;
+        public Vehicles getVeh() {
+            return veh;
         }
 
-        public void setCar(Car car) {
-            this.car = car;
+        public void setVeh(Vehicles veh) {
+            this.veh = veh;
         }
 
         public Slot(int ID){
             this.ID = ID;
-            setCar(null);
+            setVeh(null);
         }
     }
 
     private final int MAX_CAPACITY = 10;
-    private Queue<Slot> vacant;
-    private Slot[] slots = new Slot[MAX_CAPACITY];
+    private final Queue<Slot> vacant; //LRU
+    private final Slot[] slots = new Slot[MAX_CAPACITY]; // why these two can be final
 
     public ParkingLot(){
         vacant = new LinkedList<>();
@@ -45,24 +44,24 @@ public class ParkingLot {
         }
     }
 
-    public void park(Car car){
+    public void park(Vehicles veh){
         if(vacant.isEmpty()){
             System.out.println("No vacant slot!");
             return;
         }
         Slot slot = vacant.poll();
-        slot.setCar(car);
-        System.out.printf("Car %s parks at slot %d%n", car.getPlate(), slot.getID());
+        slot.setVeh(veh);
+        System.out.printf("%s %s parks at slot %d%n", veh.getType(), veh.getPlate(), slot.getID());
     }
 
     public void leave(int slotID){
         if(slotID < 0 || slotID >= MAX_CAPACITY) return;
-        if(slots[slotID].getCar() != null){ // a car park here
+        if(slots[slotID].getVeh() != null){ // a car park here
             Slot s = slots[slotID];
-            String carplate = s.getCar().getPlate();
-            s.setCar(null);
+            Vehicles veh = s.getVeh();
+            s.setVeh(null);
             vacant.offer(s);
-            System.out.printf("Car %s at slot %d leave%n", carplate, slotID);
+            System.out.printf("%s %s at slot %d leave%n", veh.getType(), veh.getPlate(), slotID);
         }
         else{
             System.out.println("No car leave.");
