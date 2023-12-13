@@ -29,6 +29,10 @@ public class Car implements Vehicle {
     public void drive() {
         System.out.println("Drive a car");
     }
+
+    public void drive(int passengers) {
+        System.out.println("Drive a car with " + String.valueOf(passengers) + " passengers");
+    }
 }
 
 public class Bike implements Vehicle {
@@ -36,6 +40,8 @@ public class Bike implements Vehicle {
     public void drive() {
         System.out.println("Ride a bike");
     }
+
+   
 }
 
 ```
