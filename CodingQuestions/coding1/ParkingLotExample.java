@@ -8,11 +8,11 @@ enum VehicleType {
 }
 //Part-of : Composition(e.g. ParkingSpot --> parking lot)
 class ParkingSpot {
-    private int spotNumber;
+    private Integer spotNumber;
     private boolean occupied;
     private VehicleType type;
 
-    public ParkingSpot(int spotNumber, VehicleType type) {
+    public ParkingSpot(Integer spotNumber, VehicleType type) {
         this.spotNumber = spotNumber;
         this.type = type;
         this.occupied = false;
@@ -130,5 +130,8 @@ public class ParkingLotExample {
         for (ParkingSpot spot : availableSpots) {
             System.out.println("Spot " + spot.getSpotNumber() + " - " + spot.getType());
         }
+
+        ParkingSpot spot5 = new ParkingSpot(1, VehicleType.REGULAR);
+        ParkingSpot spot6 = new ParkingSpot(1, VehicleType.REGULAR);
     }
 }
