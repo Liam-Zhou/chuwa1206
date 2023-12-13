@@ -111,6 +111,8 @@
 
 10. What is the lifecycle of maven? could you tell me the details?
 
+    mvnClean -> prepare-resources -> validate -> package -> install
+
     | Phase             | Handles                    | Description                                                                        |
     | ----------------- | -------------------------- | ---------------------------------------------------------------------------------- |
     | prepare resources | resource copying           | Resource copying can be customized in this phase.                                  |
