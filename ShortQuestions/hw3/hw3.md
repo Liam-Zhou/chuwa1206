@@ -4,6 +4,16 @@ Practice collection
 
 
 
+Please check the folder: /CodingQuestions/chuwa-eij-tutorial-main/02-java-core/src/main/java/com/chuwa/exercise/collection
+
+
+
+I have completed 11 JUnit tests:
+
+![CleanShot 2023-12-13 at 00.32.25@2x](./assets/CleanShot%202023-12-13%20at%2000.32.25@2x.jpg)
+
+
+
 # 2
 
 What is the checked exception and unchecked exception in Java, could you give one example?
@@ -148,7 +158,13 @@ Why finally always be executed ?
 
 Practice collection problems here: https://github.com/TAIsRich/chuwa-eij-tutorial/tree/main/02-java-core/src/main/java/com/chuwa/exercise/collection
 
+Please check the folder: /CodingQuestions/chuwa-eij-tutorial-main/02-java-core/src/main/java/com/chuwa/exercise/collection
 
+
+
+I have completed 11 JUnit tests:
+
+![CleanShot 2023-12-13 at 00.32.25@2x](./assets/CleanShot%202023-12-13%20at%2000.32.25@2x.jpg)
 
 
 
