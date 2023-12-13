@@ -200,3 +200,81 @@ The SOLID principles are a set of five design principles introduced by Robert C.
 
 # 13
 
+How can you achieve thread-safe singleton patterns in Java ?
+
+**Eager Initialization**:
+
+public class Singleton {
+    private static final Singleton INSTANCE = new Singleton();
+
+```Java
+public class Singleton {
+    private static final Singleton INSTANCE = new Singleton();
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        return INSTANCE;
+    }
+}
+
+
+```
+
+
+**Lazy Initialization**
+
+``` Java
+public class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {}
+
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+
+```
+
+
+
+# 14
+
+What do you understand by the Open-Closed Principle (OCP) ?
+
+Imagine we have a software application, like a drawing program. The Open-Closed Principle suggests that this program should be designed in a way that allows it to be extended with new features without changing the existing code.
+
+For example, if our drawing program can draw circles, and we want to add a feature to draw squares, the Open-Closed Principle says we should be able to add this new square drawing feature without altering the code that draws circles. We "open" the program for extension (adding new shapes) but "close" it for modification (not changing existing functionalities).
+
+In simple terms, the Open-Closed Principle is about writing code that we can add to, without needing to rewrite or change the old code. This makes our code more flexible and easier to maintain.
+
+# 15
+
+Liskov’s substitution principle states that if class B is a subtype of class A, then object of type A may be substituted with any object of type B. What does this actually mean? (from OA ) choose your answer.
+
+A is correct
+
+
+
+1. It mean that if the object of type A can do something, the object of type B could also be able tp perform the same thing
+
+2. It means that all the objects of type A could execute all the methods present in its subtype B
+
+3. It means if a method is present in class A, it should also be present in class B so that the object of type B could substitute object of type A.
+
+4. It means that for the class B to inherit class A, objects of type B and objects of type A must be same.
+
+
+
+# 16
+
+Watch the design pattern video, and type the code, submit it to MavenProject folder
+
+singleton: https://www.bilibili.com/video/BV1Np4y1z7BU?p=22 Factory: https://www.bilibili.com/video/BV1Np4y1z7BU?p=35&vd_source=310561eab1216a27f7accf859bf7f6d9 Builder: https://www.bilibili.com/video/BV1Np4y1z7BU?p=50&vd_source=310561eab1216a27f7accf859bf7f6d9 Publisher_Subscriber: https://www.bilibili.com/video/BV1Np4y1z7BU?p=114&vd_source=310561eab1216a27f7accf859bf7f6d9
+
+
+
