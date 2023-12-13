@@ -1,3 +1,5 @@
+package com.chuwa.exercise.collection;
+
 import org.junit.Test;
 import java.util.HashSet;
 import java.util.Set;

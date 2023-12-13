@@ -1,3 +1,5 @@
+package com.chuwa.exercise.collection;
+
 import org.junit.Test;
 import java.util.LinkedList;
 import java.util.Arrays;
