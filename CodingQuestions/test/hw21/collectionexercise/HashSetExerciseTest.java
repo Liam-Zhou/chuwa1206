@@ -1,4 +1,4 @@
-package collectionexercise;
+package hw21.collectionexercise;
 
 import org.junit.Test;
 

@@ -1,19 +1,19 @@
-package collectionexercise;
+package hw21.collectionexercise;
 
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
  * @author b1go
- * @date 6/12/22 4:47 PM
+ * @date 6/12/22 4:48 PM
  */
-public class HashMapExerciseTest {
-
+public class LinkedHashMapExerciseTest {
     /**
      * e.g.
-     * Map<String, Integer> map = new HashMap<>();
+     * HashMap<String, Integer> map = new LinkedHashMap<>();
      *
      * put(K key, V value)
      * putIfAbsent(K key, V value)
@@ -32,7 +32,7 @@ public class HashMapExerciseTest {
 
     @Test
     public void learn_Inserting_And_Retrieving() {
-        HashMap<String, Integer> map = new HashMap<>();
+        LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
         map.put("ethan",0);
         Map temp=new HashMap();
         temp.put("ethan",300);
@@ -41,6 +41,12 @@ public class HashMapExerciseTest {
         map.putAll(temp);
         assert map.get("ethan")==300;
         assert map.getOrDefault("jack",0)==0;
+        map.put("jack",100);
+        for(Map.Entry<String, Integer> mapElement : map.entrySet()){
+            String key = mapElement.getKey();
+            Integer value = mapElement.getValue();
+            System.out.println(key + " : " + value);
+        }
     }
 
     /**
@@ -57,7 +63,7 @@ public class HashMapExerciseTest {
      */
     @Test
     public void learn_Remove_Replacing_Updating() {
-        HashMap<String, Integer> map = new HashMap<>();
+        LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
         map.put("ethan",0);
         map.replace("ethan",100);
         map.put("jack",200);
