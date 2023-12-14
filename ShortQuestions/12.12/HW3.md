@@ -1,5 +1,5 @@
 # Q1
-Check CodingQuestions/chuwa-eij-tutorial/02-java-core/target/classes/com/chuwa/exercise/collection directory.
+Check CodingQuestions/collection.
 
 # Q2
 - Checked exceptions are exceptions that must be either caught or declared in the method signature using the throws keyword. These exceptions are checked at compile-time.
