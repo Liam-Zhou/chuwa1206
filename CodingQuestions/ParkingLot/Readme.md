@@ -1,0 +1,3 @@
+A really simple parking lot.
+
+Rather than perfecting the design, I spent much time on learning how to use the IDE, but still confused about the questions like, rules to name the package/module, how to rename artifactsID, how to import package/modules, how to reasonably split my code into different packages/modules. If you have any idea about any one of the questions above, or have any personal experience to share, please leave it in peer review and I would appreciated it a lot.
