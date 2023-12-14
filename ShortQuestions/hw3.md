@@ -123,4 +123,4 @@ The Open-Closed Principle (OCP) states that software entities (like classes, mod
 
 1. It means that if the object of type A can do something, the object of type B could also be able to perform the same thing.
 
-## Q15 Watch the design pattern video, and type the code, submit it to MavenProject folde
+## Q15 Watch the design pattern video, and type the code, submit it to MavenProject folder
