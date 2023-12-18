@@ -9,10 +9,11 @@ Advantages:
 
 
 ## Q2. Read those codes and type it one by one by yourself. Then push the code to your branch
-
+Please see CodingQuestions/hw4
 ## Q3. Practice stream API at least 3 times
-
+Please see CodingQuestions/hw4
 ## Q4. Practice Optional methods at least 2 times
+Please see CodingQuestions/hw4z
 
 ## Q5. Write the Singleton design pattern include eager load and lazy load.
 
