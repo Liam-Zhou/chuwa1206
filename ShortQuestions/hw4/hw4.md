@@ -19,7 +19,11 @@ Read those codes and type it one by one by yourself. the push the code to your b
 
 
 
-因为hw3还没有merge，所以我重新新建了一个项目作为这次作业的coding部分。为了方便，我没有使用public class，每个分类全部使用class写在了一个java文件内
+因为hw3还没有merge，所以我重新新建了一个项目作为这次作业的coding部分。为了方便，我没有使用public class，每个分类全部使用class写在了一个java文件内.
+
+
+
+Please check hw4 directory in codingQuestion.
 
 
 
