@@ -1,5 +1,8 @@
 package com.chuwa.learn.builder;
 
+import java.util.*;
+import java.util.stream.Collectors;
+
 public class Computer {
 
     //required parameters
@@ -72,6 +75,12 @@ public class Computer {
         Computer comp = new Computer.ComputerBuilder(
                 "500 GB", "2 GB").setBluetoothEnabled(true)
                 .setGraphicsCardEnabled(true).build();
+        int[] x=new int[]{1};
+        List<Integer> y=new ArrayList<>(Arrays.stream(x).boxed().toList());
+        Collections.reverse(y);
+        y.stream().mapToInt(i->i).toArray();
+
+
     }
 
 }
