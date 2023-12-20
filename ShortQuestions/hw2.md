@@ -176,7 +176,7 @@
 
    code in codingQuestions/coding1 folder
 
-16. What are Queue interface implementations and what are the differences and when to use what?
+17. What are Queue interface implementations and what are the differences and when to use what?
 
     the Queue interface is used to hold a collection of elements in a specific order, following the First-In-First-Out (FIFO) principle. The Queue interface extends the Collection interface and provides several methods for adding, removing, and inspecting elements in the queue.
     
