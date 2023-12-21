@@ -80,7 +80,7 @@ It means that all the objects of type A could execute all the methods present in
 It means if a method is present in class A, it should also be present in class B so that the object of type B could substitute the object of type A.
 It means that for class B to inherit class A, objects of type B and objects of type A must be the same.
 
-1. should be the answer
+        The first 1 should be the answer
 
 15. Watch the design pattern video, and type the code, submit it to Maven Project folder
 
