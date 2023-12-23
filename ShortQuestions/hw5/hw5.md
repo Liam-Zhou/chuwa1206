@@ -301,3 +301,330 @@ Some main methods of `CompletableFuture` include:
 
 
 
+# 22
+
+Type the code by your self and try to understand it. (package com.chuwa.tutorial.t08_multithreading)
+
+done
+
+
+
+# 23
+
+Write a code to create 2 threads, one thread print 1,3,5,7,9, another thread print 2,4,6,8,10. (solution is in com.chuwa.tutorial.t08_multithreading.c05_waitNotify.OddEventPrinter)
+
+Using `synchronized`, `wait`, and `notify`
+
+``` Java
+public class OddEvenPrinter {
+    private int max;
+    private int number = 1;
+    private final Object lock = new Object();
+
+    public OddEvenPrinter(int max) {
+        this.max = max;
+    }
+
+    public void printOdd() {
+        synchronized (lock) {
+            while (number < max) {
+                while (number % 2 == 0) {
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }
+                System.out.println(Thread.currentThread().getName() + ": " + number++);
+                lock.notifyAll();
+            }
+        }
+    }
+
+    public void printEven() {
+        synchronized (lock) {
+            while (number <= max) {
+                while (number % 2 == 1) {
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }
+                System.out.println(Thread.currentThread().getName() + ": " + number++);
+                lock.notifyAll();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        OddEvenPrinter printer = new OddEvenPrinter(10);
+
+        Thread t1 = new Thread(printer::printOdd, "Thread-0");
+        Thread t2 = new Thread(printer::printEven, "Thread-1");
+
+        t1.start();
+        t2.start();
+    }
+}
+
+```
+
+Solution B: Using `ReentrantLock`, `await`, and `signal`
+
+``` Java
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class OddEvenPrinter {
+    private int max;
+    private int number = 1;
+    private final ReentrantLock lock = new ReentrantLock();
+    private final Condition condition = lock.newCondition();
+
+    public OddEvenPrinter(int max) {
+        this.max = max;
+    }
+
+    public void printOdd() {
+        lock.lock();
+        try {
+            while (number < max) {
+                while (number % 2 == 0) {
+                    condition.await();
+                }
+                System.out.println(Thread.currentThread().getName() + ": " + number++);
+                condition.signalAll();
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public void printEven() {
+        lock.lock();
+        try {
+            while (number <= max) {
+                while (number % 2 == 1) {
+                    condition.await();
+                }
+                System.out.println(Thread.currentThread().getName() + ": " + number++);
+                condition.signalAll();
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public static void main(String[] args) {
+        OddEvenPrinter printer = new OddEvenPrinter(10);
+
+        Thread t1 = new Thread(printer::printOdd, "Thread-0");
+        Thread t2 = new Thread(printer::printEven, "Thread-1");
+
+        t1.start();
+        t2.start();
+    }
+}
+
+```
+
+
+
+
+
+# 24
+
+create 3 threads, one thread ouput 1-10, one thread output 11-20, one thread output 21-22. threads run sequence is random. (solution is in com.chuwa.exercise.t08_multithreading.PrintNumber1)
+
+
+
+``` Java
+public class NumberPrinter implements Runnable {
+    private int start;
+    private int end;
+
+    public NumberPrinter(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    @Override
+    public void run() {
+        for (int i = start; i <= end; i++) {
+            System.out.println(Thread.currentThread().getName() + ": " + i);
+            try {
+                Thread.sleep((long) (Math.random() * 100));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new NumberPrinter(1, 10), "Thread-0");
+        Thread t2 = new Thread(new NumberPrinter(11, 20), "Thread-1");
+        Thread t3 = new Thread(new NumberPrinter(21, 30), "Thread-2");
+
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
+
+```
+
+
+
+
+
+# 25
+
+Hw1:
+
+``` Java
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
+public class AsyncSumAndProduct {
+
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 10;
+
+        CompletableFuture<Integer> sumFuture = CompletableFuture.supplyAsync(() -> sum(a, b));
+        CompletableFuture<Integer> productFuture = CompletableFuture.supplyAsync(() -> product(a, b));
+
+        sumFuture.thenAccept(result -> System.out.println("Sum: " + result));
+        productFuture.thenAccept(result -> System.out.println("Product: " + result));
+
+        // Wait for all futures to complete
+        CompletableFuture.allOf(sumFuture, productFuture).join();
+    }
+
+    private static int sum(int a, int b) {
+        return a + b;
+    }
+
+    private static int product(int a, int b) {
+        return a * b;
+    }
+}
+
+```
+
+Hw2:
+
+``` Java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
+public class OnlineStoreDataFetcher {
+
+    private static final HttpClient httpClient = HttpClient.newHttpClient();
+
+    public static void main(String[] args) {
+        try {
+            CompletableFuture<String> productsFuture = fetchData("https://jsonplaceholder.typicode.com/posts");
+            CompletableFuture<String> reviewsFuture = fetchData("https://jsonplaceholder.typicode.com/comments");
+            CompletableFuture<String> inventoryFuture = fetchData("https://jsonplaceholder.typicode.com/users");
+
+            CompletableFuture<Void> combinedFuture = CompletableFuture.allOf(productsFuture, reviewsFuture, inventoryFuture);
+
+            combinedFuture.thenRun(() -> {
+                try {
+                    String products = productsFuture.get();
+                    String reviews = reviewsFuture.get();
+                    String inventory = inventoryFuture.get();
+
+                    processFetchedData(products, reviews, inventory);
+                } catch (InterruptedException | ExecutionException e) {
+                    e.printStackTrace();
+                }
+            }).join();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static CompletableFuture<String> fetchData(String url) {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .GET()
+                .build();
+
+        return httpClient.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                .thenApply(HttpResponse::body);
+    }
+
+    private static void processFetchedData(String products, String reviews, String inventory) {
+        System.out.println("Products Data: " + products);
+        System.out.println("Reviews Data: " + reviews);
+        System.out.println("Inventory Data: " + inventory);
+        
+    }
+}
+
+```
+
+hw3:
+``` java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.concurrent.CompletableFuture;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class OnlineStoreDataFetcher {
+
+    private static final HttpClient httpClient = HttpClient.newHttpClient();
+    private static final Logger logger = Logger.getLogger(OnlineStoreDataFetcher.class.getName());
+
+    public static void main(String[] args) {
+        CompletableFuture<String> productsFuture = fetchData("https://jsonplaceholder.typicode.com/posts", "Default Product Data");
+        CompletableFuture<String> reviewsFuture = fetchData("https://jsonplaceholder.typicode.com/comments", "Default Review Data");
+        CompletableFuture<String> inventoryFuture = fetchData("https://jsonplaceholder.typicode.com/users", "Default Inventory Data");
+
+        CompletableFuture.allOf(productsFuture, reviewsFuture, inventoryFuture).thenRun(() -> {
+            String products = productsFuture.join();
+            String reviews = reviewsFuture.join();
+            String inventory = inventoryFuture.join();
+
+            processFetchedData(products, reviews, inventory);
+        }).join();
+    }
+
+    private static CompletableFuture<String> fetchData(String url, String defaultValue) {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .GET()
+                .build();
+
+        return httpClient.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                .thenApply(HttpResponse::body)
+                .exceptionally(e -> {
+                    logger.log(Level.SEVERE, "Error fetching data from URL: " + url, e);
+                    return defaultValue;
+                });
+    }
+
+    private static void processFetchedData(String products, String reviews, String inventory) {
+        System.out.println("Products Data: " + products);
+        System.out.println("Reviews Data: " + reviews);
+        System.out.println("Inventory Data: " + inventory);
+    }
+}
+
+```
+
