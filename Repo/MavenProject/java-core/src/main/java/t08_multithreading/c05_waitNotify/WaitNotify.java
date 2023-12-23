@@ -12,7 +12,6 @@ public class WaitNotify {
             Thread t = new Thread() {
                 @Override
                 public void run() {
-                    // 执行task
                     while (true) {
                         try {
                             String s = q.getTask();
