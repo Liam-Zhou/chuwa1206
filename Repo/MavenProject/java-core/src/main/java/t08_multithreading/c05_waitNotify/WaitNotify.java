@@ -4,12 +4,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * @author b1go
- * @date 3/21/22 11:50 AM
- * @description https://www.liaoxuefeng.com/wiki/1252599548343744/1306580911915042
- *
- */
 public class WaitNotify {
     public static void main(String[] args) throws InterruptedException {
         TaskQueue q = new TaskQueue();
@@ -36,7 +30,6 @@ public class WaitNotify {
 
         Thread add = new Thread(() -> {
             for (int i = 0; i < 10; i++) {
-                // 放入task
                 String s = "t-" + Math.random();
                 System.out.println("add task: " + s);
                 q.addTask(s);
@@ -67,8 +60,6 @@ class TaskQueue {
 
     public synchronized String getTask() throws InterruptedException {
         while (queue.isEmpty()) {
-            // wait()方法必须在当前获取的锁对象上调用，这里获取的是this锁，因此调用this.wait()
-            // 调用wait()方法后，线程进入等待状态，wait()方法不会返回，直到将来某个时刻，线程从等待状态被其他线程唤醒后，wait()方法才会返回，然后，继续执行下一条语句。
             this.wait();
         }
 
