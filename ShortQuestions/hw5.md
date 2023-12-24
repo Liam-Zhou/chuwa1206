@@ -35,46 +35,45 @@
    6. terminated.
 8. What is deadlock?
    1. thinking of `Thread A` holding `resource A` but requesting `resource b`, `Thread B` holding `resource B` but requesting `resource A`.
-   2. four factors that is a must when deallock happen, we can deal any of them to resovle deadlock issue. 
+   2. four factors that is a must when deallock happen, we can deal any of them to resovle deadlock issue.
       1. mutual exclusion
       2. hold and wait
       3. no preemption
       4. circular wait.
-   
-9.  How do threads communicate each other?
-    1.  shared data but take care of race condition.
-    2.  Inter thread communication. such as `wait()`, `notify()`, `notifyAll()`
+
+9. How do threads communicate each other?
+    1. shared data but take care of race condition.
+    2. Inter thread communication. such as `wait()`, `notify()`, `notifyAll()`
 10. What’s the difference between class lock and object lock?
-    1.  class lock is the lock of the clock, it ensure that only one thread can holding in the critique section.
-    2.  object level lock is associated with instance of the class, it allow more than one instances of the same class to be in the critical section
-    3.  when a method is static with sychorized. class level lock, but non-static could be object level.
+    1. class lock is the lock of the clock, it ensure that only one thread can holding in the critique section.
+    2. object level lock is associated with instance of the class, it allow more than one instances of the same class to be in the critical section
+    3. when a method is static with sychorized. class level lock, but non-static could be object level.
 11. What is join() method?
-    1.  whenever how is running join, that thread will be waiting for the target thread.
+    1. whenever how is running join, that thread will be waiting for the target thread.
 12. what is yield() method
-    1.  `yield()` is a static method in `thread`. it just tell the jvm scheduler the calling thread are willing to yeild to other thread which have the same priority, but it is not guaranted that yield will happen. 
+    1. `yield()` is a static method in `thread`. it just tell the jvm scheduler the calling thread are willing to yeild to other thread which have the same priority, but it is not guaranted that yield will happen.
 
 13. What is ThreadPool? How many types of ThreadPool? What is the TaskQueue in ThreadPool?
-    1.  `ThreadPool` provide a way to manage and reuse threads, it is kind like IOC, we just thread pool will take care of new thread or managing thread for us. 
-        1.  FixedThreadPool
-        2.  CachedThreadPool
-        3.  SingleThreadExecutor
-        4.  ScheduledThreadPool
-    2.  `taksQueue` is a queue which is the task linedup to be processed. thinking of message queue.
-    
+    1. `ThreadPool` provide a way to manage and reuse threads, it is kind like IOC, we just thread pool will take care of new thread or managing thread for us.
+        1. FixedThreadPool
+        2. CachedThreadPool
+        3. SingleThreadExecutor
+        4. ScheduledThreadPool
+    2. `taksQueue` is a queue which is the task linedup to be processed. thinking of message queue.
+
 14. Which Library is used to create ThreadPool? Which Interface provide main functions of thread-pool?
-    1.  `util.concurrent`
-    2.  Excutor or executorService.
+    1. `util.concurrent`
+    2. Excutor or executorService.
 15. How to submit a task to ThreadPool?
-    1.  usually call the submit method.
+    1. usually call the submit method.
 
 16. What is the advantage of ThreadPool?
-    1.  thread reuse, so it can improve performance.
-    2.  resource management.
-
+    1. thread reuse, so it can improve performance.
+    2. resource management.
 
 17. Difference between shutdown() and shutdownNow() methods of executor
-    1.  shotdown initiates an order shutdown, which can allow already submitted tasks to be competed, but shotdownnow will try to shotdown the taks immediately.
-    2.  shotdown return void, but shutdownNow return a list of tasks that could not be terminated. 
+    1. shotdown initiates an order shutdown, which can allow already submitted tasks to be competed, but shotdownnow will try to shotdown the taks immediately.
+    2. shotdown return void, but shutdownNow return a list of tasks that could not be terminated.
 18. What is Atomic classes? How many types of Atomic classes? Give me some code example of Atomic classes and its main methods. when to use it?
 
 - AtomicInteger
@@ -88,7 +87,7 @@ int result = atomicInt.incrementAndGet();
 - atomicBoolean
 - we need use antomic classes in the condition the multithreading and want to make thread safe for non atomic operations or data structers.
   
-19.  What is the concurrent collections? Can you list some concurrent data structure (Thread-safe)
+19. What is the concurrent collections? Can you list some concurrent data structure (Thread-safe)
 
      - concurrent collections are collections in java but just the `thread safe version`.
      - concurrentHashMap
@@ -106,8 +105,7 @@ int result = atomicInt.incrementAndGet();
 | LockSupport                 | - Provides lower-level thread synchronization mechanisms for blocking and unblocking threads. <br> - Useful in building custom synchronization constructs.                                                                            |
 | Condition (associated with Lock)       | - Allows threads to wait for specific conditions to be met before proceeding. <br> - Useful for more complex synchronization requirements.|
 
-    
-1.  What is future and completableFuture? List some main methods of ComplertableFuture.
+21. What is future and completableFuture? List some main methods of ComplertableFuture.
     - future can get the processing result synchronized. but `get()` method is blocking, kind of like asynchronized. completableFuture is the better version of future. in `completableFuture` we can easly to manage the whole procudure. It allows you to chain together multiple asynchronous operations and provides a variety of methods to combine and manipulate these operations.
     - CompletableFuture.supplyAsync()
     - whenComplete()
@@ -115,11 +113,11 @@ int result = atomicInt.incrementAndGet();
     - thenAccept()
     - thenCombine()
 
-2.  Type the code by your self and try to understand it. (package com.chuwa.tutorial.t08_multithreading)
+22. Type the code by your self and try to understand it. (package com.chuwa.tutorial.t08_multithreading)
 
     **see coding_hw5 folder**
-    
-3.  Write a code to create 2 threads, one thread print 1,3,5,7,9, another thread print
+
+23. Write a code to create 2 threads, one thread print 1,3,5,7,9, another thread print
 2,4,6,8,10. (solution is in
 com.chuwa.tutorial.t08_multithreading.c05_waitNotify.OddEventPrinter)
 
@@ -128,11 +126,11 @@ com.chuwa.tutorial.t08_multithreading.c05_waitNotify.OddEventPrinter)
     b. One solution use ReentrantLock and await, signal
         **see coding_hw5 folder**
 
-1. create 3 threads, one thread ouput 1-10, one thread output 11-20, one thread
+24. create 3 threads, one thread ouput 1-10, one thread output 11-20, one thread
 output 21-22. threads run sequence is random. (solution is in com.chuwa.exercise.t08_multithreading.PrintNumber1)
     **see coding_hw5 folder**
-1. completable future:
-   
+25. completable future:
+
     a. Homework 1: Write a simple program that uses CompletableFuture to
     asynchronously get the sum and product of two integers, and print the
     results.
@@ -150,3 +148,5 @@ output 21-22. threads run sequence is random. (solution is in com.chuwa.exercise
     c.  Homework 3: For Homework 2, implement exception handling. If an
     exception occurs during any API call, return a default value and log the
     exception information.
+
+     **see coding_hw5 folder**
