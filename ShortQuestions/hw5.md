@@ -2,11 +2,12 @@
 -level-lock-vs-object-level-lock
 Done
 
-2.Explain what is volatile in java? (we also use it in Singleton)
+2. Explain what is volatile in java? (we also use it in Singleton)
 In Java, the volatile keyword is used to indicate that a variable's value may be changed by multiple threads and that changes made by one thread should be immediately visible to other threads. It is often used in Singleton patterns to ensure a single, globally accessible instance.
 
-3.How to create a new thread(Please also consider Thread Pool approach)?
+3. How to create a new thread(Please also consider Thread Pool approach)?
 Extending the Thread class:
+```java
 class MyThread extends Thread {
     public void run() {
    
@@ -17,6 +18,7 @@ MyThread thread = new MyThread();
 thread.start();
 
 Implementing the Runnable interface:
+```java
 class MyRunnable implements Runnable {
     public void run() {
            }
@@ -26,13 +28,13 @@ MyRunnable myRunnable = new MyRunnable();
 Thread thread = new Thread(myRunnable);
 thread.start();
 
-4.Difference between Runnable and Callable?
+4. Difference between Runnable and Callable?
 Runnable is used for tasks that don't return a result or handle checked exceptions, while Callable is used for tasks that return a result and can handle checked exceptions.
 
-5.What is the difference between t.start() and t.run()?
+5. What is the difference between t.start() and t.run()?
 t.start() starts a new thread and executes the run() method in that thread, while t.run() simply calls the run() method on the current thread without starting a new one.
 
-6.Which way of creating threads is better: Thread class or Runnable interface?
+6. Which way of creating threads is better: Thread class or Runnable interface?
 Using the Runnable interface is generally preferred for creating threads because it allows for better code separation and flexibility in Java.
 
 7. What are the thread statuses?
@@ -73,7 +75,7 @@ shutdown() gracefully shuts down the ThreadPool, allowing previously submitted t
 example of Atomic classes and its main methods. when to use it?
 tomic classes in Java provide atomic operations on variables without the need for explicit synchronization. Some types of Atomic classes include AtomicInteger, AtomicLong, AtomicBoolean
 Example code for AtomicInteger:
-
+```java
 import java.util.concurrent.atomic.AtomicInteger;
 
 AtomicInteger atomicInt = new AtomicInteger(0);
@@ -99,7 +101,7 @@ Future is a placeholder for a result that will be available in the future. Compl
 Done under CodingQuestions file
 
 23.Write a code to create 2 threads, one thread print 1,3,5,7,9, another thread print 2,4,6,8,10. (solution is in com.chuwa.tutorial.t08_multithreading.c05_waitNotify.OddEventPrinter)
-
+```java
 public class OddEventPrinter {
     private static final Object monitor = new Object();
     private static int value = 1;
@@ -130,7 +132,7 @@ public class OddEventPrinter {
     }
 }
 
-
+```java
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -184,7 +186,7 @@ public class OddEvenPrinterWithLock {
 }
 
 24. create 3 threads, one thread ouput 1-10, one thread output 11-20, one thread output 21-22. threads run sequence is random.
-
+```java
 public class PrintNumber1 {
     private static int n = 1;
 
@@ -222,7 +224,7 @@ public class PrintNumber1 {
 a. Homework 1: Write a simple program that uses CompletableFuture to
 asynchronously get the sum and product of two integers, and print the
 results
-
+```java
 import java.util.concurrent.CompletableFuture;
 
 public class CompletableFutureExample {
@@ -252,7 +254,7 @@ i. Sign In to Developer.BestBuy.com
 ii. Best Buy Developer API Documentation
 (bestbuyapis.github.io)
 iii. 可以⽤fake api https://jsonplaceholder.typicode.com/
-
+```java
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -288,7 +290,7 @@ c. Homework 3: For Homework 2, implement exception handling. If an
 exception occurs during any API call, return a default value and log the
 exception information.
 
-
+```java
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
