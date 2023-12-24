@@ -339,6 +339,3 @@ public class OnlineStoreExample {
         return defaultData; // 发生异常时返回默认数据
     }
 }
-
-
-
