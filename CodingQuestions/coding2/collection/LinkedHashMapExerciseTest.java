@@ -7,10 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
 
-/**
- * @author b1go
- * @date 6/12/22 4:48 PM
- */
+
 public class LinkedHashMapExerciseTest {
     /**
      * e.g.

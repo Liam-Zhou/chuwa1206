@@ -4,10 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * @author b1go
- * @date 4/11/23 11:57 PM
- */
+
 public class OptionalDemo {
     public static void main(String[] args) {
         Map<Integer, User> userMap = new HashMap<>();

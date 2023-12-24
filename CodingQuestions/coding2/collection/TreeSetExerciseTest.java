@@ -6,10 +6,6 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
 
-/**
- * @author b1go
- * @date 6/12/22 4:46 PM
- */
 public class TreeSetExerciseTest {
     /**
      * e.g.

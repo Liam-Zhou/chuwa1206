@@ -4,10 +4,7 @@ import org.junit.Test;
 
 import java.util.*;
 
-/**
- * @author b1go
- * @date 6/12/22 4:43 PM
- */
+
 public class ArrayListExerciseTest {
     /**
      * new ArrayList()

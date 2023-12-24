@@ -6,10 +6,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * @author b1go
- * @date 6/12/22 4:46 PM
- */
+
 public class HashSetExerciseTest {
     /**
      * e.g.

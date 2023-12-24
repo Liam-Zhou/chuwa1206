@@ -1,9 +1,6 @@
 package coding3.t06_java8.features.stream_api;
 
-/**
- * @author b1go
- * @date 4/10/23 12:46 AM
- */
+
 public class Product {
     private int id;
     private String name;

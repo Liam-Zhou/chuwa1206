@@ -5,10 +5,6 @@ import org.junit.Test;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * @author b1go
- * @date 4/10/23 12:47 AM
- */
 public class ProductClient {
     static List<Product> productList = Arrays.asList(
             new Product(1, "Product 1", "Electronics", 99.99, 20),

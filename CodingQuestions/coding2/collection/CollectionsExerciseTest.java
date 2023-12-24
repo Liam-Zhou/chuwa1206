@@ -6,10 +6,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author b1go
- * @date 6/12/22 4:48 PM
- */
+
 public class CollectionsExerciseTest {
 
     /**

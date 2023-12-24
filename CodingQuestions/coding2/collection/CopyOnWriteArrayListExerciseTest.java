@@ -6,10 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-/**
- * @author b1go
- * @date 6/12/22 4:46 PM
- */
+
 public class CopyOnWriteArrayListExerciseTest {
 
     /**
