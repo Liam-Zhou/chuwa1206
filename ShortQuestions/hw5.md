@@ -16,7 +16,7 @@ class MyThread extends Thread {
 
 MyThread thread = new MyThread();
 thread.start();
-
+```
 Implementing the Runnable interface:
 ```java
 class MyRunnable implements Runnable {
@@ -27,7 +27,7 @@ class MyRunnable implements Runnable {
 MyRunnable myRunnable = new MyRunnable();
 Thread thread = new Thread(myRunnable);
 thread.start();
-
+```
 4. Difference between Runnable and Callable?
 Runnable is used for tasks that don't return a result or handle checked exceptions, while Callable is used for tasks that return a result and can handle checked exceptions.
 
@@ -80,7 +80,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 AtomicInteger atomicInt = new AtomicInteger(0);
 int result = atomicInt.incrementAndGet();
-
+```
 Use atomic classes when we need to perform operations on shared variables in a thread-safe manner without using explicit synchronization.
 
 19. What is the concurrent collections? Can you list some concurrent data structure 
@@ -131,6 +131,7 @@ public class OddEventPrinter {
         }
     }
 }
+```
 
 ```java
 import java.util.concurrent.locks.Condition;
@@ -184,7 +185,7 @@ public class OddEvenPrinterWithLock {
         evenThread.start();
     }
 }
-
+```
 24. create 3 threads, one thread ouput 1-10, one thread output 11-20, one thread output 21-22. threads run sequence is random.
 ```java
 public class PrintNumber1 {
@@ -218,7 +219,7 @@ public class PrintNumber1 {
         PrintNumber1.class.notifyAll();
     }
 }
-
+```
 
 25. completable future:
 a. Homework 1: Write a simple program that uses CompletableFuture to
@@ -245,7 +246,7 @@ public class CompletableFutureExample {
         CompletableFuture.allOf(sumFuture, productFuture).join();
     }
 }
-
+```
 b. Homework 2: Assume there is an online store that needs to fetch data
 from three APIs: products, reviews, and inventory. Use
 CompletableFuture to implement this scenario and merge the fetched
@@ -286,6 +287,7 @@ public class OnlineStoreExample {
         combinedFuture.get();
     }
 }
+```
 c. Homework 3: For Homework 2, implement exception handling. If an
 exception occurs during any API call, return a default value and log the
 exception information.
@@ -341,3 +343,4 @@ public class OnlineStoreExample {
         return defaultData; // 发生异常时返回默认数据
     }
 }
+```
