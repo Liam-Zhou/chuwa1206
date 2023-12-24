@@ -7,10 +7,7 @@ import java.util.EnumMap;
 import java.util.IdentityHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * @author b1go
- * @date 6/12/22 4:48 PM
- */
+
 public class AdditionalMapExerciseTest {
 
     /**

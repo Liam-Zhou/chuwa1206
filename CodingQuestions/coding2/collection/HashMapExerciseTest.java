@@ -7,10 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * @author b1go
- * @date 6/12/22 4:47 PM
- */
 public class HashMapExerciseTest {
 
     /**
