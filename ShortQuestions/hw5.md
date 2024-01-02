@@ -305,6 +305,20 @@
     > Future and CompletableFuture are classes in Java that represent the result of an asynchronous computation.
     - Future: provides basic functionality for working with asynchronous tasks
     - CompletableFuture is a more powerful and flexible class introduced in Java 8 that extends and enhances the capabilities of Future.
-        - supplyAsync(Supplier<U> supplier)
+        - supplyAsync(Supplier\<U\> supplier)
         - thenApply(Function<? super T,? extends U> fn)
         - thenAccept(Consumer<? super T> action)
+      
+21. Type the code by your self and try to understand it
+    - In the MavenProject -> src -> main -> java -> multithreading
+    
+22. Write a code to create 2 threads, one thread print 1,3,5,7,9, another thread print
+        2,4,6,8,10.
+    - In coding question OddEvenPrinter
+23. create 3 threads, one thread ouput 1-10, one thread output 11-20, one thread
+    output 21-22. threads run sequence is random. (solution is in
+    com.chuwa.exercise.t08_multithreading.PrintNumber1)
+    - In coding question PrintNumber1
+24. completable future:
+    - In coding question Hw1
+    - In coding question Hw1AndHw2
