@@ -9,7 +9,7 @@ To create a new thread in Java, you can either extend the `Thread` class or impl
 
 ### 4. What is the difference between calling `t.start()` and `t.run()` in a thread in Java?
 - t.start starts a new thread to excute the task(run()) 
-- t.run() excute the task in the current thread.
+- t.run() excute the task in the current thread. (Blocks current thread)
 
 ### 5. What is the difference between extending the Thread class and implementing the Runnable interface in Java?
 Extending the Thread class and implementing the Runnable interface in Java both allow you to create a new thread. However, implementing Runnable is more flexible as it allows you to extend another class, while extending Thread does not.
