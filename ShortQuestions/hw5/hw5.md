@@ -22,6 +22,33 @@ We can use Using `Runnable` Interface/Using `Callable` Interface with `FutureTas
 
 
 
+Thread pool:
+
+``` Java
+public class Main {
+    public static void main(String[] args) {
+        ExecutorService es = Executors.newFixedThreadPool(4);
+        for (int i = 0; i < 6; i++) {
+            String name = "" + i;
+            es.submit(() -> {
+                System.out.println("start task" + name);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println("end task" + name);
+            });
+        }
+        es.shutdown();
+    }
+}
+```
+
+
+
+
+
 ``` Java
 public class MyRunnable implements Runnable {
     @Override
