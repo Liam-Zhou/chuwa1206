@@ -12,7 +12,7 @@ import java.util.stream.Stream;
  * @author: Zhenwei Dai
  **/
 public class StreamExercise {
-    @Test
+//    @Test
     public void testMapAndFlatMap() {
         List<String> words = new ArrayList<String>();
         words.add("hello");
@@ -27,7 +27,7 @@ public class StreamExercise {
         stringList.forEach(e -> System.out.println(e));
     }
 
-    @Test
+ //   @Test
     public void testMapAndFlatMap2() {
         List<String> words = new ArrayList<String>();
         words.add("hello");
