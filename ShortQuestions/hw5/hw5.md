@@ -178,8 +178,6 @@ The `join()` method in Java combines multiple strings into a single string, usin
 
 what is yield() method
 
-
-
 The `yield()` method in Java suggests that the current thread is willing to yield its current use of a processor, allowing other threads to execute. This is a way to signal that the thread is not doing something critical and can pause.
 
 
@@ -187,9 +185,6 @@ The `yield()` method in Java suggests that the current thread is willing to yiel
 # 13
 
 What is ThreadPool? How many types of ThreadPool? What is the TaskQueue in ThreadPool?
-
-
-ChatGPT
 
 A ThreadPool in Java is a group of pre-instantiated reusable threads used to execute tasks. There are several types, including Fixed, Cached, Single, and Scheduled ThreadPools. The TaskQueue in a ThreadPool is a queue that stores tasks waiting to be executed by the threads.
 
@@ -207,11 +202,7 @@ Which Library is used to create ThreadPool? Which Interface provide main functio
 
 How to submit a task to ThreadPool?
 
-
-
-To submit a task to a ThreadPool in Java, you typically use the `ExecutorService` interface. You can submit a task either as a `Runnable` or `Callable` object using methods like `execute()`, `submit()`, or `invokeAll()`.
-
-
+`submit()`
 
 # 16
 
