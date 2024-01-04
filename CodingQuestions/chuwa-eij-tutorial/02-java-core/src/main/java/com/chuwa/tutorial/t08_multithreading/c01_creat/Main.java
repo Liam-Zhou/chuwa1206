@@ -23,7 +23,7 @@ public class Main {
         t2.start();
 
         // use lambda
-        Thread t3 = new Thread(() -> System.out.println("Start new thread by implementing Runnable with lambda"));
+        Thread t3 = new Thread(() -> System.out.println("start new thread by implementing Runnable with lambda"));
         t3.start();
 
         // user implements Callable
@@ -32,7 +32,7 @@ public class Main {
         //Get ExecutorService from Executors utility class, thread pool size is 10
         ExecutorService executor = Executors.newFixedThreadPool(10);
         //create a list to hold the Future object associated with Callable
-        List<Future<String>> list = new ArrayList<Future<String>>();
+        List<Future<String>> list = new ArrayList<>();
         Future<String> future = executor.submit(callable);
         list.add(future);
         Future<String> stringFuture = list.get(0);

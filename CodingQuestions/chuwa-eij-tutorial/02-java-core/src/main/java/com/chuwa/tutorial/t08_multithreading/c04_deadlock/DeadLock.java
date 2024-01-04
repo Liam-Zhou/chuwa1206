@@ -47,12 +47,13 @@ class Counter {
 
     public static void add (int m) {
         synchronized (LOCK_A) {
-            value += m; // A
+            value += m;
             try {
                 Thread.sleep(1000);
-            } catch (InterruptedException e) {
+            } catch (InterruptedException e){
                 throw new RuntimeException(e);
             }
+
             synchronized (LOCK_B) {
                 another += m;
             }

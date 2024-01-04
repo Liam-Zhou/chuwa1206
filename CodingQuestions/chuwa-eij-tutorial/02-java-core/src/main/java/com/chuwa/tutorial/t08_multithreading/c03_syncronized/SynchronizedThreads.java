@@ -32,16 +32,19 @@ public class SynchronizedThreads {
  */
 class Counter {
     public static final Object LOCK_STUDENT = new Object();
+
     public static final Object LOCK_TEACHER = new Object();
+
     public static int studentCount = 0;
+
     public static int teacherCount = 0;
 }
 
 class AddStudentThread extends Thread {
     @Override
     public void run() {
-        for (int i = 0; i < 10000; i++) {
-            synchronized (Counter.LOCK_STUDENT) {
+        for (int i = 0; i < 10000; i++){
+            synchronized (Counter.LOCK_STUDENT){
                 Counter.studentCount += 1;
             }
         }
