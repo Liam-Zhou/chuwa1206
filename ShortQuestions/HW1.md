@@ -61,4 +61,4 @@ In intellij, right-click on the file and select **Git** then **Stash Changes**, 
 
 11. Package means take compiled code and package it into JAR format. Install means copye the package to local Maven repository. 
 
-12. Plugins in Maven are sued to add capabilities to Maven build process and can be executed during build lifecycle. For example, Maven Compiler, Surefile, JAR, clean, Install, Deploy, 
+12. Plugins in Maven are sued to add capabilities to Maven build process and can be executed during build lifecycle. For example, Maven Compiler, Surefile, JAR, clean, Install, Deploy,
