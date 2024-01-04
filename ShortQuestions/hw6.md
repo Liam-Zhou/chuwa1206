@@ -31,3 +31,107 @@
     - POST: `blog.com/blogs`
     - PUT: `blog.com/blogs/{blog_id}`
     - DELETE: `blog.com/blogs/{blog_id}`
+
+**MySQL design**
+
+1. 
+```SQL
+USE oms;
+DROP TABLE IF EXISTS `oms.oms_company_address`;
+
+CREATE TABLE oms.oms_company_address ( 
+    id BigInt PRIMARY KEY, 
+    address_name varchar(200), 
+    send_status int(1),
+    receive_status int(1),
+    name varchar(64),
+    phone varchar(64),
+    province varchar(64),
+    city varchar(64),
+    region varchar(64),
+    detail_address  varchar(200));
+```
+
+2
+```SQL
+INSERT INTO oms_company_address 
+(id, address_name, send_status, receive_status, name, phone, province, city, region, detail_address) 
+VALUES 
+(1, '123 Main St', 1, 0, 'John Doe', '555-1234', 'Province1', 'City1', 'Region1', 'Detail1');
+```
+
+3. 
+```SQL
+SELECT * FROM oms_company_address;
+```
+
+4. 
+```SQL
+SELECT * FROM oms_company_address ORDER BY id ASC LIMIT 3;
+```
+
+5. 
+```SQL
+UPDATE oms_company_address SET phone = '666-6666-8888';
+```
+
+6. 
+```SQL
+DELETE FROM oms_company_address WHERE id = 1;
+```
+
+**MongoDB design**
+
+1. 
+`db.createCollection("posts")`
+
+1. Create testDB
+    `use test`
+
+2. Create oms_company_address collection
+
+    `db.createCollection("testDB")`
+
+3. Insert few random entries to oms_company_address collection (method: insert() )
+    ```
+    db.oms_company_address.insert([
+    {
+        id: 1,
+        address_name: "123 Main St",
+        send_status: 1,
+        receive_status: 0,
+        name: "John Doe",
+        phone: "555-1234",
+        province: "Province1",
+        city: "City1",
+        region: "Region1",
+        detail_address: "Detail1"
+    },
+    {
+        id: 2,
+        address_name: "456 Elm St",
+        send_status: 1,
+        receive_status: 1,
+        name: "Jane Smith",
+        phone: "555-5678",
+        province: "Province2",
+        city: "City2",
+        region: "Region2",
+        detail_address: "Detail2"
+    },
+    ]);
+    ```
+4. Read one entry from oms_company_address collection (method: find() )
+
+    `db.oms_company_address.find().limit(1);` 
+5. Read all entries from oms_company_address collection (method: find() )
+
+    `db.oms_company_address.find().limit(1);`
+
+6. Update one entry from oms_company_address collection(method:update() or save()) 
+    
+    `db.oms_company_address.update({_id: 1}, {$set: {city: "LA"}});`
+
+7. Remove one entry from oms_company_address collection (method:remove())
+
+    `db.oms_company_address.remove({_id: 2});`
