@@ -28,7 +28,7 @@ public class CompletableFutureApiLearn {
 
         executorService.submit(() -> {
             try {
-                Thread.sleep(500);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -85,7 +85,10 @@ public class CompletableFutureApiLearn {
                 .thenApply(s -> s + " World");
 
         try {
+
             System.out.println(future.get());
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

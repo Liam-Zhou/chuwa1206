@@ -10,7 +10,7 @@ public class JoinTest {
         Thread t = new Thread(() -> {
             System.out.println("Thread start");
             try {
-                Thread.sleep(2000); // question, who sleep?
+                Thread.sleep(2000); // question, who sleep?, thread t
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

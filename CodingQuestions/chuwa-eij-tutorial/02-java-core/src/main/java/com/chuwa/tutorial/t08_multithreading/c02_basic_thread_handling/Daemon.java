@@ -13,8 +13,8 @@ package com.chuwa.tutorial.t08_multithreading.c02_basic_thread_handling;
  */
 public class Daemon {
     public static void main(String[] args) {
-        // question: 当其它线程都运行完后，守护线程会结束么？
-        // question: 当main 运行完后，守护线程会结束么？
+        // question: 当其它线程都运行完后，守护线程会结束么？会
+        // question: 当main 运行完后，守护线程会结束么？ 不会，等所有 non-daemon thread 结束才会结束
         Thread tPpl = new Thread(new People());
         Thread tGod = new Thread(new God());
         Thread tGod2 = new Thread(new God());
