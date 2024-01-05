@@ -1,9 +1,9 @@
-API Design
-1.find the customer’s payments, like credit card 1, credit card 2, paypal, Apple Pay.
+# API Design
+## 1.find the customer’s payments, like credit card 1, credit card 2, paypal, Apple Pay.
 
-GET /api/v1/customers/{customerId}/payments
+- **Endpoint**: GET /api/v1/customers/{customerId}/payments
 
-2.find the customer’s history orders from 10/10/2022 to 10/24/2022
+## 2.find the customer’s history orders from 10/10/2022 to 10/24/2022
 
 GET /api/v1/customers/{customerId}/orders?startDate=2022-10-10&endDate=2022-10-24
 
