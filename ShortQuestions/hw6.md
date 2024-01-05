@@ -53,4 +53,9 @@
     - Get (A place that create post):
       https://blog.com/new-story
     - Post (Post a blog)
-      https://blog.com/username/artical-title?postPublishedType=
+      https://blog.com/username/artical-title?postPublishedType=inipub
+    - Get (Display edit the blog)
+       https://blog/ArticalId/edit
+    - Post/Put (edit a blog)
+    - - Post (Post a blog)
+        https://blog.com/username/artical-title?postPublishedType=repub
