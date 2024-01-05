@@ -46,7 +46,6 @@ GET /api/v1/posts/{postId}/comments - Retrieve comments for a blog post.
 POST /api/v1/posts/{postId}/comments - Add a comment to a blog post.
 
 # MySQL
-# Exercise
 ## Q1: Create oms_company_address Table:
 
 CREATE TABLE oms_company_address (
@@ -86,7 +85,6 @@ UPDATE oms_company_address SET phone = 666-6666-8888';
 DELETE FROM oms_company_address WHERE id =1;
 
 # MongoDB
-# Exercise
 
 ## Q1: Create Test Database:
 
