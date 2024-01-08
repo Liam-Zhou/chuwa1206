@@ -42,3 +42,6 @@ private String operatingSystem;
 5. What is the application.properties? do you know application.yml?
 ![img.png](img7.png)
 > Both formats have their own advantages and limitations, and it’s up to the developers to choose the one that best suits their needs.
+
+6. MongoDB PostAPI successfully
+![img.png](img8.png)
