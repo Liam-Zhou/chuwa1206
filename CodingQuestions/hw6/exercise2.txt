@@ -1,0 +1,23 @@
+use test
+
+db.createCollection("oms_company_address")
+
+db.oms_company_address.insert([
+    { address_name: "Address 1", send_status: 0, receive_status: 1, name: "John Doe", phone: "123-456-7890", province: "Province 1", city: "City 1", region: "Region 1", detail_address: "Detail Address 1" },
+    { address_name: "Address 2", send_status: 1, receive_status: 0, name: "Jane Smith", phone: "234-567-8901", province: "Province 2", city: "City 2", region: "Region 2", detail_address: "Detail Address 2" }
+]);
+
+
+db.oms_company_address.findOne()
+
+db.oms_company_address.find()
+
+db.oms_company_address.update(
+    { _id: yourDocumentId },
+    { $set: { phone: "new-phone-number" } }
+)
+
+
+db.oms_company_address.remove(
+    { _id: yourDocumentId } // Replace with the actual id
+)
