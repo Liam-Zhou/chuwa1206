@@ -493,3 +493,7 @@ DB
       username: root
       password: secret
   ```
+
+# POST API in class
+
+![hw7](./images/hw7.jpg)
