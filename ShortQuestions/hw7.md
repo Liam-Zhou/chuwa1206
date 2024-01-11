@@ -65,3 +65,6 @@ application.yml is an alternative configuration file format that uses YAMLsyntax
 
 
 
+## Q7 /mavenproject
+
+![image-20240111022253549](C:\Users\Hanyun\OneDrive\桌面\chuwa java batch\assignments\chuwa1206\ShortQuestions\typora_images\hw7\image-20240111022253549.png)
