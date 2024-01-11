@@ -107,7 +107,7 @@
   private PostService postService;
   ```
 
-  - @PostMapping
+  - @PostMapping (@GetMapping, @PutMapping, @DeleteMapping)
 
   Maps URLs to handlers that receive and process data submitted through POST requests
 
@@ -123,4 +123,28 @@
   ```
   @Service
   public class PostServiceImpl implements PostService {}
+  ```
+
+  - @RequestBody
+
+  Captures the request body and convert it to DTO
+
+  ```
+  public ResponseEntity<PostDto> createPost(@RequestBody PostDto postDto)
+  ```
+
+  - @RequestParam
+
+  maps request parameters to controller parameters
+
+  ```
+  @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo
+  ```
+
+  - @PathVariable
+
+  maps path variables to controller parameters
+
+  ```
+  public ResponseEntity<PostDto> getPostById(@PathVariable(name = "id") long id)
   ```
