@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthorDto {
+    private long id;
     private String name;
     private String description;
     private String gender;
