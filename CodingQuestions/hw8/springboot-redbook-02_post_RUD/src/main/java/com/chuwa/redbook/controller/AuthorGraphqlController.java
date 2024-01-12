@@ -1,7 +1,6 @@
 package com.chuwa.redbook.controller;
 
 
-import com.chuwa.redbook.entity.Author;
 import com.chuwa.redbook.payload.AuthorDto;
 import com.chuwa.redbook.service.AuthorService;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -39,16 +38,6 @@ public class AuthorGraphqlController {
     public AuthorDto getAuthorByID(@Argument long id) {
         return authorService.getByID(id);
     }
-
-//    @MutationMapping
-//    public AuthorDto updateById(@Argument String name, @Argument String description,
-//                                @Argument String gender, @Argument long id) {
-//        AuthorDto author = new AuthorDto();
-//        author.setName(name);
-//        author.setDescription(description);
-//        author.setGender(gender);
-//        return authorService.updateById(id, author);
-//    }
 
     @MutationMapping
     public AuthorDto updateAuthor(@Argument String name, @Argument String description,
