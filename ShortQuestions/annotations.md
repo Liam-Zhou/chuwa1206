@@ -56,3 +56,16 @@ informs the compiler that the element is meant to override an element declared i
 
 @SpringBootApplication
 
+@QueryMapping
+
+maps the query methods in graphql schema and the controller
+
+@MutationMapping
+
+maps the mutation methods in graphql schema and the controller
+
+@Argument
+
+the parameter in the graphql methods
+
+
