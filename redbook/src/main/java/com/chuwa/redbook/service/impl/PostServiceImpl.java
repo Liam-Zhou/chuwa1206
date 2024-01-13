@@ -1,5 +1,6 @@
 package com.chuwa.redbook.service.impl;
 
+import com.chuwa.redbook.dao.PostJPQLRepository;
 import com.chuwa.redbook.dao.PostRepository;
 import com.chuwa.redbook.entity.Post;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
@@ -20,6 +21,9 @@ public class PostServiceImpl implements PostService {
 
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private PostJPQLRepository postJPQLRepository;
 
     @Override
     public PostDto createPost(PostDto postDto) {
@@ -69,6 +73,31 @@ public class PostServiceImpl implements PostService {
         postResponse.setTotalElements(pagePosts.getTotalElements());
         postResponse.setLast(pagePosts.isLast());
         return postResponse;
+    }
+
+    @Override
+    public List<PostDto> getAllPostsJPQL() {
+        return postJPQLRepository.getAllPostsWithJPQL().stream().map(this::convertEntityToDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public PostDto getPostByIdJPQLIndexParameter(long id, String title) {
+        return convertEntityToDTO(postRepository.getPostByIDOrTitleWithJPQLIndexParameters(id, title));
+    }
+
+    @Override
+    public PostDto getPostByIdJPQLNamedParameter(long id, String title) {
+        return convertEntityToDTO(postRepository.getPostByIDOrTitleWithJPQLNamedParameters(id, title));
+    }
+
+    @Override
+    public PostDto getPostByIdSQLIndexParameter(long id, String title) {
+        return convertEntityToDTO(postRepository.getPostByIDOrTitleWithSQLIndexParameters(id, title));
+    }
+
+    @Override
+    public PostDto getPostByIdSQLNamedParameter(long id, String title) {
+        return convertEntityToDTO(postRepository.getPostByIDOrTitleWithSQLNamedParameters(id, title));
     }
 
     @Override
