@@ -2,7 +2,7 @@
    1. File name: **annotations.md**
    2. you'd better also list a **code example** under the annotations.
 
-- Annotations used by entity
+- Annotations used by **entity**
 
   - @Entity
 
@@ -76,7 +76,15 @@
 
   Used to track latest update time of the record and persist into the database
 
-- Annotations used by controller
+  - @NamedQuery
+
+  Creates a JPQL statement in the entity class that can be used by the EntityManager in repository to query data from database.
+
+  ```
+    @NamedQuery(name="Post.getAll", query="select p from Post p")
+  ```
+
+- Annotations used by **controller**
 
   - @RestController
 
@@ -147,4 +155,44 @@
 
   ```
   public ResponseEntity<PostDto> getPostById(@PathVariable(name = "id") long id)
+  ```
+
+- Annotations used by **repository**
+
+  - @Transactional
+
+  Used to mark a class or a method. Any database operation performed within the class or method marked as transactional will be performed within a transaction.
+
+  ```
+  @Transactional
+  public class PostJPQLRepositoryImpl implements PostJPQLRepository
+  ```
+
+  - @PersistenceContext
+
+  Used to inject EntityManager.
+
+  ```
+  @PersistenceContext
+  EntityManager entityManager;
+  ```
+
+  - @Query
+
+  Used in Spring JPA to define customized JPQL and SQL queries.
+
+  ```
+  @Query("select p from Post p where p.id = :key or p.title = :title")
+  Post getPostByIDOrTitleWithJPQLNamedParameters(@Param("key") Long id,
+                                                  @Param("title") String title);
+  ```
+
+  - @Param
+
+  Maps input parameters to named placeholders in the query above.
+
+  ```
+  @Query("select p from Post p where p.id = :key or p.title = :title")
+  Post getPostByIDOrTitleWithJPQLNamedParameters(@Param("key") Long id,
+                                                  @Param("title") String title);
   ```
