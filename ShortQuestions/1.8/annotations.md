@@ -123,3 +123,36 @@ Indicates that a method parameter should be bound to a URI template variable.
 
 # @RequestParam 
 Indicates that a method parameter should be bound to a web request parameter.
+
+# @RequestBody
+@RequestBody annotation maps the HttpRequest body to a transfer or domain object, enabling automatic deserialization of the inbound HttpRequest body onto a Java object.
+
+# @Controller
+@Controller annotation marks a spring bean as a controller.
+
+# @QueryMapping
+a shortcut annotation to bind annotated methods for fields under the Query type.
+
+# @MutationMapping
+a shortcut annotation to bind annotated methods for fields under the Mutation type.
+
+# @Argument
+The @Argument annotation is used in a controller method to indicate that a method parameter should be bound to a GraphQL argument.
+
+# @Id
+Marks the field as the primary key of the table
+
+# @GeneratedValue
+specify the way to generate a field's value
+
+# @Column
+specify the column mappings between the entity fields and the corresponding columns in a database table.
+
+# @CreationTimestamp
+This annotation automatically sets the date and time of the entity's creation in the mapped database column.
+
+# @UpdateTimestamp
+This annotation automatically sets the date and time of the entity's update in the mapped database column.
+
+
+
