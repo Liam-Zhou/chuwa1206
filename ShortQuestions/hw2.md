@@ -4,6 +4,7 @@
 - Encapsulation: Encapsulating data and methods within a class, using private fields and public getters/setters.
 - Polymorphism: Implementing method overriding and interface implementation to allow objects to take many forms.
 - Inheritance: Creating subclasses that inherit properties and behaviors from a parent class, promoting code reuse.
+
 [link](https://github.com/Liam-Zhou/chuwa1206/tree/diana_men/hw2/CodeQuestions/coding1/OOP)
 
 ### 2: What is a wrapper class in Java and why do we need a wrapper class?
