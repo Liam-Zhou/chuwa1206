@@ -54,6 +54,36 @@ public class Post {
 }
 ```
 
+### @ManyToOne, @OneToMany, @ManyToMany, @JoinColumn
+
+
+
+-  shows the relationships in relational databases -> foreign key
+
+
+
+```java
+@OneToOne(cascade=CascadeType.ALL)
+@JoinColumn(name="profile_id", referencedColumnName="id")
+private PlayerProfile playerProfile;
+
+
+// In Comments
+@ManyToOne(fetch=FetchType.LAZY)
+@JoinColumn(name="post_id", nullable=false)
+private Post post;
+// In Post
+@OneToMany(mappedBy="post", CascadeType.ALL, orphanRemoval=true)
+private Set<Comment> comments = new HashSet<>();
+
+
+@ManyToMany(fetch=FetchType.LAZY)
+@JoinColumn(name="sku_inventory", joinColumns=@JoinColumn(name="sku_id"), inverseJoinColumns=@JoinColumn(name="inventory_id"))
+private Set<PmsInventory> pmsInventories = new HashSet<>();
+```
+
+
+
 ## Controller and API Annotations
 
 ### @Controller
