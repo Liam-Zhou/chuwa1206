@@ -48,7 +48,9 @@
 - Polymorphism: Objects can take multiple forms. Implemented through method overloading (compile-time) and overriding (runtime).
 
 ### 13: What is Encapsulation? How does Java implement it? And why do we need encapsulation?
-- Encapsulation hides internal states, using private fields and public accessors. It ensures better control and security over data.
+- Encapsulation involves bundling data and methods that operate on the data within one unit, typically a class in Java.
+- Java implements encapsulation by setting class variables as private and providing public getter and setter methods to modify them.
+- Encapsulation is needed to protect data integrity by hiding the internal state of objects and controlling access.
 
 ### 14: What is an Interface and what is an abstract class? What are the differences between them?
 - Interface: Only abstract methods. Implements multiple inheritance.
