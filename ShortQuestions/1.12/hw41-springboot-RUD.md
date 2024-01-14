@@ -71,3 +71,12 @@ Serialization is the process of converting an object into a format that can be e
 Deserialization is the reverse process of serialization. It involves converting data from a stored format back into a live object.
 # 13
 `Arrays.stream(arr).average().getAsDouble();`
+
+# 14
+Check `CodingQuestions/1.12/redbook`
+
+# 15
+Check `CodingQuestions/1.12/redbook`
+
+# 16
+Check `CodingQuestions/1.12/cassandra-blog`

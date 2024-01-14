@@ -2,14 +2,13 @@ package com.chuwa.redbook.service.impl;
 
 import com.chuwa.redbook.DAO.AuthorRepository;
 import com.chuwa.redbook.entity.Author;
+import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.AuthorDto;
 import com.chuwa.redbook.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {

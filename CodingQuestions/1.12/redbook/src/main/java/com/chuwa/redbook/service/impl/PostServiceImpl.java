@@ -2,13 +2,17 @@ package com.chuwa.redbook.service.impl;
 
 import com.chuwa.redbook.DAO.PostRepository;
 import com.chuwa.redbook.entity.Post;
+import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDto;
+import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -18,21 +22,9 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDto createPost(PostDto postDto) {
-        Post tobeSaved = new Post();
-        tobeSaved.setTitle(postDto.getTitle());
-        tobeSaved.setDescription(postDto.getDescription());
-        tobeSaved.setContent(postDto.getContent());
-
+        Post tobeSaved = convertDtoToEntity(postDto);
         Post saved = this.postRepository.save(tobeSaved);
-
-        PostDto response = new PostDto();
-
-        response.setId(saved.getId());
-        response.setTitle(saved.getTitle());
-        response.setDescription(saved.getDescription());
-        response.setContent(saved.getContent());
-
-        return response;
+        return convertEntityToDto(saved);
     }
 
     @Override
@@ -42,6 +34,31 @@ public class PostServiceImpl implements PostService {
                 .map(PostServiceImpl::convertEntityToDto)
                 .toList();
         return postDtos;
+    }
+
+    @Override
+    public PostResponse getAllPost(int pageNo, int pageSize, String sortBy, String sortDir) {
+        Sort sort;
+        if (sortDir.equalsIgnoreCase(Sort.Direction.ASC.name())) {
+            sort = Sort.by(sortBy).ascending();
+        } else {
+            sort = Sort.by(sortBy).descending();
+        }
+        PageRequest pageRequest = PageRequest.of(pageNo, pageSize, sort);
+        Page<Post> pagePosts = postRepository.findAll(pageRequest);
+
+        List<Post> posts = pagePosts.getContent();
+        List<PostDto> postDtos = posts.stream()
+                .map(PostServiceImpl::convertEntityToDto)
+                .toList();
+        PostResponse postResponse = new PostResponse();
+        postResponse.setContent(postDtos);
+        postResponse.setPageNo(pagePosts.getNumber());
+        postResponse.setPageSize(pagePosts.getSize());
+        postResponse.setTotalElements(pagePosts.getTotalElements());
+        postResponse.setTotalPages(pagePosts.getTotalPages());
+        postResponse.setLast(pagePosts.isLast());
+        return postResponse;
     }
 
     @Override
