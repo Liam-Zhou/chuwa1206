@@ -2,6 +2,7 @@ package com.chuwa.redbook.services.impl;
 
 import com.chuwa.redbook.dao.AuthorRepo;
 import com.chuwa.redbook.entity.Author;
+import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.AuthorDto;
 import com.chuwa.redbook.services.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,14 +39,14 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public AuthorDto getAuthorById(long id) {
-        Author author = this.authorRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException());
+        Author author = this.authorRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Author","id", id));
 
         return convertEntityToDto(author);
     }
 
     @Override
     public AuthorDto updateAuthor(AuthorDto authorDto, long id) {
-        Author author = this.authorRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException());
+        Author author = this.authorRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Author","id", id));
         if (authorDto.getName() != null){
             author.setName(authorDto.getName());
         }

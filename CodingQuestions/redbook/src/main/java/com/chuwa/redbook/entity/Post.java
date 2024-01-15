@@ -31,7 +31,7 @@ public class Post {
     @UpdateTimestamp
     private LocalDateTime updatedDateTime;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

@@ -2,9 +2,14 @@ package com.chuwa.redbook.services.impl;
 
 import com.chuwa.redbook.dao.PostRepository;
 import com.chuwa.redbook.entity.Post;
+import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDto;
+import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,15 +43,41 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public PostResponse getAllPosts(int pageNo, int pageSize, String sortBy, String sortDir)
+    {
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortBy).ascending():
+                Sort.by(sortBy).descending();
+
+        PageRequest pageRequest= PageRequest.of(pageNo, pageSize, sort);
+
+        Page<Post> pagePosts = this.postRepository.findAll(pageRequest);
+
+        // get content for page object
+        List<Post> posts = pagePosts.getContent();
+
+        List<PostDto> postDtos = posts.stream().map(post -> mapToDto(post)).collect(Collectors.toList());
+
+        PostResponse response = new PostResponse(postDtos, pageNo, pageSize, pagePosts.getTotalElements(), pagePosts.getTotalPages(), pagePosts.isLast());
+
+        return response;
+
+    }
+
+    private PostDto mapToDto(Post post) {
+        return new PostDto(post.getId(), post.getTitle(), post.getDescription(), post.getContent());
+
+    }
+
+    @Override
     public PostDto getPostById(long id) {
         return convertEntityToDto(
-                this.postRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException())
+                this.postRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Post","id", id))
         );
     }
 
     @Override
     public PostDto updatePost(PostDto postDto, long id) {
-        Post post = this.postRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException());
+        Post post = this.postRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Post","id", id));
         if (postDto.getContent() != null){
             post.setContent(postDto.getContent());
         }
