@@ -123,3 +123,52 @@ public class EmailService {
     // component methods
 }
 ```
+
+# @SpringBootApplication
+This annotation marks the main class of Spring Boot application which is the entry point of the application.
+@SpringBootApplication
+
+# @GetMapping, @PostMapping, @PutMapping, @DeleteMapping, @PatchMapping
+These are specialized versions of @RequestMapping. They act as a shortcut for @RequestMapping method attribute.
+
+# @Repository
+Indicates that an annotated class is a "Repository", a mechanism for encapsulating storage, retrieval, and search behavior which emulates a collection of objects.
+
+# @Component
+A generic stereotype for any Spring-managed component. @Repository, @Service, and @Controller are specializations of @Component for more specific use cases.
+
+# @Bean
+An annotation at the method level that tells Spring that a method produces a bean to be managed by the Spring container.
+
+# @Value
+Indicates a default value expression for the affected argument.
+
+# @PathVariable
+Indicates that a method parameter should be bound to a URI template variable.
+
+# @RequestParam
+Indicates that a method parameter should be bound to a web request parameter.
+
+# @RequestBody
+@RequestBody annotation maps the HttpRequest body to a transfer or domain object, enabling automatic deserialization of the inbound HttpRequest body onto a Java object.
+
+# @Controller
+@Controller annotation marks a spring bean as a controller.
+
+# @QueryMapping
+a shortcut annotation to bind annotated methods for fields under the Query type.
+
+# @MutationMapping
+a shortcut annotation to bind annotated methods for fields under the Mutation type.
+
+# @Argument
+The @Argument annotation is used in a controller method to indicate that a method parameter should be bound to a GraphQL argument.
+
+# @GeneratedValue
+specify the way to generate a field's value
+
+# @CreationTimestamp
+This annotation automatically sets the date and time of the entity's creation in the mapped database column.
+
+# @UpdateTimestamp
+This annotation automatically sets the date and time of the entity's update in the mapped database column.
