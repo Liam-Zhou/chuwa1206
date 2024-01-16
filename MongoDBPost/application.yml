@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://zechengli:hHI0j25DM04UcNsg@cluster0.cy0p7yv.mongodb.net/?retryWrites=true&w=majority
+#zechengli
+#hHI0j25DM04UcNsg
