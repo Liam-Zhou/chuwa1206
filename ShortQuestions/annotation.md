@@ -192,6 +192,8 @@ public class Student {
 }
 ```
 
+`@OneToMany, @ManyToOne, @ManyToMany`
+
 `@Repository:`
 Indicates that a class is a data repository.
 
