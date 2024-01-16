@@ -61,7 +61,7 @@ public class ShoppingCartUtil {
                 .filter(items -> !items.isEmpty())
                 .map(items -> items.get(0))
                 .map(Item::getName)
-                .orElseThrow(() -> new EmptyCartException("购物车为空或不存在"));;
+                .orElseThrow(() -> new EmptyCartException("购物车为空或不存在"));
     }
 
     /**
