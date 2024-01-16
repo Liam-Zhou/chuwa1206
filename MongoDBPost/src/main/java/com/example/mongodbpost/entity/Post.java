@@ -1,6 +1,8 @@
 package com.example.mongodbpost.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.time.LocalDateTime;
 
 @Document(collection = "posts")
@@ -9,6 +11,7 @@ public class Post {
     @Id
     private long id;
 
+    @Field("title")
     private String title;
 
     public long getId() {
