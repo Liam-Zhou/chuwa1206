@@ -70,3 +70,31 @@ public class Application {
 
 # @RequestBody
 > When you use @RequestBody with a method parameter, Spring Boot automatically converts the content of the request body (usually in JSON or XML format) into the corresponding Java object.
+
+# @PathVariable
+> An annotation used in the context of a Spring MVC controller to extract values from the URI template and bind them to method parameters.
+
+# @GetMapping("/{id}")
+> Used to map HTTP GET requests to specific handler methods in a controller class
+
+# @PutMapping("/{id}")
+>  used to map HTTP PUT requests to a specific handler method in a controller class.
+
+# @PostMapping
+> is used to map HTTP POST requests to a specific handler method in a controller class without specifying a path variable in the URI.
+
+# @Argument
+> In GraphQL, @Argument is an annotation that can be used to bind an argument to a target object and inject it into the handler method. By default, the method parameter name is used to look up the argument. The argument name can be specified in the annotation.
+```java
+@MutationMapping
+public User createUser(@Argument String name, @Argument String email) {
+    User user = new User();
+    user.setName(name);
+    user.setEmail(email);
+    return userRepository.save(user);
+}
+```
+# @QueryMapping
+> In Spring Boot for GraphQL, @QueryMapping is an annotation that can be used to associate a method with a query field in your GraphQL schema.
+
+
