@@ -1,0 +1,23 @@
+{
+  "User": {
+    "userId": "Long",
+    "name": "String",
+    "address": "String",
+    "phone": "String",
+    "email": "String",
+    "accounts": "Set<Account>"
+  },
+  "Account": {
+    "accountID": "Long",
+    "user": "User",
+    "routingNumber": "String",
+    "accountNumber": "String",
+    "transactions": "Set<Transaction>"
+  },
+  "Transaction": {
+    "transactionID": "Long",
+    "account": "Account",
+    "description": "String",
+    "amount": "Integer"
+  }
+}
