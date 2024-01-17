@@ -1,0 +1,22 @@
+get statement
+
+userId, date range
+
+response:
+{
+  username:
+  addr:
+  period:
+  account: [
+    {
+      accountNumber
+      Txn: [
+        {
+          date,
+          description,
+          amount,
+        },
+      ]
+    },
+  ]
+}
