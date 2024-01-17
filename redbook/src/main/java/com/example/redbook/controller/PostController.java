@@ -4,6 +4,7 @@ import com.example.redbook.payload.dto.PostDto;
 import com.example.redbook.payload.PostResponse;
 import com.example.redbook.service.PostService;
 import com.example.redbook.util.AppConstants;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +20,8 @@ public class PostController {
     private PostService postService;
 
     // /api/v1/posts  POST
-    @PostMapping //annotation indicates that this method should handle HTTP POST request
-    public ResponseEntity<PostDto> createPost(@RequestBody PostDto postDto) {
+    @PostMapping("/post") //annotation indicates that this method should handle HTTP POST request
+    public ResponseEntity<PostDto> createPost(@Valid @RequestBody PostDto postDto) {
         return new ResponseEntity<>(postService.createPost(postDto), HttpStatus.CREATED);
     }
 
