@@ -126,9 +126,22 @@
     - serialization: converting a **data object** into a **series of bytes** that saves the state of the object in an easily transmittable form.
     - desrialization: constructing a data structure or object from a series of bytes
     ![img.png](img9.png)
+
 11. Learn how to use ObjectMapper by this example.
     - MavenProject -> api -> FoodOutLetJackson
 
 12. use stream api to get the average of the array [20, 3, 78, 9, 6, 53, 73, 99, 24, 32].
 
     - CodingQuestion -> GetAvgByStream.java
+
+13. Try to write the CRUD api for a new application Cassandra-Blog
+
+    - cassandra-blog
+
+      
+
+    
+
+    
+
+    
