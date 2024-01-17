@@ -1,7 +1,9 @@
 package com.chuwa.BankStatement.payload;
 
-public class AccountRequest {
+public class BankStatementRequestDto {
     private long userId;
+
+    private int month;
 
     public long getUserId() {
         return userId;
@@ -19,7 +21,4 @@ public class AccountRequest {
         this.month = month;
     }
 
-    private int month;
-
-    // Getters and Setters
 }
