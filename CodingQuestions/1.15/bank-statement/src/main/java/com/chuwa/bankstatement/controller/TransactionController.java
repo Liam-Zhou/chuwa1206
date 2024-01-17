@@ -2,9 +2,12 @@ package com.chuwa.bankstatement.controller;
 
 import com.chuwa.bankstatement.payload.TransactionDto;
 import com.chuwa.bankstatement.service.TransactionService;
+import com.chuwa.bankstatement.validationgroup.Create;
+import com.chuwa.bankstatement.validationgroup.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,14 +26,14 @@ public class TransactionController {
     @PostMapping
     public ResponseEntity<TransactionDto> createTransaction(@RequestParam(name = "user-id") Long userId,
                                                             @RequestParam(name = "account-id") Long accountId,
-                                                            @RequestBody TransactionDto transactionDto) {
+                                                            @Validated(Create.class) @RequestBody TransactionDto transactionDto) {
         TransactionDto response = transactionService.createTransaction(userId, accountId, transactionDto);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<TransactionDto> updateTransaction(@PathVariable(name = "id") Long transactionId,
-                                                            @RequestBody TransactionDto transactionDto) {
+                                                            @Validated(Update.class) @RequestBody TransactionDto transactionDto) {
         TransactionDto response = transactionService.updateTransaction(transactionId, transactionDto);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

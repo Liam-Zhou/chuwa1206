@@ -3,9 +3,12 @@ package com.chuwa.bankstatement.controller;
 import com.chuwa.bankstatement.payload.StatementDto;
 import com.chuwa.bankstatement.payload.UserDto;
 import com.chuwa.bankstatement.service.UserService;
+import com.chuwa.bankstatement.validationgroup.Create;
+import com.chuwa.bankstatement.validationgroup.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Month;
@@ -24,7 +27,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<UserDto> createUser(@Validated(Create.class) @RequestBody UserDto userDto) {
         UserDto response = userService.createUser(userDto);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
@@ -42,7 +45,7 @@ public class UserController {
 
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> updateUser(@PathVariable(name = "id") Long userId,
-                                                  @RequestBody UserDto userDto) {
+                                              @Validated(Update.class) @RequestBody UserDto userDto) {
         return new ResponseEntity<>(userService.updateUser(userId, userDto), HttpStatus.OK);
     }
 
