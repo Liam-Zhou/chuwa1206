@@ -2,6 +2,7 @@ package com.chuwa.redbook.service.impl;
 
 import com.chuwa.redbook.dao.PostRepository;
 import com.chuwa.redbook.entity.Post;
+import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDto;
 import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.service.PostService;
@@ -64,14 +65,14 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDto getPostById(long id) {
-        Post post = this.postRepository.findById(id).orElseThrow(() -> new RecourceNotFoundException("Post", "id", id));
+        Post post = this.postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
 
         return convertEntityToDto(post);
     }
 
     @Override
     public PostDto updatePost(PostDto postDto, long id) {
-        Post toBeUpdatePost = this.postRepository.findById(id).orElseThrow(() -> new RecourceNotFoundException("Post", "id", id));
+        Post toBeUpdatePost = this.postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
 
         //set前可以检查get是否为null
         if(postDto.getDescription() != null) {

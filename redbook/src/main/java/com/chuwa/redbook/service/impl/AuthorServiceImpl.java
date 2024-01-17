@@ -2,6 +2,7 @@ package com.chuwa.redbook.service.impl;
 
 import com.chuwa.redbook.dao.AuthorRepository;
 import com.chuwa.redbook.entity.Author;
+import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.AuthorDto;
 import com.chuwa.redbook.service.AuthorService;
 import org.springframework.stereotype.Service;
@@ -42,7 +43,7 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public AuthorDto getAuthorById(long id) {
         Optional<Author> author = Optional.ofNullable(this.authorRepository.findById(id)
-                .orElseThrow(() -> new RecourceNotFoundException("Author", "id", id)));
+                .orElseThrow(() -> new ResourceNotFoundException("Author", "id", id)));
 
         AuthorDto authorDto = convertEntityToDTO(author.get());
 
@@ -51,7 +52,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public AuthorDto updateAuthor(AuthorDto authorDto, long id) {
-        Author updatedAuthor = this.authorRepository.findById(id).orElseThrow(() -> new RecourceNotFoundException("Author", "id", id));
+        Author updatedAuthor = this.authorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Author", "id", id));
         if (authorDto.getName() != null) {
             updatedAuthor.setName(authorDto.getName());
         }
