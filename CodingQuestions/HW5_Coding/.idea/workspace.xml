@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bf2c466e-2a61-42b7-89cc-e884db1d9383" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Q25/SumandProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/chuwa1206.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/Default_interface_method/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/Default_interface_method/DIMImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/Default_interface_method/DIML.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/lambda/Foo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/lambda/LambdaLearn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/method_interface/MethodReferenceExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/optional/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/optional/EmptyCartException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/optional/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/optional/ShoppingCart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/optional/ShoppingCartUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/stream_api/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/stream_api/ProductClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/stream_api/StreamApiCreationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/stream_api/StreamApiEndOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/stream_api/StreamApiIntermediateOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW4/stream_api/StreamExercise.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ShortQuestions/hw4.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2ZsFW0boZqBPf1wkevleXpmORhE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "onboarding.tips.debug.path": "/Users/yuantingsun/IdeaProjects/chuwa1206/CodingQuestions/untitled/src/Main.java",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.SumandProduct">
+    <configuration name="BatchPaymentCompletableFuture" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Q25.BatchPaymentCompletableFuture" />
+      <module name="HW5_Coding" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Q25.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OddEvenPrinter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Q23.OddEvenPrinter" />
+      <module name="HW5_Coding" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Q23.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PrintNumber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Q24.PrintNumber" />
+      <module name="HW5_Coding" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Q24.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PrintNumber1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Q24.PrintNumber1" />
+      <module name="HW5_Coding" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Q24.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SumandProduct" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Q25.SumandProduct" />
+      <module name="HW5_Coding" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Q25.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SumandProduct" />
+        <item itemvalue="Application.PrintNumber1" />
+        <item itemvalue="Application.OddEvenPrinter" />
+        <item itemvalue="Application.BatchPaymentCompletableFuture" />
+        <item itemvalue="Application.PrintNumber" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bf2c466e-2a61-42b7-89cc-e884db1d9383" name="Changes" comment="" />
+      <created>1703202909779</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703202909779</updated>
+      <workItem from="1703202910953" duration="8262000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

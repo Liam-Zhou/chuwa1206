@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b482172a-7c17-492c-9bc0-558cb18ceecb" name="Changes" comment="hw5">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodingQuestions/HW5_Coding/src/Q25/SumandProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodingQuestions/HW5_Coding/src/Q25/fetchData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodingQuestions/HW5_Coding/src/Q25/fetchData_exceptionAndmerge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/chuwa1206.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/Default_interface_method/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/Default_interface_method/DIMImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/Default_interface_method/DIML.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/lambda/Foo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/lambda/LambdaLearn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/method_interface/MethodReferenceExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/optional/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/optional/EmptyCartException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/optional/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/optional/ShoppingCart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/optional/ShoppingCartUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/stream_api/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/stream_api/ProductClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/stream_api/StreamApiCreationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/stream_api/StreamApiEndOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/stream_api/StreamApiIntermediateOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/HW4/stream_api/StreamExercise.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/untitled/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CodingQuestions/HW5_Coding/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/untitled/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CodingQuestions/HW5_Coding/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/untitled/src/Q23/OddEvenPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingQuestions/HW5_Coding/src/Q23/OddEvenPrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/untitled/src/Q24/PrintNumber1.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingQuestions/HW5_Coding/src/Q24/PrintNumber1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/untitled/src/Q25/BatchPaymentCompletableFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingQuestions/HW5_Coding/src/Q25/BatchPaymentCompletableFuture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/untitled/src/Q25/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingQuestions/HW5_Coding/src/Q25/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingQuestions/untitled/src/Q25/OrderProcessUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingQuestions/HW5_Coding/src/Q25/OrderProcessUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShortQuestions/hw4.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="dc05e389-8f47-41b3-97b6-b08f4d4e21b7" />
+        <option name="url" value="https://github.com/Liam-Zhou/chuwa1206.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2ZEa4kZn4CSHTOMq6xZkUcskhiT" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Yuanting__Sun/hw5",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "/Users/yuantingsun/IdeaProjects/chuwa1206/ShortQuestions",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/yuantingsun/IdeaProjects/chuwa1206/java-core/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ShortQuestions" />
+      <recent name="$PROJECT_DIR$/CodingQuestions" />
+      <recent name="$PROJECT_DIR$/CodingQuestions/MavenProject" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/CodingQuestions/MavenProject/Design Pattern/Builder/src" />
+      <recent name="$PROJECT_DIR$/CodingQuestions" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="chuwa1206" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="chuwa1206" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b482172a-7c17-492c-9bc0-558cb18ceecb" name="Changes" comment="" />
+      <created>1701989507448</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701989507448</updated>
+      <workItem from="1701989507619" duration="1369000" />
+      <workItem from="1701990982592" duration="30731000" />
+      <workItem from="1702497500609" duration="13753000" />
+      <workItem from="1702941597540" duration="1194000" />
+      <workItem from="1703097213411" duration="20074000" />
+    </task>
+    <task id="LOCAL-00001" summary="test push">
+      <option name="closed" value="true" />
+      <created>1701989661812</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701989661812</updated>
+    </task>
+    <task id="LOCAL-00002" summary="test push">
+      <option name="closed" value="true" />
+      <created>1701989813465</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701989813465</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test push">
+      <option name="closed" value="true" />
+      <created>1701996081611</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701996081611</updated>
+    </task>
+    <task id="LOCAL-00004" summary="hw2 push">
+      <option name="closed" value="true" />
+      <created>1702328552293</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702328552293</updated>
+    </task>
+    <task id="LOCAL-00005" summary="hw2 Q15 push">
+      <option name="closed" value="true" />
+      <created>1702328699046</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702328699046</updated>
+    </task>
+    <task id="LOCAL-00006" summary="hw3 Q15 push">
+      <option name="closed" value="true" />
+      <created>1702497754963</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702497754963</updated>
+    </task>
+    <task id="LOCAL-00007" summary="hw3">
+      <option name="closed" value="true" />
+      <created>1702497821869</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702497821869</updated>
+    </task>
+    <task id="LOCAL-00008" summary="hw3">
+      <option name="closed" value="true" />
+      <created>1702498452788</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702498452788</updated>
+    </task>
+    <task id="LOCAL-00009" summary="hw3">
+      <option name="closed" value="true" />
+      <created>1702498537547</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702498537547</updated>
+    </task>
+    <task id="LOCAL-00010" summary="hw3">
+      <option name="closed" value="true" />
+      <created>1702499035718</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1702499035718</updated>
+    </task>
+    <task id="LOCAL-00011" summary="hw4">
+      <option name="closed" value="true" />
+      <created>1702936314677</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1702936314677</updated>
+    </task>
+    <task id="LOCAL-00012" summary="hw4">
+      <option name="closed" value="true" />
+      <created>1702936494640</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702936494640</updated>
+    </task>
+    <task id="LOCAL-00013" summary="hw5">
+      <option name="closed" value="true" />
+      <created>1703222175651</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1703222175651</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test push" />
+    <MESSAGE value="hw2 push" />
+    <MESSAGE value="hw2 Q15 push" />
+    <MESSAGE value="hw3 Q15 push" />
+    <MESSAGE value="hw3" />
+    <MESSAGE value="hw4 w/codingQ" />
+    <MESSAGE value="hw4" />
+    <MESSAGE value="hw5" />
+    <option name="LAST_COMMIT_MESSAGE" value="hw5" />
+  </component>
+</project>
