@@ -5,6 +5,7 @@ import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.service.PostService;
 import com.chuwa.redbook.util.AppConstants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,10 +25,10 @@ public class PostController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    @GetMapping
-    public List<PostDto> getAllPosts() {
-        return this.postService.getAllPosts();
-    }
+//    @GetMapping
+//    public List<PostDto> getAllPosts() {
+//        return this.postService.getAllPosts();
+//    }
 
     @GetMapping
     public PostResponse getAllPostsWithPageInfo(@RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo,

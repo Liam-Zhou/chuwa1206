@@ -1,7 +1,7 @@
 package com.chuwa.cassandrablog.controller;
 
-import com.example.redbook.cassandra.payload.PostDto;
-import com.example.redbook.cassandra.service.PostService;
+import com.chuwa.cassandrablog.payload.PostDto;
+import com.chuwa.cassandrablog.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

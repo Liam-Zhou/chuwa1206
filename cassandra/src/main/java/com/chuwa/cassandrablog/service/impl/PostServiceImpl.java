@@ -1,10 +1,10 @@
 package com.chuwa.cassandrablog.service.impl;
 
-import com.example.redbook.cassandra.dao.PostRepository;
-import com.example.redbook.cassandra.entity.Post;
-import com.example.redbook.cassandra.exception.ResourceNotFoundException;
-import com.example.redbook.cassandra.payload.PostDto;
-import com.example.redbook.cassandra.service.PostService;
+import com.chuwa.cassandrablog.dao.PostRepository;
+import com.chuwa.cassandrablog.entity.Post;
+import com.chuwa.cassandrablog.exception.ResourceNotFoundException;
+import com.chuwa.cassandrablog.payload.PostDto;
+import com.chuwa.cassandrablog.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

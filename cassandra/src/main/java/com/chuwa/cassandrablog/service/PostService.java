@@ -1,6 +1,7 @@
 package com.chuwa.cassandrablog.service;
 
-import com.example.redbook.cassandra.payload.PostDto;
+
+import com.chuwa.cassandrablog.payload.PostDto;
 
 import java.util.List;
 import java.util.UUID;
