@@ -154,5 +154,47 @@ This annotation automatically sets the date and time of the entity's creation in
 # @UpdateTimestamp
 This annotation automatically sets the date and time of the entity's update in the mapped database column.
 
+# @ControllerAdvice
+This annotation is used to define a class as a global exception handler or a global binder for @Controller class. It allows you to handle exceptions across the whole application, not just to an individual controller. Exception handling methods annotated with @ExceptionHandler within a @ControllerAdvice annotated class will handle exceptions thrown by methods annotated with @RequestMapping.
+
+# @RestControllerAdvice
+This is a specialization of @ControllerAdvice. It is annotated on a class to handle exceptions across multiple @RestControllers. The key difference is that @RestControllerAdvice is typically used along with @RestController class, meaning the exception handler defined with @RestControllerAdvice assume you are working with RESTful APIs and the response is usually in JSON or XML format.
+
+# @ExceptionHandler
+It is used to define methods in controller class or in @ControllerAdvice annotated classes that will handle specific types of exceptions thrown during execution of controller methods. The primary purpose of @ExceptionHandler is to provide a centralized and neat way of handling exceptions in a Spring MVC or Spring Boot application. Instead of having try-catch blocks scattered throughout your controller methods, @ExceptionHandler allows you to define global or controller specific exception handling.
+
+# @Valid
+@Valid is an annotation used in Spring framework for validating the beans. @Valid is part of standard Java Bean validation API. You can use @Valid on a method parameter or a field to indicate that it should be validated when the method is invoked when request is processed by a controller method in a Spring MVC application. When you annotate a method parameter with @Valid, Spring will validate the object before the method executes. If validation fails, a MethodArgumentNotValidException is thrown.
+
+# @Validated
+@Validated is part of Spring framework. It can be used at the type level and at the method level. It offers more features compared to @Valid. It supports validation groups. Validation groups allow you to create subsets of constraints.
+
+# @NotNull
+The field shoud not be null.
+
+# @Email
+The field is an email address.
+
+# @Size
+The field should fall into the specified size.
+
+# @OneToMany
+Used to define one-to-many relationship between two entity classes. 
+
+# @ManyToOne
+Used to define a many-to-one relationship between two entity classes.
+
+# @JoinColumn
+UYsed to specify the foreign key column in the owner entity that is used to join with the referenced entity.
+
+# @ManyToMany
+Used to define a many-to-many relationship between two entity classes.
+
+# @Configuration
+Used to mark a class as a source of bean definitions. The class annotated with @Configuration is a configuration class that many contain bean definitions and dependency injection settings.
+
+# @Bean
+Bean is used to indicate that a method produces a bean to be managed by the Spring container.
+
 
 
