@@ -1,8 +1,7 @@
 # hw5: hw24-multiThreading
 
 ### Question1
-Read: https://www.interviewbit.com/multithreading-interview-questions/#class
--level-lock-vs-object-level-lock
+Read: https://www.interviewbit.com/multithreading-interview-questions/#class-level-lock-vs-object-level-lock
 
 ### Question 2
 #### Explain what is volatile in Java?
