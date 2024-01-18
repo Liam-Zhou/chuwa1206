@@ -1,5 +1,6 @@
 package com.chuwa.redbook.service.impl;
 
+import com.chuwa.redbook.dao.PostJPQLRepository;
 import com.chuwa.redbook.dao.PostRepository;
 import com.chuwa.redbook.entity.Post;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
@@ -11,15 +12,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * @author b1go
- * @date 8/22/22 6:56 PM
- */
 @Service
 public class PostServiceImpl implements PostService {
 
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    PostJPQLRepository postJPQLRepository;
 
     @Override
     public PostDto createPost(PostDto postDto) {
@@ -98,6 +98,35 @@ public class PostServiceImpl implements PostService {
         //  Question, why do we need to find it out firstly?
         Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
         postRepository.delete(post);
+    }
+
+    @Override
+    public List<PostDto> getAllPostWithJPQL() {
+        return postJPQLRepository.getAllPostWithJPQL().stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
+    }
+
+    @Override
+    public PostDto getPostByIdJPQLIndexParameter(Long id, String title) {
+        Post post = postRepository.getPostByIDOrTitleWithJPQLIndexParameters(id, title);
+        return mapToDTO(post);
+    }
+
+    @Override
+    public PostDto getPostByIdJPQLNamedParameter(Long id, String title) {
+        Post post = postRepository.getPostByIDOrTitleWithJPQLNamedParameters(id, title);
+        return mapToDTO(post);
+    }
+
+    @Override
+    public PostDto getPostByIdSQLIndexParameter(Long id, String title) {
+        Post post = postRepository.getPostByIDOrTitleWithSQLIndexParameters(id, title);
+        return mapToDTO(post);
+    }
+
+    @Override
+    public PostDto getPostByIdSQLNamedParameter(Long id, String title) {
+        Post post = postRepository.getPostByIDOrTitleWithSQLNamedParameters(id, title);
+        return mapToDTO(post);
     }
 
     private PostDto mapToDTO(Post post) {
