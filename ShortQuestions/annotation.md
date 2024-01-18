@@ -1,7 +1,7 @@
 ### Core Annotations:
 `@SpringBootApplication:`
 This annotation is used to mark the main class of a Spring Boot application. 
-Combines @Configuration, @EnableAutoConfiguration, and @ComponentScan.
+Combines `@Configuration, @EnableAutoConfiguration, and @ComponentScan`.
 ```Java
 @SpringBootApplication
 
@@ -56,6 +56,9 @@ public interface PostRepository extends JpaRepository<Post, Long> {}
 `@Component:`
 Marks a class as a Spring component, allowing it to be scanned and initialized by Spring.
 
+`ComponentScan`
+Specifies the range that Spring should scan to detect and registers Spring components
+
 ### Configuration Annotations:
 `@Configuration:`
 Indicates that a class provides bean definitions.
@@ -63,12 +66,16 @@ Indicates that a class provides bean definitions.
 `@Bean:`
 Marks a method to produce a bean to be managed by the Spring container.
 
+
 ### Dependency Injection Annotations:
 `@Autowired:`
 This annotation is used to auto-wire spring bean on setter methods, constructor and instance variable. It injects object dependency implicitly. When we use this annotation, the spring container auto-wires the bean by its matching data type.
 
 `@Qualifier:`
 Used along with @Autowired to specify which bean to inject when multiple candidates are available.
+
+`Primary:`
+It is used to indicate a primary bean when multiple beans of the same type are available.
 
 ### Request Handling Annotations:
 `@RequestMapping:`
@@ -209,6 +216,17 @@ Indicates that a JUnit class should use Spring's JUnit runner when running tests
 
 `@MockBean:`
 Mocks a bean in the Spring context.
+
+#### Validation Annotations:
+`@NotNull`: Ensures that the annotated element is not null.
+`@NotEmpty`: Ensures that the annotated element is not null and not an empty string.
+`NotBlank`: Ensures that the annotated element is not null and contains at least one non-whitespace character.
+`@Size`: Specifies the size constraints of a string, collection, or array.
+`@Min, @Max`: Specifies the minimum and maximum values for numeric types.
+`@Email`: Ensures that the annotated element is a valid email address.
+`@Pattern`: Specifies a regular expression pattern that the annotated element must match.
+`@AssertTrue, @AssertFalse`: Ensures that the annotated element is true or false, respectively.
+`@Valid`: Used to validate nested objects.
 
 ### Others:
 `@Value:`
