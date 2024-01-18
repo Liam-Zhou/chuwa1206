@@ -12,34 +12,13 @@ public class Demo1redbookApplication {
 }
 ```
 
-##### @Autowired
+##### @RestController
 
-Used for automatic dependency injection. It can be applied to fields, constructors, or methods to inject dependencies into your beans.
+ A Spring annotation that marks a class as a controller where every method returns a domain object instead of a view. It combines `@Controller` and `@ResponseBody` annotations, indicating that the data returned by each method will be written straight into the response body.
 
-##### @Controller
+##### @RequestMapping
 
-marks a class as a Spring MVC controller
-
-```
-@Controller
-public class HomeController{
-}
-```
-
-#####  @RequestMapping
-
-maps HTTP requests to handler methods in a controller
-
-```
-@Controller
-public class UserController{
-    @RequestMapping("/user")
-    public String getUser() {
-        // handler method
-        return "user";
-    }
-}
-```
+An annotation in Spring Framework used to map web requests to specific handler classes or methods in controllers, defining the URL patterns and HTTP methods (like GET, POST) for request handling.
 
 ##### @PathVariable
 
@@ -47,7 +26,60 @@ public class UserController{
 
 ##### @RequestBody
 
+A Spring annotation used to bind the HTTP request body to a method parameter. It is commonly used to automatically deserialize incoming JSON or XML data into a Java object.
+
 ##### @ResponseBody
+
+##### @Autowired
+
+Used for automatic dependency injection. It can be applied to fields, constructors, or methods to inject dependencies into your beans.
+
+```java
+@RestController
+@RequestMapping("/api/v1")
+public class PostController {
+
+    @Autowired
+    private PostService postService;
+
+}
+```
+
+
+
+##### @Controller
+
+marks a class as a Spring MVC controller
+
+```java
+@Controller
+public class PostController{
+}
+```
+
+##### @Service
+
+A Spring annotation used to mark a Java class as a service provider, indicating that it contains business logic. It's often used in the service layer of an application for Spring to handle automatic detection and configuration.
+
+```java
+@Service
+public class PostServiceImpl implements PostService {
+
+}
+```
+
+
+
+##### @Document
+
+In Java, specifically with Spring Data MongoDB, the `@Document` annotation is used to mark a class as a domain object that will be persisted to a MongoDB document. It defines the collection name and other MongoDB-specific settings.
+
+```java
+@Document("groceryitems")
+public class GroceryItem {}
+```
+
+
 
 ##### @Entity
 
@@ -70,19 +102,33 @@ public class User{
 }
 ```
 
+##### @UniqueConstraints
+
+```java
+@Entity
+@Table(
+        name = "posts",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = {"title"})
+        }
+)
+```
+
 ##### @column
 
 ```java
 @Column(columnDefinition = "varchar(255) default 'John Snow'")
 ```
 
-##### @Document
+##### 
 
 
 
 ##### @Id, @GeneratedValue
 
-marks a field as the primary key and specifies its generation strategy
+**@Id**: Marks a field in a Java class as the primary key of the corresponding database table in JPA (Java Persistence API).
+
+**@GeneratedValue**: Specifies the strategy for primary key value generation, automatically handling the creation of unique identifiers for new entity instances.
 
 ```
 @Entity
@@ -92,3 +138,5 @@ public class User{
     private Long id;
 }
 ```
+
+##### @Transactional, @EnableTransactionManagement
