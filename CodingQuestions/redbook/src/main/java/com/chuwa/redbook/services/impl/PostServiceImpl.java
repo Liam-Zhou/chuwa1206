@@ -6,6 +6,7 @@ import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDto;
 import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.services.PostService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,14 +22,17 @@ public class PostServiceImpl implements PostService {
 
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private ModelMapper modelMapper;
     @Override
     public PostDto createPost(PostDto postDto) {
-        Post post = convertDTOtoEntity(postDto);
+        Post post = modelMapper.map(postDto, Post.class);
 
         Post saved = this.postRepository.save(post);
 
         // from DTO to Entity
-        PostDto postResponse = convertEntityToDto(saved);
+        PostDto postResponse = modelMapper.map(saved, PostDto.class);
         return postResponse;
 
     }
@@ -37,7 +41,7 @@ public class PostServiceImpl implements PostService {
     public List<PostDto> getAllPosts() {
         List<Post> posts = this.postRepository.findAll();
         var result = posts.stream()
-                .map(post -> convertEntityToDto(post))
+                .map(post -> modelMapper.map(post, PostDto.class))
                 .collect(Collectors.toList());
         return result;
     }
@@ -55,24 +59,19 @@ public class PostServiceImpl implements PostService {
         // get content for page object
         List<Post> posts = pagePosts.getContent();
 
-        List<PostDto> postDtos = posts.stream().map(post -> mapToDto(post)).collect(Collectors.toList());
+        List<PostDto> postDtos = posts.stream().map(post -> modelMapper.map(post, PostDto.class)).collect(Collectors.toList());
 
         PostResponse response = new PostResponse(postDtos, pageNo, pageSize, pagePosts.getTotalElements(), pagePosts.getTotalPages(), pagePosts.isLast());
 
         return response;
 
     }
-
-    private PostDto mapToDto(Post post) {
-        return new PostDto(post.getId(), post.getTitle(), post.getDescription(), post.getContent());
-
-    }
-
     @Override
     public PostDto getPostById(long id) {
-        return convertEntityToDto(
-                this.postRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Post","id", id))
-        );
+        Post post = this.postRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Post","id", id));
+
+        return modelMapper.map(post, PostDto.class);
+
     }
 
     @Override
@@ -92,7 +91,7 @@ public class PostServiceImpl implements PostService {
         }
 
         Post updatedPost = this.postRepository.save(post);
-        return convertEntityToDto(updatedPost);
+        return modelMapper.map(updatedPost, PostDto.class);
     }
 
     @Override
@@ -101,14 +100,7 @@ public class PostServiceImpl implements PostService {
         this.postRepository.deleteById(id);
     }
 
-    private static PostDto convertEntityToDto(Post saved) {
-        PostDto postResponse = new PostDto();
-        postResponse.setId(saved.getId());
-        postResponse.setTitle(saved.getTitle());
-        postResponse.setDescription(saved.getDescription());
-        postResponse.setContent(saved.getContent());
-        return postResponse;
-    }
+
 
     private static Post convertDTOtoEntity(PostDto postDto) {
         Post post = new Post();

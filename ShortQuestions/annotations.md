@@ -246,6 +246,15 @@ https://blog.csdn.net/Mrs_chens/article/details/90899885
      }
      ```
 
+### Payload Annotations
+#### Common Validation Annotations
+- `@NotNull`: The annotated element must not be `null`.
+- `@NotEmpty`: The annotated element must not be `null` and must contain at least one non-whitespace character.
+- `@Size(min=, max=)`: The annotated element size must be within the specified boundaries.
+- `@Email`: The annotated element must be a well-formed email address.
+- `@Min(value)`: The annotated element must be a number greater than or equal to the specified minimum.
+- `@Max(value)`: The annotated element must be a number less than or equal to the specified maximum.
+
 ### Exception Annotations
 1. **@ResponseStatus**
    - Marks a method or exception class with the status code and reason that should be returned.

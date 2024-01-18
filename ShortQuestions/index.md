@@ -16,7 +16,9 @@
 
 8. [hw8 - Springboot 2](./hw8.md)
 
-9. [hw9 - Spring data](./hw9.md)
+9. [hw9 - Spring data](./hw9-spring-data.md)
 
-10. [Annotations](./annotations.md)
+10. [hw9 - exception validation](./hw9-exception-validation.md) 
+
+11. [Annotations](./annotations.md)
 
