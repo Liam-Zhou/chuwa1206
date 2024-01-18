@@ -7,7 +7,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MongoBlogApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MongoBlogApplication.class, args);
-	}
+		//SpringApplication.run(MongoBlogApplication.class, args);
 
+		Parent parent = new Parent(){
+			public void display() {
+				System.out.println("anonymous inner class");
+			}
+		};
+		parent.display();
+	}
+}
+
+class Parent {
+	public void display() {
+		System.out.println("parent");
+	}
 }
