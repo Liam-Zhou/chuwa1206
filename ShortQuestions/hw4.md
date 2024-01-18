@@ -3,19 +3,19 @@
 What is Generic in Java?
 Generics in Java are a framework that allows different types to be used as parameters in class, interface, or method definitions. They provide compile-time type safety and eliminate the need for casting, making code more robust and readable.    	
 
-[link](https://github.com/Liam-Zhou/chuwa1206/tree/diana_men/hw4/CodeQuestions/hw4/generic)
+[link](https://github.com/Liam-Zhou/chuwa1206/tree/diana_men/hw4/CodingQuestions/hw4/generic)
 
 ### Question 2: Read those codes and type it one by one by yourself. the push the code to your branch.
 
-[link](https://github.com/Liam-Zhou/chuwa1206/tree/diana_men/hw4/CodeQuestions/hw4/t06_java8/features)
+[link](https://github.com/Liam-Zhou/chuwa1206/tree/diana_men/hw4/CodingQuestions/hw4/t06_java8/features)
 
 ### Question 3: practice stream API at least 3 times
 
-[link](https://github.com/Liam-Zhou/chuwa1206/tree/diana_men/hw4/CodeQuestions/hw4/stream_api)
+[link](https://github.com/Liam-Zhou/chuwa1206/tree/diana_men/hw4/CodingQuestions/hw4/stream_api)
 
 ### Question 4: Practice Optional methods at least 2 times
 
-[link](https://github.com/Liam-Zhou/chuwa1206/tree/diana_men/hw4/CodeQuestions/hw4/t06_java8/exercise)
+[link](https://github.com/Liam-Zhou/chuwa1206/tree/diana_men/hw4/CodingQuestions/hw4/t06_java8/exercise)
 
 ### Question 5: Singleton Design Pattern
 Write the Singleton design pattern include eager load and lazy load.
