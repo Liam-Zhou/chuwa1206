@@ -68,4 +68,18 @@ maps the mutation methods in graphql schema and the controller
 
 the parameter in the graphql methods
 
+@Configuration
+
+class level annotation to define a bean source
+
+@Bean
+
+method level annotation to define the bean source
+
+@ExceptionHandler
+
+provide customized error responses for specific exception
+
+
+
 
