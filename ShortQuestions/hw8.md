@@ -78,3 +78,22 @@ ORM (Object-Relational Mapping) frameworks facilitate interaction between a data
 
 - **Serialization:** Converting an object into a format (like JSON or XML) suitable for transmission.
 - **Deserialization:** Recreating an object from a serialized format. It involves interpreting transmitted data back into an object.
+
+# 13. Use stream api to get the average of the array [20, 3, 78, 9, 6, 53, 73, 99, 24, 32]
+
+```
+import java.util.Arrays;
+
+public class StreamAverageExample {
+    public static void main(String[] args) {
+        int[] numbers = {20, 3, 78, 9, 6, 53, 73, 99, 24, 32};
+
+        double average = Arrays.stream(numbers)
+                .average()
+                .orElse(0.0);
+
+        System.out.println("Average: " + average);
+    }
+}
+
+```
