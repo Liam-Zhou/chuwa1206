@@ -46,7 +46,8 @@ Paypal API reference: [https://developer.paypal.com/docs/api/orders/v2/](https:/
 - **Send Invoice:** `POST https://api-m.paypal.com/v2/invoicing/invoices/{invoice_id}/send`
 - **Get Invoice Details:** `GET https://api-m.paypal.com/v2/invoicing/invoices/{invoice_id}`
 
-#### YouTube API:Youtube API reference: [https://developers.google.com/youtube/v3/docs](https://developers.google.com/youtube/v3/docs)
+#### YouTube API:
+Youtube API reference: [https://developers.google.com/youtube/v3/docs](https://developers.google.com/youtube/v3/docs)
 
 - **Retrieve Videos:** `GET https://www.googleapis.com/youtube/v3/videos`
 - **Upload Video:** `POST https://www.googleapis.com/youtube/v3/videos`
