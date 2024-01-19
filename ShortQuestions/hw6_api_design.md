@@ -1,19 +1,19 @@
 # hw6: API Design
 
 ### 1. Finding Customer Payments
-**Question:** Find the customer’s payments, like credit card 1, credit card 2, paypal, Apple Pay.
+**Question:** Find the customer’s payments, like credit card 1, credit card 2, paypal, Apple Pay.	
 `GET /api/v1/{customerId}/payments`
 
 ### 2. Finding Customer's History Orders
-**Question:** Find the customer’s history orders from 10/10/2022 to 10/24/2022.
+**Question:** Find the customer’s history orders from 10/10/2022 to 10/24/2022.	
 `GET /api/v1/{customerId}/orders?startDate=2022-10-10&endDate=2022-10-24`
 
 ### 3. Finding Customer's Delivery Addresses
-**Question:** Find the customer’s delivery addresses.
+**Question:** Find the customer’s delivery addresses.	
 `GET /api/v1/{customerId}/addresses`
 
 ### 4. Finding Default Payment
-**Question:** If I also want to get customer’s default payment and default delivery address, what kind of the API (URL) should be?
+**Question:** If I also want to get customer’s default payment and default delivery address, what kind of the API (URL) should be?	
 `GET /api/v1/{customerId}/payments/default`
 
 ### 5. API Collection Examples
