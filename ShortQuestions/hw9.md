@@ -97,3 +97,30 @@ public class ChildEntity {
 
 
 
+### 17. What is EnityManager?
+
+> An EntityManager is responsible for managing the lifecycle of entities.
+
+### 18. What is SessionFactory and Session?
+
+>SessionFactory creates and manages the Session objects.
+>
+>Session objects are created using sessionFactory.openSession().It is one instance per client/thread/transaction
+
+### 19. What is Transaction? how to manage your transaction?
+
+> a transaction is a unit of work that is performed as a single, indivisible operation. Transactions ensure the consistency and integrity of a database by grouping a set of related operations that must be executed together. 
+
+### 20. What is hibernate Caching?
+
+> Hibernate caching is a mechanism used by the Hibernate framework to improve the performance of database operations by reducing the need to repeatedly fetch data from the database.
+
+### 21. What is the difference between first-level cache and second-level cache?
+
+>The first-level cache is associated with a single Hibernate `Session` object. It exists only within the context of that particular session.
+>
+>The second-level cache is a shared cache that spans multiple Hibernate sessions. 
+
+### 22. How do you understand @Transactional?
+
+>Spring provides Declarative Transaction Management via @Transactional annotation. When a method is applied with @Transactional, then it will execute inside a database transaction. @Transactional annotation can be applied at the class level also, in that case, all methods of that class will be executed inside a database transaction.
