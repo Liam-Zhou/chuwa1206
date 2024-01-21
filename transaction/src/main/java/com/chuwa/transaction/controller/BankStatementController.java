@@ -8,6 +8,7 @@ import com.chuwa.transaction.service.AccountService;
 import com.chuwa.transaction.service.TransactionService;
 import com.chuwa.transaction.service.UserProfileService;
 import com.chuwa.transaction.vo.BankStatementVo;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
@@ -15,7 +16,9 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.temporal.TemporalAdjusters;
 
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -32,12 +35,8 @@ public class BankStatementController {
     }
 
     @PostMapping
-    public ResponseEntity<BankStatementDto> createBankStatement(@RequestBody BankStatementVo bankStatementVo) {
-        List<AccountDto> accounts = this.accountService.findAccountsByUserId(bankStatementVo.getUserId());
-        UserProfileDto user = this.userProfileService.getUserProfileById(bankStatementVo.getUserId());
-        List<TransactionDto> transactions = new ArrayList<>();
+    public ResponseEntity<BankStatementDto> createBankStatement(@RequestBody @Valid BankStatementVo bankStatementVo) {
         int monthNumber = Integer.parseInt(bankStatementVo.getMonth());
-
         // Get the first day of the month
         LocalDateTime firstDayOfMonth = LocalDateTime.of(LocalDate.now().getYear(), Month.of(monthNumber), 1, 0, 0);
 
@@ -48,18 +47,25 @@ public class BankStatementController {
                 .withMinute(59)
                 .withSecond(59);
 
+        List<AccountDto> accounts = this.accountService.findAccountsByUserId(bankStatementVo.getUserId());
+        UserProfileDto user = this.userProfileService.getUserProfileById(bankStatementVo.getUserId());
+
+        HashMap<String, List<TransactionDto>> data = new HashMap<>();
+
+
         for (AccountDto accountDto : accounts) {
+
             List<TransactionDto> transactionsFromAccount = this.transactionService.getTransactionByAccountIdAndTimeRange(accountDto.getAccountId(), firstDayOfMonth, lastDayOfMonth);
-            System.out.println(transactionsFromAccount.size());
-            transactions.addAll(transactionsFromAccount);
+
+            data.put(accountDto.getAccountNumber(), transactionsFromAccount);
         }
 
         BankStatementDto bankStatementDto = new BankStatementDto();
         bankStatementDto.setUsername(user.getName());
         bankStatementDto.setAddress(user.getAddress());
         bankStatementDto.setStatePeriod(firstDayOfMonth.toString() + "-" + lastDayOfMonth.toString());
-        bankStatementDto.setAccount(accounts);
-        bankStatementDto.setTxn(transactions);
+        bankStatementDto.setData(data);
+
 
         return ResponseEntity.ok(bankStatementDto);
     }

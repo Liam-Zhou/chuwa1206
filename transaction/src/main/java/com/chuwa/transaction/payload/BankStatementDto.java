@@ -2,6 +2,7 @@ package com.chuwa.transaction.payload;
 
 import com.chuwa.transaction.entity.Account;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -10,18 +11,16 @@ public class BankStatementDto {
     private String username;
     private String address;
     private String statePeriod;
-    private List<AccountDto> account;
-    private List<TransactionDto> txn;
+    private HashMap<String, List<TransactionDto>> data;
 
     public BankStatementDto() {
     }
 
-    public BankStatementDto(String username, String address, String statePeriod, List<AccountDto> account, List<TransactionDto> txn) {
+    public BankStatementDto(String username, String address, String statePeriod, HashMap<String, List<TransactionDto>> data) {
         this.username = username;
         this.address = address;
         this.statePeriod = statePeriod;
-        this.account = account;
-        this.txn = txn;
+        this.data = data;
     }
 
     public String getUsername() {
@@ -48,19 +47,11 @@ public class BankStatementDto {
         this.statePeriod = statePeriod;
     }
 
-    public List<AccountDto> getAccount() {
-        return account;
+    public HashMap<String, List<TransactionDto>> getData() {
+        return data;
     }
 
-    public void setAccount(List<AccountDto> account) {
-        this.account = account;
-    }
-
-    public List<TransactionDto> getTxn() {
-        return txn;
-    }
-
-    public void setTxn(List<TransactionDto> txn) {
-        this.txn = txn;
+    public void setData(HashMap<String, List<TransactionDto>> data) {
+        this.data = data;
     }
 }

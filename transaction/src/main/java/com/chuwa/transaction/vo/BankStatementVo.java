@@ -1,9 +1,17 @@
 package com.chuwa.transaction.vo;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+
 import java.util.Date;
 
 public class BankStatementVo {
+    @NotNull(message = "UserId cannot be empty")
     private long userId;
+
+    @NotEmpty(message = "Month cannot be empty")
+    @Pattern(regexp = "^[1-9]$|^1[0-2]$", message = "Value must be a number between 1 and 12")
     private String month;
 
     public BankStatementVo() {

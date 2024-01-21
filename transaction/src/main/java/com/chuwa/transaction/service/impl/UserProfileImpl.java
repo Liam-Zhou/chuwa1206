@@ -2,13 +2,12 @@ package com.chuwa.transaction.service.impl;
 
 import com.chuwa.transaction.dao.UserProfileRepository;
 import com.chuwa.transaction.entity.UserProfile;
+import com.chuwa.transaction.exception.ResourceNotFoundException;
 import com.chuwa.transaction.payload.UserProfileDto;
 import com.chuwa.transaction.service.UserProfileService;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,7 +33,7 @@ public class UserProfileImpl implements UserProfileService {
     @Override
     public UserProfileDto updateUserProfile(UserProfileDto userProfileDto, long id) {
         UserProfile user = userProfileRepository.findById(id)
-                .orElseThrow(() -> new RecourseNotFoundException("UserProfile", "userProfileId", id));
+                .orElseThrow(() -> new ResourceNotFoundException("UserProfile", "userProfileId", id));
 
         if (userProfileDto.getAddress() != null)
             user.setAddress(userProfileDto.getAddress());
@@ -71,7 +70,7 @@ public class UserProfileImpl implements UserProfileService {
 
     @Override
     public UserProfileDto getUserProfileById(long userId) {
-        UserProfile users = userProfileRepository.findById(userId).orElseThrow(()->new RecourseNotFoundException("UserProfile", "userProfileId", userId));
+        UserProfile users = userProfileRepository.findById(userId).orElseThrow(()->new ResourceNotFoundException("UserProfile", "userProfileId", userId));
 
         return convertEntityToDto(users);
     }
