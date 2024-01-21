@@ -1,4 +1,4 @@
-Sure, here is the translation of the provided annotations into English:
+# Annotations
 
 ```plaintext
 @Component
@@ -98,3 +98,100 @@ Annotations that indicate enabling support for specific features. For example:
 - @EnableCaching: Enables annotation-driven caching.
 
 ```
+
+---
+
+# more annotation
+
+1. `@Service`: This annotation marks service layer classes, indicating that the class is a service class used for writing business logic.
+
+2. `@SpringBootApplication`: It serves as the entry point of a Spring Boot application.
+
+3. `@RestController`: This annotation is utilized to define RESTful web services. It is applied to a class to signify that the class handles HTTP requests. Each method's return value is automatically serialized to JSON or XML and returned as the HTTP response body.
+
+    Example:
+
+    ```java
+    @RestController
+    public class MyController {
+        @GetMapping("/greet")
+        public String greet() {
+            return "Hello World.";
+        }
+    }
+    ```
+
+    In this example, the `@GetMapping` annotation on the `greet()` method indicates that it responds to GET requests. When accessing the URL like `/greet`, the string returned by the method is sent back to the client directly as the body of the HTTP response.
+
+4. `@Autowired`: This annotation is employed for automatic dependency injection, eliminating the need to write getters and setters.
+
+5. `@RequestMapping`: It is used for mapping a specific request path to the entire controller or method.
+
+Example:
+
+```java
+@Controller
+@RequestMapping("/users")
+public class UserController {
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    public String getUser(@PathVariable String userId) {
+        // Handle the request to get a user
+    }
+    @RequestMapping(value = "/{userId}/posts", method = RequestMethod.POST)
+    public String addUserPost(@PathVariable String userId) {
+        // Handle the request to add a user post
+    }
+}
+```
+
+8. `@OneToMany`: This annotation is used to establish a one-to-many relationship between two entities.
+
+    Example:
+
+    ```java
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Order> orders;
+    ```
+
+    In this code, it signifies that one user has many orders. Cascade type `ALL` means that all operations on the user will be propagated to orders. `FetchType.LAZY` implies that the related entities won't be loaded until accessed, suitable for high access or low-frequency access scenarios. If `FetchType.EAGER` is used, it means loading all related entities immediately. Generally, `@OneToMany` is `LAZY`, while `@OneToOne` and `@ManyToOne` are `EAGER`.
+
+9. `@JsonProperty`: This annotation is utilized to establish a mapping between Java objects and JSON data. It can customize serialization and deserialization.
+
+10. `@JoinColumn`: It represents the connection between two tables. For instance, in the `Comment` entity, the `@ManyToOne` annotation is applied to the `post` variable, indicating that many comments correspond to one post. On the `post` variable, `@JoinColumn(name = "post_id", nullable = false)` signifies that `comment` and `post` are two tables sharing `post_id` as a connection, also known as a foreign key.
+
+11. `@PostMapping`: This annotation is used to map HTTP POST requests to a specific handler method.
+
+    Example:
+
+    ```java
+    @RestController
+    public class MyController {
+        @PostMapping("/register")
+        public String registerUser(@RequestBody User user) {
+            // Handle user registration
+        }
+    }
+    ```
+
+12. `@Entity`: It is employed to map a regular Java class to a table in a database. `@Table` is used to map to a specific table in the database. `@Id` indicates that the `id` field is the primary key of the entity. `@GeneratedValue` can generate the ID automatically.
+
+    Example:
+
+    ```java
+    @Entity
+    @Table(name = "example_table")
+    public class ExampleEntity {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
+
+        @Column(name = "title", nullable = false)
+        private String title;
+
+        @CreationTimestamp
+        private LocalDateTime createDateTime;
+
+        @UpdateTimestamp
+        private LocalDateTime updateDateTime;
+    }
+    ```
