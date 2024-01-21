@@ -1,5 +1,6 @@
 package org.chuwa.bankstatement.controller;
 
+import jakarta.validation.Valid;
 import org.chuwa.bankstatement.payload.AccountDto;
 import org.chuwa.bankstatement.payload.BankStatement;
 import org.chuwa.bankstatement.service.AccountService;
@@ -15,7 +16,7 @@ public class AccountController {
     private AccountService accountService;
 
     @PostMapping
-    public ResponseEntity<AccountDto> postAccount(@RequestBody AccountDto accountDto) {
+    public ResponseEntity<AccountDto> postAccount(@Valid @RequestBody AccountDto accountDto) {
         AccountDto account = accountService.CreateAccount(accountDto);
         return new ResponseEntity<>(account, HttpStatus.OK);
     }

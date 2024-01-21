@@ -1,8 +1,14 @@
 package org.chuwa.bankstatement.payload;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 public class UserDto {
     private Long userId;
+
     private String name;
+    @NotEmpty
+    @Size(min=2, message="address should have at least 2 characters")
     private String addr;
     private String phone;
     private String email;

@@ -1,5 +1,6 @@
 package org.chuwa.bankstatement.controller;
 
+import jakarta.validation.Valid;
 import org.chuwa.bankstatement.payload.UserDto;
 import org.chuwa.bankstatement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserDto> postUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<UserDto> postUser(@Valid @RequestBody UserDto userDto) {
         UserDto user = userService.createUserProfile(userDto);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
