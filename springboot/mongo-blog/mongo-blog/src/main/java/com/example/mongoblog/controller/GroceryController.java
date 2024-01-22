@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Alex D.
  */
 @RestController
-@RequestMapping("api/v1/blogs")
+@RequestMapping("/api/v1/blogs")
 public class GroceryController {
 
     @Autowired
