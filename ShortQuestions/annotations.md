@@ -138,3 +138,5 @@ public class User{
     private Long id;
 }
 ```
+
+##### @Transactional, @EnableTransactionManagement
