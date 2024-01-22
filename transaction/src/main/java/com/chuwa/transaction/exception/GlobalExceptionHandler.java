@@ -1,6 +1,8 @@
 package com.chuwa.transaction.exception;
 
 import com.chuwa.transaction.payload.ErrorDetails;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +20,7 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-
+    private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers,
                                                                   HttpStatus status,
@@ -37,6 +39,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                                         WebRequest webRequest) {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(),
                 webRequest.getDescription(false));
+        logger.debug(errorDetails.getMessage());
 
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
@@ -46,6 +49,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                                WebRequest webRequest) {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(),
                 webRequest.getDescription(false));
+
+        logger.debug(errorDetails.getMessage() + " " + errorDetails.getDetails());
 
         return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
@@ -61,6 +66,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                               WebRequest webRequest) {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(),
                 webRequest.getDescription(false));
+
+        logger.debug(errorDetails.getMessage() + " " + errorDetails.getDetails());
 
         return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
     }

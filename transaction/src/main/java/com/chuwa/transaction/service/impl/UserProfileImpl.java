@@ -5,6 +5,8 @@ import com.chuwa.transaction.entity.UserProfile;
 import com.chuwa.transaction.exception.ResourceNotFoundException;
 import com.chuwa.transaction.payload.UserProfileDto;
 import com.chuwa.transaction.service.UserProfileService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

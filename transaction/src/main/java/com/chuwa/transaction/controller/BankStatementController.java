@@ -1,72 +1,54 @@
 package com.chuwa.transaction.controller;
 
-import com.chuwa.transaction.payload.AccountDto;
 import com.chuwa.transaction.payload.BankStatementDto;
-import com.chuwa.transaction.payload.TransactionDto;
-import com.chuwa.transaction.payload.UserProfileDto;
-import com.chuwa.transaction.service.AccountService;
-import com.chuwa.transaction.service.TransactionService;
-import com.chuwa.transaction.service.UserProfileService;
+import com.chuwa.transaction.service.BankstatementService;
+import com.chuwa.transaction.service.PdfService;
 import com.chuwa.transaction.vo.BankStatementVo;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Month;
-import java.time.temporal.TemporalAdjusters;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-@RestController
+@Controller
 @RequestMapping("api/v1/bankstatement")
 public class BankStatementController {
-    private final AccountService accountService;
-    private final TransactionService transactionService;
-    private final UserProfileService userProfileService;
+    private final BankstatementService bankstatementService;
+    private final PdfService pdfService;
 
-    public BankStatementController(AccountService accountService, TransactionService transactionService, UserProfileService userProfileService) {
-        this.accountService = accountService;
-        this.transactionService = transactionService;
-        this.userProfileService = userProfileService;
+    public BankStatementController(BankstatementService bankstatementService, PdfService pdfService) {
+        this.bankstatementService = bankstatementService;
+        this.pdfService = pdfService;
     }
 
+
     @PostMapping
+    @ResponseBody
     public ResponseEntity<BankStatementDto> createBankStatement(@RequestBody @Valid BankStatementVo bankStatementVo) {
-        int monthNumber = Integer.parseInt(bankStatementVo.getMonth());
-        // Get the first day of the month
-        LocalDateTime firstDayOfMonth = LocalDateTime.of(LocalDate.now().getYear(), Month.of(monthNumber), 1, 0, 0);
 
-        // Get the last day of the month
-        LocalDateTime lastDayOfMonth = LocalDateTime.of(LocalDate.now().getYear(), Month.of(monthNumber), 1, 0, 0)
-                .with(TemporalAdjusters.lastDayOfMonth())
-                .withHour(23)
-                .withMinute(59)
-                .withSecond(59);
-
-        List<AccountDto> accounts = this.accountService.findAccountsByUserId(bankStatementVo.getUserId());
-        UserProfileDto user = this.userProfileService.getUserProfileById(bankStatementVo.getUserId());
-
-        HashMap<String, List<TransactionDto>> data = new HashMap<>();
-
-
-        for (AccountDto accountDto : accounts) {
-
-            List<TransactionDto> transactionsFromAccount = this.transactionService.getTransactionByAccountIdAndTimeRange(accountDto.getAccountId(), firstDayOfMonth, lastDayOfMonth);
-
-            data.put(accountDto.getAccountNumber(), transactionsFromAccount);
-        }
-
-        BankStatementDto bankStatementDto = new BankStatementDto();
-        bankStatementDto.setUsername(user.getName());
-        bankStatementDto.setAddress(user.getAddress());
-        bankStatementDto.setStatePeriod(firstDayOfMonth.toString() + "-" + lastDayOfMonth.toString());
-        bankStatementDto.setData(data);
-
+        BankStatementDto bankStatementDto = bankstatementService.createBankstatement(bankStatementVo.getUserId(),bankStatementVo.getMonth());
 
         return ResponseEntity.ok(bankStatementDto);
     }
+
+    @PostMapping("/pdf/generate")
+    public void generatePDF(@RequestBody @Valid BankStatementVo bankStatementVo, HttpServletResponse response) {
+        BankStatementDto bankStatementDto = bankstatementService.createBankstatement(bankStatementVo.getUserId(),bankStatementVo.getMonth());
+        response.setContentType("application/pdf");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd:hh:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=pdf_" + currentDateTime + ".pdf";
+        response.setHeader(headerKey, headerValue);
+        this.pdfService.generatePdf(bankStatementDto,bankStatementVo, response);
+
+
+    }
+
 }
