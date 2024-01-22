@@ -326,7 +326,7 @@ public class ExceptionHandlerController {
 
 ## @ComponentScan
 
->  `@ComponentScan` is used to enable component scanning in Spring, allowing the automatic detection and registration of beans based on annotations in specified packages.
+>  @ComponentScan` is an annotation in the Spring framework that is used to specify the packages that Spring should scan for annotated components. By default, Spring scans the package of the class annotated with `@SpringBootApplication` and its sub-packages. If you want to scan additional packages, you can specify them using the `basePackages` or `basePackageClasses` attributes of `@ComponentScan
 
 ```java
 @Configuration
