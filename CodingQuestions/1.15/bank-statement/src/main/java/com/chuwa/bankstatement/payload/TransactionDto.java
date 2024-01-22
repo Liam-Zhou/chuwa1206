@@ -2,10 +2,7 @@ package com.chuwa.bankstatement.payload;
 
 import com.chuwa.bankstatement.validationgroup.Create;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -13,6 +10,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class TransactionDto {
 
     private Long id;
