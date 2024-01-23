@@ -26,6 +26,10 @@ public class Txn {
 
         @CreationTimestamp
         private LocalDateTime createDateTime;
+//        @PrePersist
+//        protected void onCreate() {
+//                createDateTime = LocalDateTime.now();
+//        }
 
         @UpdateTimestamp
         private LocalDateTime updateDateTime;
@@ -63,12 +67,12 @@ public class Txn {
                 this.account = account;
         }
 
-        public LocalDateTime getDateTime() {
+        public LocalDateTime getCreateDateTime() {
                 return createDateTime;
         }
 
-        public void setDateTime(LocalDateTime date_time) {
-                this.createDateTime = date_time;
+        public void setCreateDateTime(LocalDateTime createDateTime) {
+                this.createDateTime = createDateTime;
         }
 
         public LocalDateTime getUpdateDateTime() {

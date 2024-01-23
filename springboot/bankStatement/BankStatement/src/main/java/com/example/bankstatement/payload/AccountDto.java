@@ -15,14 +15,14 @@ public class AccountDto {
     private Long accountID;
     private Long routingNumber;
     private Long accountNumber;
-    private UserProfile user;
-    private Set<Txn> txns;
+    private UserProfileDto user;
+    private Set<TxnDto> txns;
 
-    public Set<Txn> getTxns() {
+    public Set<TxnDto> getTxns() {
         return txns;
     }
 
-    public void setTxns(Set<Txn> txns) {
+    public void setTxns(Set<TxnDto> txns) {
         this.txns = txns;
     }
 
@@ -58,22 +58,32 @@ public class AccountDto {
         this.accountNumber = accountNumber;
     }
 
-    public UserProfile getUser() {
+    public UserProfileDto getUser() {
         return user;
     }
 
-    public void setUser(UserProfile user) {
+    public void setUser(UserProfileDto user) {
         this.user = user;
     }
 
     public AccountDto() {
     }
 
-    public AccountDto(Long id, Long accountID, Long routingNumber, Long accountNumber, UserProfile user) {
+    public AccountDto(Long id, Long accountID, Long routingNumber, Long accountNumber, UserProfileDto user) {
         this.id = id;
         this.accountID = accountID;
         this.routingNumber = routingNumber;
         this.accountNumber = accountNumber;
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "CommentDto{" +
+                "id=" + id +
+                ", accountID='" + accountID + '\'' +
+                ", routingNumber='" + routingNumber + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
+                '}';
     }
 }

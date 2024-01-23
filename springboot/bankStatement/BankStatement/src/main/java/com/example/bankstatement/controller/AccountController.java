@@ -1,14 +1,13 @@
 package com.example.bankstatement.controller;
 
+import com.example.bankstatement.entity.Account;
 import com.example.bankstatement.payload.AccountDto;
+import com.example.bankstatement.payload.UserProfileDto;
 import com.example.bankstatement.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Alex D.
@@ -19,9 +18,11 @@ public class AccountController {
     @Autowired
     private AccountService accountService;
 
-    @PostMapping()
-    public ResponseEntity<AccountDto> createAccount(@RequestBody AccountDto accountDto){
-        AccountDto response = accountService.createAccount(accountDto);
+    @PostMapping("/users/{userId}/accounts")
+    public ResponseEntity<AccountDto> createAccount(@PathVariable(value="userId") long userId,  @RequestBody AccountDto accountDto){
+        AccountDto response = accountService.createAccount(userId, accountDto);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
+
+
 }

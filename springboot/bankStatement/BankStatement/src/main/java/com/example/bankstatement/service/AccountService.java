@@ -8,5 +8,5 @@ import org.springframework.stereotype.Service;
  */
 
 public interface AccountService {
-    AccountDto createAccount(AccountDto accountDto);
+    AccountDto createAccount(long userId, AccountDto accountDto);
 }

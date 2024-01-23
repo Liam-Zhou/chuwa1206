@@ -62,4 +62,15 @@ public class UserProfileDto {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "PostDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", addr='" + addr + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

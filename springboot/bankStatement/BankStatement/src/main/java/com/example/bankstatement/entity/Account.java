@@ -2,7 +2,11 @@ package com.example.bankstatement.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -41,6 +45,28 @@ public class Account {
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "user_id", nullable = false)
         private UserProfile user;
+
+        @CreationTimestamp
+        private LocalDateTime createDateTime;
+
+        @UpdateTimestamp
+        private LocalDateTime updateDateTime;
+
+        public LocalDateTime getCreateDateTime() {
+                return createDateTime;
+        }
+
+        public void setCreateDateTime(LocalDateTime createDateTime) {
+                this.createDateTime = createDateTime;
+        }
+
+        public LocalDateTime getUpdateDateTime() {
+                return updateDateTime;
+        }
+
+        public void setUpdateDateTime(LocalDateTime updateDateTime) {
+                this.updateDateTime = updateDateTime;
+        }
 
         public Account() {
         }
