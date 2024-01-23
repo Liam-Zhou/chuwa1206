@@ -313,3 +313,13 @@ to resolve the ambiguity by specifying which bean should be autowired when there
 @Qualifier("fooFormatter")
 private Formatter formatter;
 ```
+
+# Annotations used by **cookie**
+
+- @CookieValue
+
+retrieves cookie with specified key
+
+```
+@CookieValue(value = "prev") String prev
+```
