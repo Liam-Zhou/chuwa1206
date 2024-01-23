@@ -48,5 +48,5 @@ When an API is called by Postman, the flow is as follows:
 #### Question:
 Create a Project named it with mongo-blog write a POST API for mongo-blog change database to MongoDB.
 
-[link](https://github.com/Liam-Zhou/chuwa1206/tree/diana_men/hw7/CodingQuestions/hw7/mongo-blog)
+[mongo-blog link](https://github.com/Liam-Zhou/chuwa1206/tree/diana_men/hw7/CodingQuestions/hw7/mongo-blog)
 
