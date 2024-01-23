@@ -1,11 +1,19 @@
 package com.chuwa.learn.statement.payload;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDateTime;
 
 public class AccountDto {
     private long accountId;
+    @NotEmpty
     private long userId;
+    @NotEmpty
+    @Size(max = 12,min = 12, message = "12 digits required for accountNumber")
     private String accountNumber;
+    @NotEmpty
+    @Size(max = 9, min = 9, message = "9 digits required for rountingNumber")
     private String routingNumber;
 
     public AccountDto() {

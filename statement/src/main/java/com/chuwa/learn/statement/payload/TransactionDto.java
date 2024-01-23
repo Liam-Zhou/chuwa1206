@@ -1,12 +1,16 @@
 package com.chuwa.learn.statement.payload;
 
+import jakarta.validation.constraints.NotEmpty;
+
 import java.time.LocalDateTime;
 
 public class TransactionDto {
-
+    @NotEmpty
     private long AccountId;
+    @NotEmpty
     private String date;
     private String description;
+    @NotEmpty
     private double amount;
 
     public TransactionDto() {
