@@ -1,5 +1,7 @@
 package org.chuwa.bankstatement.service.impl;
 
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
 import org.chuwa.bankstatement.dao.AccountRepository;
 import org.chuwa.bankstatement.dao.TxnRepository;
 import org.chuwa.bankstatement.dao.UserRepository;
@@ -11,9 +13,14 @@ import org.chuwa.bankstatement.payload.AccountDto;
 import org.chuwa.bankstatement.payload.BankStatement;
 import org.chuwa.bankstatement.payload.TxnDto;
 import org.chuwa.bankstatement.service.AccountService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -26,6 +33,8 @@ public class AccountServiceImpl implements AccountService {
     private UserRepository userRepository;
     @Autowired
     private TxnRepository txnRepository;
+
+    private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
 
     @Override
     public AccountDto CreateAccount(AccountDto accountDto) {
@@ -45,6 +54,39 @@ public class AccountServiceImpl implements AccountService {
         List<TxnDto> txns = txnRepository.findAllByAccountAndDateBetween(account, startMonth, endMonth).stream()
                 .map(this::convertFromTxntoTxnDto).collect(Collectors.toList());
         return new BankStatement(user.getName(), user.getAddr(), account.getAccountNumber(), txns);
+    }
+
+    @Override
+    public ByteArrayOutputStream generateStatementPdf(BankStatement statement) throws DocumentException {
+        Document document = new Document();
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        try {
+            PdfWriter.getInstance(document, outputStream);
+            document.open();
+            Font font = FontFactory.getFont(FontFactory.COURIER, 16, BaseColor.BLACK);
+
+            // Create paragraphs for each piece of information
+            Paragraph usernameParagraph = new Paragraph("username: " + statement.getUsername(), font);
+            Paragraph accountIdParagraph = new Paragraph("account id: " + statement.getAccountId(), font);
+            Paragraph addrParagraph = new Paragraph("address: " + statement.getAddr(), font);
+            Paragraph startMonthParagraph = new Paragraph("start month: " + statement.getPeriodStartMonth().toString(), font);
+            Paragraph endMonthParagraph = new Paragraph("end month: " + statement.getPeriodEndMonth().toString(), font);
+            Paragraph transactionsParagraph = new Paragraph("transactions: " + statement.getTransactions().toString(), font);
+            // Add paragraphs to the document
+            document.add(usernameParagraph);
+            document.add(accountIdParagraph);
+            document.add(addrParagraph);
+            document.add(startMonthParagraph);
+            document.add(endMonthParagraph);
+            document.add(transactionsParagraph);
+            logger.info("statement pdf created");
+        } finally {
+            if (document.isOpen()) {
+                document.close();
+                logger.debug("make sure document is closed");
+            }
+        }
+        return outputStream;
     }
 
     private TxnDto convertFromTxntoTxnDto(Txn saved) {

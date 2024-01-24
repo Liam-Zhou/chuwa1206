@@ -60,4 +60,15 @@ public class TxnDto {
     public void setAmount(Integer amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return "TxnDto{" +
+                "txnId=" + txnId +
+                ", accountId=" + accountId +
+                ", date=" + date +
+                ", desc='" + desc + '\'' +
+                ", amount=" + amount +
+                '}';
+    }
 }
