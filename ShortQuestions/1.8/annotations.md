@@ -196,5 +196,10 @@ Used to mark a class as a source of bean definitions. The class annotated with @
 # @Bean
 Bean is used to indicate that a method produces a bean to be managed by the Spring container.
 
+# @CookieVulue
+@CookieValue is used to bind the value of a HTTP Cookie to a parameter.
+
+
+
 
 
