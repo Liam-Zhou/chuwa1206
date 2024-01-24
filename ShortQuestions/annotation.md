@@ -210,6 +210,20 @@ Indicates that a JUnit class should use Spring's JUnit runner when running tests
 `@MockBean:`
 Mocks a bean in the Spring context.
 
+### Web request and response
+`@CookieValue:`
+Extract cookie values in a controller method
+```Java
+@GetMapping("/example")
+    public String exampleCookie(@CookieValue(name = "yourCookieName", defaultValue = "defaultValue") String cookieValue) {
+        // Your logic using the cookie value
+        System.out.println("Cookie Value: " + cookieValue);
+
+        // Rest of your code...
+        return "yourView";
+    }
+```
+
 ### Others:
 `@Value:`
 Injects values from application properties into a Spring bean.
