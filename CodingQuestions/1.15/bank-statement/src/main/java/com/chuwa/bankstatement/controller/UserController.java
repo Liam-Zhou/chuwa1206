@@ -6,6 +6,11 @@ import com.chuwa.bankstatement.service.PdfGenerationService;
 import com.chuwa.bankstatement.service.UserService;
 import com.chuwa.bankstatement.validationgroup.Create;
 import com.chuwa.bankstatement.validationgroup.Update;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -26,6 +31,8 @@ public class UserController {
 
     private final UserService userService;
     private final PdfGenerationService pdfGenerationService;
+
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     public UserController(UserService userService, PdfGenerationService pdfGenerationService) {
@@ -85,5 +92,32 @@ public class UserController {
                 .headers(headers)
                 .contentType(MediaType.APPLICATION_PDF)
                 .body(new InputStreamResource(bis));
+    }
+
+    @GetMapping("/set-cookie")
+    public ResponseEntity<String> setCookie(HttpServletResponse response) {
+        Cookie cookie = new Cookie("myCookie", "value");
+        cookie.setMaxAge(24 * 60 * 60);
+        cookie.setHttpOnly(true);
+        cookie.setPath("/");
+
+        response.addCookie(cookie);
+
+        return ResponseEntity.ok("Cookie has been set");
+    }
+
+    @GetMapping("/read-cookie")
+    public ResponseEntity<String> readCookie(@CookieValue(name = "myCookie", defaultValue = "") String cookieValue) {
+        return ResponseEntity.ok("Cookie Value: " + cookieValue);
+    }
+
+    @GetMapping("/log-request-info")
+    public ResponseEntity<String> logRequestInfo(HttpServletRequest request) {
+        logger.info("Request Method: " + request.getMethod());
+        logger.info("Request URI: " + request.getRequestURI());
+        logger.info("Request Protocol: " + request.getProtocol());
+        logger.info("Remote Address: " + request.getRemoteAddr());
+
+        return ResponseEntity.ok("Logged request info");
     }
 }
