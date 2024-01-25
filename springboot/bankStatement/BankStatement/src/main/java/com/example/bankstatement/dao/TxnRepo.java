@@ -14,7 +14,11 @@ import java.util.Set;
  */
 @Repository
 public interface TxnRepo extends JpaRepository<Txn, Long> {
-    List<Txn> findAllByAccountAccountIDOrderByCreateDateTimeDesc(Long accountId);
+    List<Txn> findAllByAccountAccountIDAndCreateDateTimeBetweenOrderByCreateDateTimeDesc(
+            Long accountId,
+            LocalDateTime startDateTime,
+            LocalDateTime endDateTime
+    );
 
     List<Txn> findAllByAccount_AccountIDAndCreateDateTimeBetweenOrderByCreateDateTimeDesc(
         Long accountId,
