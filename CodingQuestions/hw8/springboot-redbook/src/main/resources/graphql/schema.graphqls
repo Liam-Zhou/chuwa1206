@@ -1,0 +1,33 @@
+type Query {
+    getPostById(id: ID): Post
+    getAllPosts: [Post] # Corrected from getALlPosts to getAllPosts
+    getAuthorById(id: ID!): Author
+    getAllAuthors: [Author]
+}
+
+type Post {
+    id: ID
+    title: String
+    description: String
+    content: String
+}
+
+type Author {
+    id: ID
+    name: String
+    bio: String
+}
+
+type Mutation {
+    createPost(title: String!, description: String!, content: String!): Post!
+    updatePost(id: ID!, title: String, description: String, content: String): Post
+    deletePost(id: ID!): Boolean
+    createAuthor(name: String!, bio: String!): Author!
+    updateAuthor(id: ID!, name: String, bio: String): Author
+    deleteAuthor(id: ID!): Boolean
+}
+
+input AuthorInput {
+    name: String
+    bio: String
+}
