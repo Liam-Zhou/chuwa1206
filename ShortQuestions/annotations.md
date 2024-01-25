@@ -140,3 +140,35 @@ public class User{
 ```
 
 ##### @Transactional, @EnableTransactionManagement
+
+
+
+## AOP
+
+##### @Aspect
+
+##### @Pointcut
+
+a collection to a var/name
+
+name: applicationPackagePointcut
+
+```java
+@Pointcut("within(com.chuwa.redbook.security..*) || within(com.chuwa.redbook.service..*)")
+public void applicationPackagePointcut(){
+    
+}
+```
+
+##### @AfterThrowing
+
+给一些建议
+
+```java
+@AfterThrowing(pointcut = "applicationPackagePointcut()", throwing = "e")
+public void logAfterThrowing(JoinPoint joinPoint, Throwable e){
+    log.error()
+}
+```
+
+@Afterthrowing vs ControllerAdvice&@ExceptionHandler
