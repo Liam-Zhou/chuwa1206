@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 /**
  * @author Alex D.
  */
@@ -19,6 +21,7 @@ public class UserProfileDto {
     private String addr;
     private String phone;
     private String email;
+    private Set<AccountDtoWithoutUserProfile> accounts;
 
     @Override
     public String toString() {

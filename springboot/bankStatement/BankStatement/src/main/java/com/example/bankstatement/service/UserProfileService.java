@@ -15,4 +15,10 @@ public interface UserProfileService {
     List<UserProfileDto> getAllUserProfile();
 
     List<AccountDtoWithoutUserProfile> getAllAccountsByUserId(Long userId);
+
+    UserProfileDto getUserProfileByUserId(Long userId);
+
+    UserProfileDto updateUserProfile(Long userId, UserProfileDto userProfileDto);
+
+    void deleteUserProfile(Long userId);
 }

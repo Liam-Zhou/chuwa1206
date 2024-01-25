@@ -56,4 +56,30 @@ public class UserProfileServiceImpl implements UserProfileService {
                 .collect(Collectors.toList());
         return accountDtos;
     }
+
+    @Override
+    public UserProfileDto getUserProfileByUserId(Long userId) {
+        UserProfile userProfile = userProfileRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("UserProfile","userId",userId));
+        UserProfileDto userProfileDto = modelMapper.map(userProfile,UserProfileDto.class);
+        return userProfileDto;
+    }
+
+    @Override
+    public UserProfileDto updateUserProfile(Long userId, UserProfileDto userProfileDto) {
+        UserProfile userProfile = userProfileRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("UserProfile","userId",userId));
+        userProfile.setName(userProfileDto.getName());
+        userProfile.setAddr(userProfileDto.getAddr());
+        userProfile.setEmail(userProfileDto.getEmail());
+        userProfile.setPhone(userProfileDto.getPhone());
+        UserProfile savedUserProfile = userProfileRepo.save(userProfile);
+        return modelMapper.map(savedUserProfile,UserProfileDto.class);
+    }
+
+    @Override
+    public void deleteUserProfile(Long userId) {
+        UserProfile userProfile = userProfileRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("UserProfile","userId",userId));
+        userProfileRepo.delete(userProfile);
+    }
+
+
 }

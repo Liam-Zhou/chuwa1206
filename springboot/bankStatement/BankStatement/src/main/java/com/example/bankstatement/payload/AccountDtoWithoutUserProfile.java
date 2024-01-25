@@ -19,7 +19,7 @@ public class AccountDtoWithoutUserProfile {
     private Long accountID;
     private Long routingNumber;
     private Long accountNumber;
-    private Set<TxnDto> txns;
+//    private Set<TxnDto> txns;
 
     @Override
     public String toString() {
