@@ -199,7 +199,51 @@ Bean is used to indicate that a method produces a bean to be managed by the Spri
 # @CookieVulue
 @CookieValue is used to bind the value of a HTTP Cookie to a parameter.
 
+# @Getter
+Create getters for all fields.
 
+# @Setter
+Create setters for all fields
+
+# @NoArgsConstructor
+Create a no arg constructor
+
+# @AllArgsConstructor
+Create an all args constructor
+
+# @Slf4j
+The @Slf4j annotation is used at the class level and automatically generates a logger field in that class.
+
+
+# @EnableBatchProcessing
+@EnableBatchProcessing is an annotation provided by the Spring Batch framework. When you add this annotation to a configuration class in a Spring application, it enables various features and configurations related to batch processing.
+
+# @Aspect
+The @Aspect annotation is used to mark a class as an aspect, meaning the class will contain methods that should be run at certain points in the execution of the program (join points), such as method invocations or field assignments.
+
+# @PointCut
+Define expression to find all main application methods to insert advice
+
+# @Before
+Run before the method execution
+
+# @After
+Run after the method returned a result
+
+# @AfterReturning
+Run after the method returned a result, intercept the returned result as well.
+
+# @AfterThrowing
+Run after the method throws an exception
+
+# @Around
+Run around the method execution, combine all three advices above.
+
+# @EnableScheduling
+@EnableScheduling is a class-level annotation that enables support for scheduled tasks. 
+
+# @Scheduled
+@Scheduled is a method-level annotation used to mark a method to be scheduled. You can define the schedule in several ways, including fixed-rate, fixed-delay, or cron expressions.
 
 
 

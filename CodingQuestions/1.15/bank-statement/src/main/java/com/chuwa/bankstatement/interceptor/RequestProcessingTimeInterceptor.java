@@ -2,17 +2,15 @@ package com.chuwa.bankstatement.interceptor;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 
 @Component
+@Slf4j
 public class RequestProcessingTimeInterceptor implements HandlerInterceptor {
-
-    private static final Logger logger = LoggerFactory.getLogger(RequestProcessingTimeInterceptor.class);
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
@@ -31,7 +29,7 @@ public class RequestProcessingTimeInterceptor implements HandlerInterceptor {
         if (handler instanceof HandlerMethod) {
             StringBuilder sb = new StringBuilder();
             HandlerMethod handlerMethod = (HandlerMethod) handler;
-            logger.info("Handler : {} : {} : Execution time : {} ms",
+            log.info("Handler : {} : {} : Execution time : {} ms",
                     handlerMethod.getBeanType().getName(),
                     handlerMethod.getMethod().getName(),
                     executeTime);
