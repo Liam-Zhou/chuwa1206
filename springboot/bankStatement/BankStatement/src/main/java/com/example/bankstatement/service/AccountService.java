@@ -1,5 +1,6 @@
 package com.example.bankstatement.service;
 
+import com.example.bankstatement.entity.Account;
 import com.example.bankstatement.payload.AccountDto;
 import com.example.bankstatement.payload.AccountDtoWithoutUserProfile;
 import org.springframework.stereotype.Service;
@@ -20,4 +21,6 @@ public interface AccountService {
     AccountDtoWithoutUserProfile updateAccountByUserIdAccountId(Long userId, Long accountId, AccountDtoWithoutUserProfile accountDto);
 
     void deleteAccountByUserIdAccountId(Long userId, Long accountId);
+
+    List<Account> getAllAccounts();
 }
