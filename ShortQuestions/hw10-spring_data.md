@@ -66,13 +66,13 @@ You can use the `@Primary` annotation on one of the beans to designate it as the
 `ApplicationContext` is a sub-interface of `BeanFactory` and adds more enterprise-specific functionality like easier integration with Spring's AOP features, message resource handling for i18n, and event propagation.
 
 ### 14. What is the Scope of a Bean? and list the examples for each scope.
-The scope of a bean defines the lifecycle of the bean in the Spring Framework.
+The scope of a bean determines its lifecycle and visibility within the Spring application context.
 
-- singleton: Only one instance of the bean is created and shared across the entire application.
+- singleton: Only one instance of the bean is maintained in the Spring container throughout the application's lifecycle.
     ```java
     @Bean
     @Scope("singleton")
-    public Person personSingleton() {
+    public Person personSingletonInstance() {
         return new Person();
     }
     ```
@@ -81,7 +81,7 @@ The scope of a bean defines the lifecycle of the bean in the Spring Framework.
     ```java
     @Bean
     @Scope("prototype")
-    public Person personPrototype() {
+    public Person personPrototypeInstance() {
         return new Person();
     }
     ```
@@ -90,8 +90,8 @@ The scope of a bean defines the lifecycle of the bean in the Spring Framework.
     ```java
     @Bean
     @Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
-    public HelloMessageGenerator requestScopedBean() {
-        return new HelloMessageGenerator();
+    public MessageGenerator requestScopeMessageGenerator() {
+        return new MessageGenerator();
     }
     ```
     
@@ -100,17 +100,17 @@ The scope of a bean defines the lifecycle of the bean in the Spring Framework.
     ```java
     @Bean
     @RequestScope
-    public HelloMessageGenerator requestScopedBean() {
-        return new HelloMessageGenerator();
+    public MessageGenerator simpleRequestScopeMessageGenerator() {
+        return new MessageGenerator();
     }
     ```
 
-- session: A single instance of the bean is created for each HTTP session.
+- session: A new instance of the bean is created for each HTTP session.
     ```java
     @Bean
     @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
-    public HelloMessageGenerator sessionScopedBean() {
-        return new HelloMessageGenerator();
+    public SessionData sessionScopeData() {
+        return new SessionData();
     }
     ```
     
@@ -119,17 +119,17 @@ The scope of a bean defines the lifecycle of the bean in the Spring Framework.
     ```java
     @Bean
     @SessionScope
-    public HelloMessageGenerator sessionScopedBean() {
-        return new HelloMessageGenerator();
+    public SessionData simpleSessionScopeData() {
+        return new SessionData();
     }
     ```
 
-- application: A single instance of the bean is created for the lifecycle of the application.
+- application: A single instance of the bean is maintained for the entire lifecycle of the application context.
     ```java
     @Bean
     @Scope(value = WebApplicationContext.SCOPE_APPLICATION, proxyMode = ScopedProxyMode.TARGET_CLASS)
-    public HelloMessageGenerator applicationScopedBean() {
-        return new HelloMessageGenerator();
+    public ApplicationData applicationScopeData() {
+        return new ApplicationData();
     }
     ```
     
@@ -138,38 +138,36 @@ The scope of a bean defines the lifecycle of the bean in the Spring Framework.
     ```java
     @Bean
     @ApplicationScope
-    public HelloMessageGenerator applicationScopedBean() {
-        return new HelloMessageGenerator();
+    public ApplicationData simpleApplicationScopeData() {
+        return new ApplicationData();
     }
     ```
 
-- websocket: A single instance of the bean is created for the lifecycle of a WebSocket.
+- websocket: A single instance of the bean is created for the lifecycle of a WebSocket session.
     ```java
     @Bean
     @Scope(scopeName = "websocket", proxyMode = ScopedProxyMode.TARGET_CLASS)
-    public HelloMessageGenerator websocketScopedBean() {
-        return new HelloMessageGenerator();
+    public WebSocketData webSocketScopeData() {
+        return new WebSocketData();
     }
     ```
 
 ### 15. Configure a bean using xml. If a bean has parameters/dependencies, how can we configure the bean?
-You can define beans and their dependencies in XML configuration like this:
+Beans and their dependencies can be defined in the XML configuration. Here's how you can do it:
 
 Example of a simple bean:
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans">
-    <bean id="app-config" class="com.typesafe.config.Config"/>
+    <bean id="appConfiguration" class="com.config.AppConfiguration"/>
 </beans>
 ```
 
 Example of bean configuration with dependencies (Setter Injection):
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans">
-
-    <bean id="grandmother" class="com.dulaj.stack.Grandmother">
-        <property name="father" ref="fatherBean"/>
+    <bean id="grandmaBean" class="com.family.Grandma">
+        <property name="fatherBean" ref="dadBean"/>
     </bean>
-
-    <bean id="fatherBean" class="com.dulaj.stack.FatherBean"/>
+    <bean id="dadBean" class="com.family.Dad"/>
 </beans>
 ```
