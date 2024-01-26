@@ -10,5 +10,5 @@ public interface TransactionService {
 
     TransactionDto createTransaction(TransactionDto transactionDto);
     List<TransactionDto> getTransactions(long id, LocalDateTime startDate, LocalDateTime endDate);
-
+    void storeTransactions();
 }

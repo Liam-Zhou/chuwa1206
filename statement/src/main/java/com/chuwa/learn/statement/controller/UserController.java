@@ -32,6 +32,7 @@ public class UserController {
     @GetMapping("/cookie_test")
     public  String cookieTest(HttpServletRequest request){
         Cookie[] cookies = request.getCookies();
+        log.info("Cookie Length {}", cookies.length);
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 log.info("Cookie Name: {}, Cookie Value: {}", cookie.getName(), cookie.getValue());

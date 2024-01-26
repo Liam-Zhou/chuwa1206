@@ -4,7 +4,9 @@ import com.chuwa.learn.statement.dao.TransactionRepository;
 import com.chuwa.learn.statement.entity.Transaction;
 import com.chuwa.learn.statement.payload.TransactionDto;
 import com.chuwa.learn.statement.service.TransactionService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -12,7 +14,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Slf4j
 @Service
 public class TransactionServiceImpl implements TransactionService {
     @Autowired
@@ -29,6 +31,13 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionRepository.findByAccountIdAndDateBetween(id,startDate,endDate)
                 .stream().map(this::entityToDto).collect(Collectors.toList());
     }
+
+    @Override
+    @Scheduled(cron = "0 0 0 15 * ?")
+    public void storeTransactions() {
+        log.info("transactions of this month:" );
+    }
+
 
     private TransactionDto entityToDto(Transaction transaction){
         TransactionDto transactionDto = new TransactionDto();
