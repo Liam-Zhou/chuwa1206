@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      uri: "mongodb+srv://kaikai981020:76hnKAvCrJgnpy1l@sdycluster.qbyqwn8.mongodb.net/?retryWrites=true&w=majority"
+      database: test
+server:
+  port: 8081
