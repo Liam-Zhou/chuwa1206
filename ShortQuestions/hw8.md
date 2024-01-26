@@ -157,7 +157,7 @@ public class Main {
 
 03_post_pageable and 04_comment:
 
-[link](https://github.com/Liam-Zhou/chuwa1206/tree/diana_men/hw8/CodingQuestions/hw8/springboot-redbook)
+[link](https://github.com/Liam-Zhou/chuwa1206/tree/diana_men/hw8/CodingQuestions/hw8/springboot-redbook/README.md)
 
 ### Question 16
 **Question**: Try to write the CRUD api for a new application Cassandra-Blog
