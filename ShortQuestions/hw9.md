@@ -109,3 +109,14 @@ Hibernate caching is a mechanism to reduce database access, improve application 
  
 - First-level cache is associated with the `Session` object and can't be disabled. Each session has its own first-level cache. 
 - Second-level cache is associated with the `SessionFactory` and is shared across sessions. It can be configured and disabled if needed.
+
+### Question 22: Understanding @Transactional
+#### How do you understand @Transactional? (https://github.com/TAIsRich/tutorial-transaction)
+
+`@Transactional` is an annotation used in Spring Framework to declare that a method or a class should be executed within a transactional context. When `@Transactional` is applied, the following behaviors are expected:
+- **Transaction Management:** Spring manages the beginning and the end of a transaction automatically. It starts a new transaction before the annotated method executes and commits the transaction after the method completes.
+- **Rollback Behavior:** If a runtime exception is thrown during the execution of the method, Spring marks the transaction for rollback. Optionally, the `rollbackFor` and `noRollbackFor` annotation attributes can be used to define specific exceptions for rollback behavior.
+- **Isolation Levels:** The annotation can specify the transaction isolation level, which defines how changes made by one transaction are visible to other transactions.
+- **Propagation Behavior:** It can also define the transaction propagation behavior, which determines how transactions relate to each other. For instance, whether a method should run within the scope of an existing transaction or start its own new transaction.
+
+The `@Transactional` annotation helps in maintaining the integrity of data and ensuring consistency by handling the transaction boundaries automatically, making it easier to manage complex database operations and reducing the amount of boilerplate code.
