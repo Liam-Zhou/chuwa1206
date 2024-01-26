@@ -152,17 +152,9 @@ The scope of a bean determines its lifecycle and visibility within the Spring ap
     }
     ```
 
-### 15. Configure a bean using xml. If a bean has parameters/dependencies, how can we configure the bean?
-Beans and their dependencies can be defined in the XML configuration. Here's how you can do it:
+### 15. Configure a bean using XML. If a bean has parameters/dependencies, how can we configure the bean? And show how these beans are used in application code.
 
-Example of a simple bean:
-```xml
-<beans xmlns="http://www.springframework.org/schema/beans">
-    <bean id="appConfiguration" class="com.config.AppConfiguration"/>
-</beans>
-```
-
-Example of bean configuration with dependencies (Setter Injection):
+XML Configuration:
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans">
     <bean id="grandmaBean" class="com.family.Grandma">
@@ -171,3 +163,57 @@ Example of bean configuration with dependencies (Setter Injection):
     <bean id="dadBean" class="com.family.Dad"/>
 </beans>
 ```
+
+Java classes for the beans:
+
+```java
+package com.family;
+
+public class Grandma {
+    private Dad fatherBean;
+
+    // Setter method for dependency injection
+    public void setFatherBean(Dad fatherBean) {
+        this.fatherBean = fatherBean;
+    }
+
+    public void tellStory() {
+        System.out.println("Grandma tells a story with " + fatherBean.toString());
+    }
+}
+```
+
+```java
+package com.family;
+
+public class Dad {
+    public Dad() {
+        // constructor
+    }
+
+    @Override
+    public String toString() {
+        return "Dad";
+    }
+}
+```
+
+Application Code:
+
+```java
+package com.family;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class FamilyApp {
+    public static void main(String[] args) {
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        Grandma grandma = context.getBean("grandmaBean", Grandma.class);
+        grandma.tellStory();
+    }
+}
+```
+
+In this example, the `Grandma` class has a dependency of type `Dad`, which is injected through the XML configuration. In the application code, we load the Spring `ApplicationContext`, retrieve `grandmaBean` from it, and then call the `tellStory` method on the `Grandma` object.
+
