@@ -200,6 +200,21 @@ Indicates that a class is a data repository.
 `@Transactional:`
 Specifies that a method is transactional.
 
+### Spring AOP
+`@Aspect:`
+`@Pointcut:`
+`@AfterThrowing:`
+`@Before:`
+`@Around:`
+`@After:`
+
+### Cron job related
+`@EnableScheduling:`
+Configure to enable the scheduling feature
+
+`@Scheduled:`
+Set a schedule by time or interval that the task should run
+
 ### Testing Annotations:
 `@SpringBootTest:`
 Used to specify the configuration of the ApplicationContext.
