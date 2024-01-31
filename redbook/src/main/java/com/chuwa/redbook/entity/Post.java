@@ -82,4 +82,5 @@ public class Post {
 
     @UpdateTimestamp
     private LocalDateTime updateDateTime;
+
 }
