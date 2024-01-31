@@ -7,6 +7,7 @@ import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDto;
 import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.service.PostService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,6 +19,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Autowired
     private PostRepository postRepository;
@@ -55,7 +59,11 @@ public class PostServiceImpl implements PostService {
 
         return tobeSaved;
     }
-
+    public List<PostDto> getAllPost() {
+        List<Post> posts = postRepository.findAll();
+        List<PostDto> postDtos = posts.stream().map(post -> modelMapper.map(post, PostDto.class)).collect(Collectors.toList());
+        return postDtos;
+    }
     @Override
     public PostResponse getAllPosts(int pageNo, int pageSize, String sortBy, String sortDir) {
         Sort sort = sortDir.equals(Sort.Direction.ASC.name()) ? Sort.by(sortBy).ascending()
