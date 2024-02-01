@@ -323,3 +323,60 @@ retrieves cookie with specified key
 ```
 @CookieValue(value = "prev") String prev
 ```
+
+# Annotations used by **testing**
+
+- @Mock
+
+Creates a fake instance to be injected into instance annotated by @InjectMocks. Has to have predefined actions.
+
+```
+@Mock
+private PostRepository postRepositoryMock;
+```
+
+- @Spy
+
+Creates a fake instance to be injected into instance annotated by @InjectMocks. If no actions defined, will call the actual method.
+
+```
+@Spy
+private ModelMapper modelMapper;
+```
+
+- @InjectMocks
+
+Can be injected by fake instances annotated by @Mock and @Spy
+
+```
+@InjectMocks
+private PostServiceImpl postService;
+```
+
+- @SpringBootTest
+
+Set up application testing context
+
+```
+@SpringBootTest
+class RedbookApplicationTests
+```
+
+- @ExtendWith
+
+Used to register extensions for annotated class, interface, method, field, and parameter
+
+```
+@ExtendWith(MockitoExtension.class)
+```
+
+- @BeforeAll, @BeforeEach, @Test, @AfterEach, @AfterAll
+
+Junit 5 lifecycle
+
+```
+@BeforeAll
+static void beforeAll() {
+    logger.info("START test");
+}
+```
