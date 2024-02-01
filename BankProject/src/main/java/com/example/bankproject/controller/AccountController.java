@@ -4,6 +4,7 @@ import com.example.bankproject.payload.AccountDto;
 import com.example.bankproject.service.AccountService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +33,7 @@ public class AccountController {
     }
 
     @PostMapping
-    public ResponseEntity<AccountDto> createAccount(@RequestBody AccountDto accountDto, HttpServletResponse response) {
+    public ResponseEntity<AccountDto> createAccount(@Valid @RequestBody AccountDto accountDto, HttpServletResponse response) {
         AccountDto createdAccount = accountService.createAccount(accountDto);
 
         // Create a new cookie

@@ -1,6 +1,9 @@
 package com.example.bankproject.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +24,8 @@ public class UserProfile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+    @NotBlank(message = "Name is required.")
+    @Size(min = 10, message = "The name should have at least 10 minutes.")
     private String name;
 
     @Column(name = "addr")
@@ -30,7 +34,7 @@ public class UserProfile {
     @Column(name = "phone", unique = true)
     private String phone;
 
-
+    @NotNull(message = "Email can not be null.")
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 

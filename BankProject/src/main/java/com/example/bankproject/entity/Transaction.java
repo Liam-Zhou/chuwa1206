@@ -19,6 +19,7 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     private Long accountId;
 
     @Column(name = "date", nullable = false)
