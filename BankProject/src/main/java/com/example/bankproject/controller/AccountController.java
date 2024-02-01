@@ -35,7 +35,6 @@ public class AccountController {
     @PostMapping
     public ResponseEntity<AccountDto> createAccount(@Valid @RequestBody AccountDto accountDto, HttpServletResponse response) {
         AccountDto createdAccount = accountService.createAccount(accountDto);
-
         // Create a new cookie
         Cookie cookie = new Cookie("accountInfo", "someValue");
         cookie.setPath("/");
