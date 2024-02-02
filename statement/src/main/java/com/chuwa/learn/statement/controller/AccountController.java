@@ -2,6 +2,7 @@ package com.chuwa.learn.statement.controller;
 
 import com.chuwa.learn.statement.payload.AccountDto;
 import com.chuwa.learn.statement.service.AccountService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,14 +14,14 @@ public class AccountController {
     @Autowired
     private AccountService accountService;
 
-    @PostMapping
-    public ResponseEntity<AccountDto> createAccount(@RequestBody AccountDto accountDto) {
+    @PostMapping(produces = "application/json", consumes = "application/json")
+    public ResponseEntity<AccountDto> createAccount(@Valid @RequestBody AccountDto accountDto) {
         AccountDto res = this.accountService.createAccount(accountDto);
         return new ResponseEntity<>(res, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<AccountDto> getAccount(@PathVariable long id){
+    @GetMapping(value = "/{id}", produces = "application/json")
+    public ResponseEntity<AccountDto> getAccount(@PathVariable long id) {
         return ResponseEntity.ok(this.accountService.getAccountById(id));
     }
 

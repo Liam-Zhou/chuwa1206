@@ -1,12 +1,20 @@
 package com.chuwa.learn.statement.payload;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 public class UserDto {
     private long id;
+    @NotEmpty
     private String name;
-
+    @NotEmpty
     private String addr;
-
+    @NotEmpty
+    @Size(min = 10,message = "phone number must be 10 digits")
     private String phone;
+    @NotEmpty
+    @Email(message = "Please provide a valid email address")
     private String email;
 
     public UserDto() {
