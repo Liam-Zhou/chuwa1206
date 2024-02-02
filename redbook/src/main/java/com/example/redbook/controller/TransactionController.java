@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 
+//@Tag(name = "Transaction", description = "CRUD REST AIPs for Transaction resources")
 @RestController
 @RequestMapping("/api/v1/")
 public class TransactionController {
@@ -18,6 +19,7 @@ public class TransactionController {
     @Autowired
     private TransactionService transactionService;
 
+//    @ApiOperation(value = "Seach Transaction REST API")
     @GetMapping("{userId}/transactions")
     public ResponseEntity<UserTransactionDto> getTransactionsById(
             @PathVariable(value = "userId") Long userId,
