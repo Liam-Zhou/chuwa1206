@@ -1,19 +1,23 @@
 package com.chuwa.redbook.payload;
 
+import java.util.Optional;
+
 public class PostDto {
     private Long id;
     private String title;
     private String description;
     private String content;
+    private Long authorId;
 
     public PostDto() {
     }
 
-    public PostDto(Long id, String title, String description, String content) {
+    public PostDto(Long id, String title, String description, String content, Long authorId) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.content = content;
+        this.authorId = authorId;
     }
 
     public Long getId() { return id; }
@@ -46,5 +50,10 @@ public class PostDto {
         this.content = content;
     }
 
+    public Optional<Long> getAuthorId() { return Optional.ofNullable(authorId); }
+
+    public void setAuthorId(Long authorId) {
+        this.authorId = authorId;
+    }
 
 }

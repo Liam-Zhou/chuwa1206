@@ -5,13 +5,14 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Entity
 @Table(
-        name = "posts",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"title"})
-        }
+        name = "posts"
+//        uniqueConstraints = {
+//                @UniqueConstraint(columnNames = {"title"})
+//        }
 )
 public class Post {
     public Long getId() {
@@ -61,6 +62,11 @@ public class Post {
     public void setUpdateDateTime(LocalDateTime updateDateTime) {
         this.updateDateTime = updateDateTime;
     }
+
+    public Optional<Author> getAuthor() { return Optional.ofNullable(author); }
+
+    public void setAuthor(Author author) { this.author = author; }
+
 
     @Id
     @GeneratedValue(
