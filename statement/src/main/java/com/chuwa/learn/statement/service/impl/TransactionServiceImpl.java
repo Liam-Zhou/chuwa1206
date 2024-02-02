@@ -32,11 +32,7 @@ public class TransactionServiceImpl implements TransactionService {
                 .stream().map(this::entityToDto).collect(Collectors.toList());
     }
 
-    @Override
-    @Scheduled(cron = "0 0 0 15 * ?")
-    public void storeTransactions() {
-        log.info("transactions of this month:" );
-    }
+
 
 
     private TransactionDto entityToDto(Transaction transaction){
