@@ -70,6 +70,25 @@ public class Post {
         return createDateTime;
     }
 
+    public Post() {
+    }
+
+    public Post(long id, String title, String description, String content, LocalDateTime createDateTime, LocalDateTime updateDateTime) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.content = content;
+        this.createDateTime = createDateTime;
+        this.updateDateTime = updateDateTime;
+    }
+
+    public Post(long id, String title, String description, String content) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.content = content;
+    }
+
     public void setCreateDateTime(LocalDateTime createDateTime) {
         this.createDateTime = createDateTime;
     }
