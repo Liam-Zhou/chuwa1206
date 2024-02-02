@@ -2,7 +2,15 @@ package com.example.bankstatement.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +26,10 @@ import java.util.Set;
                 @UniqueConstraint(columnNames = {"routing_number"})
         }
 )
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Account {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,9 +37,6 @@ public class Account {
 
         @Column(name="account_id", nullable = false)
         private Long accountID;
-
-//        @Column(name="user_id", nullable = false)
-//        private Long userId;
 
         @Column(name = "routing_number", nullable = false)
         private Long routingNumber;
@@ -42,54 +51,10 @@ public class Account {
         @JoinColumn(name = "user_id", nullable = false)
         private UserProfile user;
 
-        public Account() {
-        }
+        @CreationTimestamp
+        private LocalDateTime createDateTime;
 
-        public Long getId() {
-                return id;
-        }
+        @UpdateTimestamp
+        private LocalDateTime updateDateTime;
 
-        public void setId(Long id) {
-                this.id = id;
-        }
-
-        public Long getAccountID() {
-                return accountID;
-        }
-
-        public void setAccountID(Long accountID) {
-                this.accountID = accountID;
-        }
-
-        public Long getRoutingNumber() {
-                return routingNumber;
-        }
-
-        public void setRoutingNumber(Long routingNumber) {
-                this.routingNumber = routingNumber;
-        }
-
-        public Long getAccountNumber() {
-                return accountNumber;
-        }
-
-        public void setAccountNumber(Long accountNumber) {
-                this.accountNumber = accountNumber;
-        }
-
-        public Set<Txn> getTxns() {
-                return txns;
-        }
-
-        public void setTxns(Set<Txn> txns) {
-                this.txns = txns;
-        }
-
-        public UserProfile getUser() {
-                return user;
-        }
-
-        public void setUser(UserProfile user) {
-                this.user = user;
-        }
 }

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -13,9 +14,13 @@ import java.util.Set;
  */
 @Repository
 public interface TxnRepo extends JpaRepository<Txn, Long> {
-    Set<Txn> findAllByAccountAccountIDOrderByCreateDateTimeDesc(Long accountId);
+    List<Txn> findAllByAccountAccountIDAndCreateDateTimeBetweenOrderByCreateDateTimeDesc(
+            Long accountId,
+            LocalDateTime startDateTime,
+            LocalDateTime endDateTime
+    );
 
-    Set<Txn> findAllByAccount_AccountIDAndCreateDateTimeBetweenOrderByCreateDateTimeDesc(
+    List<Txn> findAllByAccount_AccountIDAndCreateDateTimeBetweenOrderByCreateDateTimeDesc(
         Long accountId,
         LocalDateTime startDateTime,
         LocalDateTime endDateTime

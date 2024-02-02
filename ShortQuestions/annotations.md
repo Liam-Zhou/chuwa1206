@@ -140,3 +140,99 @@ public class User{
 ```
 
 ##### @Transactional, @EnableTransactionManagement
+
+
+
+## AOP
+
+##### @Aspect
+
+##### @Pointcut
+
+a collection to a var/name
+
+name: applicationPackagePointcut
+
+```java
+@Pointcut("within(com.chuwa.redbook.security..*) || within(com.chuwa.redbook.service..*)")
+public void applicationPackagePointcut(){
+    
+}
+```
+
+##### @AfterThrowing
+
+给一些建议
+
+```java
+@AfterThrowing(pointcut = "applicationPackagePointcut()", throwing = "e")
+public void logAfterThrowing(JoinPoint joinPoint, Throwable e){
+    log.error()
+}
+```
+
+@Afterthrowing vs ControllerAdvice&@ExceptionHandler
+
+
+
+## Test
+
+##### @Test
+
+```java
+@Test
+    void testCreateUserProfile() {
+        when(userProfileRepo.save(any(UserProfile.class))).thenReturn(userProfile);
+
+        UserProfileDto result = userProfileService.createUserProfile(userProfileDto);
+
+        assertNotNull(result);
+        assertEquals(userProfile.getName(), result.getName());
+        verify(userProfileRepo).save(any(UserProfile.class));
+    }
+```
+
+
+
+##### @Mock
+
+##### @Spy
+
+##### @InjectMocck
+
+```java
+class UserProfileServiceImplTest {
+    @Mock
+    private UserProfileRepo userProfileRepo;
+
+    @Spy
+    private ModelMapper modelMapper;
+
+    @InjectMocks
+    private UserProfileServiceImpl userProfileService;
+}
+```
+
+
+
+##### @ExtendWith
+
+```java
+@ExtendWith(MockitoExtension.class)
+class UserProfileServiceImplTest {}
+```
+
+##### @BeforeEach
+
+```java
+class UserProfileServiceImplTest {
+    @BeforeEach
+    void setUp(){
+        logger.info("set up account for each test");
+        this.userProfile = new UserProfile(1L,"abc","efg","757123456","abc@gmail.com", LocalDateTime.now(),LocalDateTime.now());
+        this.userProfileDto = modelMapper.map(userProfile,UserProfileDto.class);
+        logger.info("successful setup");
+    }
+}
+```
+
