@@ -1,0 +1,18 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Configure MyDataSource bean with constructor injection -->
+    <bean id="myDataSource" class="com.example.MyDataSource">
+        <constructor-arg value="jdbc:mysql://localhost:3306/mydb"/>
+        <constructor-arg value="user123"/>
+        <constructor-arg value="password123"/>
+    </bean>
+
+    <!-- Configure MyService bean with dependency on MyDataSource -->
+    <bean id="myService" class="com.example.MyService">
+        <constructor-arg ref="myDataSource"/>
+    </bean>
+
+</beans>
