@@ -10,29 +10,29 @@ public class ResourceNotFoundException extends RuntimeException {
 
     private String fieldName;
 
-//    public String getResouceName() {
-//        return resouceName;
-//    }
-//
-//    public void setResouceName(String resouceName) {
-//        this.resouceName = resouceName;
-//    }
-//
-//    public String getFieldName() {
-//        return fieldName;
-//    }
-//
-//    public void setFieldName(String fieldName) {
-//        this.fieldName = fieldName;
-//    }
-//
-//    public long getFieldValue() {
-//        return fieldValue;
-//    }
-//
-//    public void setFieldValue(long fieldValue) {
-//        this.fieldValue = fieldValue;
-//    }
+    public String getResouceName() {
+        return resouceName;
+    }
+
+    public void setResouceName(String resouceName) {
+        this.resouceName = resouceName;
+    }
+
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
+
+    public long getFieldValue() {
+        return fieldValue;
+    }
+
+    public void setFieldValue(long fieldValue) {
+        this.fieldValue = fieldValue;
+    }
 
     private long fieldValue;
 
