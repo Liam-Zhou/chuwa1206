@@ -1,0 +1,6 @@
+1. `@ExtendWith`: Used to specify custom extensions that should be used to extend the behavior of test classes. In the context of Spring Boot, often used with `SpringExtension.class` to integrate Spring TestContext Framework into JUnit 5 tests.
+2. `@Mock`: Used to create a mock object for the annotated field. Primarily used in unit testing to isolate the class under test by replacing its dependencies with mocks.
+3. `@InjectMocks`: Automatically injects mock or spy fields annotated with `@Mock` or `@Spy` into the tested object. It's useful for injecting mock dependencies into the class under test without manually doing so in the test setup.
+4. `@BeforeAll`: Marks a static method to be run before all tests in the current test class. It's typically used for setup operations that are expensive and can be shared by all tests.
+5. `@BeforeEach`: Marks a method to be run before each test in the test class. It's useful for setting up test data and test environment before each individual test method.
+6. `@Test`: Indicates that the annotated method is a test method. This annotation is part of JUnit and is used to denote methods that contain test code.
