@@ -4,7 +4,7 @@ package org.chuwa.bankstatement.aop;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.URLUtil;
 import cn.hutool.json.JSONUtil;
-import io.swagger.annotations.ApiOperation;
+//import io.swagger.annotations.ApiOperation;
 import net.logstash.logback.marker.Markers;
 import jakarta.servlet.http.HttpServletRequest;
 import net.logstash.logback.util.StringUtils;
@@ -61,10 +61,10 @@ public class WebLogAspect {
         Signature signature = joinPoint.getSignature();
         MethodSignature methodSignature = (MethodSignature) signature;
         Method method = methodSignature.getMethod();
-        if (method.isAnnotationPresent(ApiOperation.class)) {
-            ApiOperation log = method.getAnnotation(ApiOperation.class);
-            webLog.setDescription(log.value());
-        }
+//        if (method.isAnnotationPresent(ApiOperation.class)) {
+//            ApiOperation log = method.getAnnotation(ApiOperation.class);
+//            webLog.setDescription(log.value());
+//        }
         long endTime = System.currentTimeMillis();
         String urlStr = request.getRequestURL().toString();
         webLog.setBasePath(StrUtil.removeSuffix(urlStr, URLUtil.url(urlStr).getPath()));
