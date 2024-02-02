@@ -114,3 +114,24 @@
 ### `@RequestBody`
 
 `@RequestBody` 是 Spring 框架中的一个注解，用于处理 HTTP 请求的正文内容。当您创建一个 RESTful Web 服务时，这个注解非常有用。它告诉 Spring 框架，方法参数应该被绑定到 HTTP 请求体中。我将通过一个简单的例子来解释它的作用。
+
+
+
+
+
+### @bean
+
+
+
+
+
+### @configuration
+
+
+
+### @primary
+
+
+
+### @qulifier
+
