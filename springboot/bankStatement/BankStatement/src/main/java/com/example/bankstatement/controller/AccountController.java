@@ -52,7 +52,7 @@ public class AccountController {
         return new ResponseEntity<>(accountService.updateAccountByUserIdAccountId(userId, accountId, accountDto),HttpStatus.OK);
     }
 
-    @DeleteMapping()
+    @DeleteMapping("/users/{userId}/accounts/{accountId}")
     public ResponseEntity<String> deleteAccountByUserIdAccountId(@PathVariable(value = "userId") Long userId,
                                                                  @PathVariable(value = "accountId") Long accountId){
         accountService.deleteAccountByUserIdAccountId(userId, accountId);

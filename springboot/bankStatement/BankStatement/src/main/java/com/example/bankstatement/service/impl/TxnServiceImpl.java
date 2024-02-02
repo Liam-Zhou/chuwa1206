@@ -59,8 +59,7 @@ public class TxnServiceImpl implements TxnService {
 
     @Override
     public TxnResponsePageable getAllPost(int pageNo, int pageSize, String sortBy, String sortDir) {
-        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortBy).ascending()
-                : Sort.by(sortBy).descending();
+        Sort sort = Sort.by(sortBy).ascending();
         PageRequest pageRequest = PageRequest.of(pageNo, pageSize, sort);
         Page<Txn> pagePosts = txnRepo.findAll(pageRequest);
         List<Txn> txns = pagePosts.getContent();
