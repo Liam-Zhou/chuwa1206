@@ -204,11 +204,30 @@ Specifies that a method is transactional.
 `@SpringBootTest:`
 Used to specify the configuration of the ApplicationContext.
 
-`@RunWith(SpringRunner.class):`
-Indicates that a JUnit class should use Spring's JUnit runner when running tests.
+`Mock:`
+Create a mock object
 
-`@MockBean:`
-Mocks a bean in the Spring context.
+`MockInject:`
+Inject mocked dependencies into the target object in Mockito
+
+`@Spy:`
+Used to create a spy object in Mockito. A spy is a partial mock that allows real methods of the object to be called
+
+`@BeforeAll:`
+Class level set up
+
+`@BeforeEach:`
+Set up
+
+`@Test:`
+Define execution of tests
+
+`@AfterEach:`
+Clean up
+
+`@AfterAll:`
+Class level clean up
+
 
 ### Others:
 `@Value:`
