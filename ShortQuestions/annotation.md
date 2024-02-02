@@ -244,6 +244,20 @@ Clean up
 Class level clean up
 
 
+### Web request and response
+`@CookieValue:`
+Extract cookie values in a controller method
+```Java
+@GetMapping("/example")
+    public String exampleCookie(@CookieValue(name = "yourCookieName", defaultValue = "defaultValue") String cookieValue) {
+        // Your logic using the cookie value
+        System.out.println("Cookie Value: " + cookieValue);
+
+        // Rest of your code...
+        return "yourView";
+    }
+```
+
 ### Others:
 `@Value:`
 Injects values from application properties into a Spring bean.
