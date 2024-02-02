@@ -2,6 +2,7 @@ package com.example.redbook.payload.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 public class PostDto {
 
