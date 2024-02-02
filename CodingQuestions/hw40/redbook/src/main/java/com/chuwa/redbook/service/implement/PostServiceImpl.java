@@ -1,16 +1,17 @@
-package com.chuwa.redbook.service;
+package com.chuwa.redbook.service.implement;
 
 import com.chuwa.redbook.dao.PostRepository;
 import com.chuwa.redbook.entity.Post;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDto;
+import com.chuwa.redbook.service.PostService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class PostServiceImpl implements PostService{
+public class PostServiceImpl implements PostService {
     private PostRepository postRepository;
 
     public PostServiceImpl(PostRepository postRepository) {

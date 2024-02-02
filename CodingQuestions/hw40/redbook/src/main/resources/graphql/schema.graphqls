@@ -5,12 +5,24 @@ type Post{
     description:String
 }
 
+type Author{
+    id:ID
+    name:String
+    age:Int
+}
 type Query{
     getPostById(id:ID): Post
     getAllPost: [Post]
+
+    findAuthorById(id:ID): Author
+    findAllAuthor: [Author]
 }
 
 type Mutation{
     createPost(title:String!, description:String!, content:String!):Post
     removePostById(id:ID):String
+
+    createAuthor(name:String,age:Int):Author
+    deleteAuthorById(id:ID!): String
+    updateAuthor(id:ID!,name:String, age:Int): Author
 }
