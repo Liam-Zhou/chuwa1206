@@ -31,15 +31,6 @@ public class AccountImpl implements AccountService {
         return res;
     }
 
-    @Override
-    public AccountDto updateAccount(long id, AccountDto accountDto) {
-        return null;
-    }
-
-    @Override
-    public AccountDto deleteAccount(long id) {
-        return null;
-    }
 
     @Override
     public List<AccountDto> findAccountsByUserId(long id) {

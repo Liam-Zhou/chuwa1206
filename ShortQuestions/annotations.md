@@ -354,3 +354,41 @@ public class YourApplication {
 ## @Qualifier("hibernateChuwa")
 
 > The `@Qualifier` annotation in Spring is used to disambiguate between multiple beans of the same type when injecting dependencies.
+
+
+
+# AOP
+
+## @Aspect
+
+> The `@Aspect` annotation is used to declare a class as an aspect in Spring AOP.
+>
+> - An aspect is a module containing advice, pointcuts, and inter-type declarations.
+> - Advice is the action taken by an aspect at a particular join point.
+> - Pointcuts define a set of join points where advice should be applied.
+>
+> The `@Aspect` annotation is often used in conjunction with other annotations like `@Before`, `@After`, etc., to define the actual advice.
+
+
+
+## @Order
+
+>- The `@Order` annotation is used to specify the execution order of an aspect when multiple aspects are applied.
+>- Aspects with a lower `order` value are executed before aspects with a higher `order` value.
+>- This is useful when you have multiple aspects, and you want to control the order in which they are applied.
+
+# Lambook
+
+## @Date
+
+> The `@Data` annotation is part of the Lombok library. It automatically generates standard boilerplate code for Java data objects, including getters, setters, `equals`, `hashCode`, and `toString` methods.
+
+
+
+## **@EqualsAndHashCode(callSuper = false)**
+
+> It generates `equals` and `hashCode` methods based on the fields of the class.
+>
+> The `callSuper = false` parameter indicates that the generated `equals` and `hashCode` methods should not include fields from the superclass (if there is one).
+>
+> In this specific class, there is no superclass (`extends`), so it's not strictly necessary, but it's a common practice to include it for consistency.

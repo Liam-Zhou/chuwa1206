@@ -10,8 +10,6 @@ import java.util.List;
 
 public interface TransactionService {
     TransactionDto createTransaction(TransactionDto transactionDto);
-    TransactionDto updateTransaction(TransactionDto transactionDto, long id);
-    TransactionDto deleteTransaction(long id);
 
     List<TransactionDto> getTransactionByAccountIdAndTimeRange(long accountId, LocalDateTime a, LocalDateTime b);
 

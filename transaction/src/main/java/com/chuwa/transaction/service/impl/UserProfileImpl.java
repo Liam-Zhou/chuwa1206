@@ -53,6 +53,7 @@ public class UserProfileImpl implements UserProfileService {
 
     @Override
     public void deleteUserProfileById(long id) {
+
         this.userProfileRepository.deleteById(id);
     }
 

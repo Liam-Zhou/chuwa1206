@@ -5,5 +5,5 @@ import com.chuwa.transaction.vo.BankStatementVo;
 import jakarta.servlet.http.HttpServletResponse;
 
 public interface PdfService {
-    void generatePdf(BankStatementDto bankStatementDto, BankStatementVo bankStatementVo, HttpServletResponse response);
+    byte[] generatePdf(BankStatementDto bankStatementDto, BankStatementVo bankStatementVo);
 }

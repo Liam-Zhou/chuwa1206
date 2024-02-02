@@ -30,6 +30,7 @@ public class TransactionImpl implements TransactionService {
     private TransactionDto convertEntityToDto(Transaction save) {
         TransactionDto response = new TransactionDto();
         response.setTransactionId(save.getId());
+        response.setAccountId(save.getAccountId());
         response.setAmount(save.getAmount());
         response.setDescription(save.getDescription());
         response.setCreateDateTime(save.getCreateDateTime());
@@ -38,21 +39,14 @@ public class TransactionImpl implements TransactionService {
 
     private Transaction convertDtoToEntity(TransactionDto transactionDto) {
         Transaction toBeSaved = new Transaction();
+        toBeSaved.setId(transactionDto.getTransactionId());
         toBeSaved.setAmount(transactionDto.getAmount());
         toBeSaved.setAccountId(transactionDto.getAccountId());
         toBeSaved.setDescription(transactionDto.getDescription());
         return toBeSaved;
     }
 
-    @Override
-    public TransactionDto updateTransaction(TransactionDto transactionDto, long id) {
-        return null;
-    }
 
-    @Override
-    public TransactionDto deleteTransaction(long id) {
-        return null;
-    }
 
     @Override
     public List<TransactionDto> getTransactionByAccountIdAndTimeRange(long accountId, LocalDateTime a, LocalDateTime b) {

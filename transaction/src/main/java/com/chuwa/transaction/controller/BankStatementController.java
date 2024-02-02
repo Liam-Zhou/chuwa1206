@@ -4,20 +4,19 @@ import com.chuwa.transaction.payload.BankStatementDto;
 import com.chuwa.transaction.service.BankstatementService;
 import com.chuwa.transaction.service.PdfService;
 import com.chuwa.transaction.vo.BankStatementVo;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 @Controller
 @RequestMapping("api/v1/bankstatement")
 public class BankStatementController {
+    private static final Logger logger = LoggerFactory.getLogger(BankStatementController.class);
     private final BankstatementService bankstatementService;
     private final PdfService pdfService;
 
@@ -36,18 +35,24 @@ public class BankStatementController {
         return ResponseEntity.ok(bankStatementDto);
     }
 
-    @PostMapping("/pdf/generate")
-    public void generatePDF(@RequestBody @Valid BankStatementVo bankStatementVo, HttpServletResponse response) {
-        BankStatementDto bankStatementDto = bankstatementService.createBankstatement(bankStatementVo.getUserId(),bankStatementVo.getMonth());
-        response.setContentType("application/pdf");
-        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd:hh:mm:ss");
-        String currentDateTime = dateFormatter.format(new Date());
+    @PostMapping(value = "/pdf/generate", produces = MediaType.APPLICATION_PDF_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<byte[]> generatePDF(@RequestBody @Valid BankStatementVo bankStatementVo) {
+        try {
+            logger.info("Request received to generate PDF for BankStatement: {}", bankStatementVo);
 
-        String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=pdf_" + currentDateTime + ".pdf";
-        response.setHeader(headerKey, headerValue);
-        this.pdfService.generatePdf(bankStatementDto,bankStatementVo, response);
+            // Create BankStatementDto
+            BankStatementDto bankStatementDto = bankstatementService.createBankstatement(bankStatementVo.getUserId(), bankStatementVo.getMonth());
 
+            // Generate PDF
+            logger.info("Generating PDF for BankStatement: {}", bankStatementDto);
+            byte[] pdf = this.pdfService.generatePdf(bankStatementDto, bankStatementVo);
+            logger.info("PDF generation completed for BankStatement: {}", bankStatementDto);
+
+            return ResponseEntity.ok().body(pdf);
+        } catch (Exception e) {
+            logger.error("Error generating PDF for BankStatement: {}", bankStatementVo, e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
 
     }
 

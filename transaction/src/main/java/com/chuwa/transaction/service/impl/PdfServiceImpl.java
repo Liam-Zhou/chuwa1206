@@ -17,11 +17,12 @@ import java.util.Map;
 @Service
 public class PdfServiceImpl implements PdfService {
     @Override
-    public void generatePdf(BankStatementDto bankStatementDto, BankStatementVo bankStatementVo, HttpServletResponse response) {
+    public byte[] generatePdf(BankStatementDto bankStatementDto, BankStatementVo bankStatementVo) {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        Document document = new Document(PageSize.A4);
         try {
-            Document document = new Document(PageSize.A4);
-            PdfWriter.getInstance(document, response.getOutputStream());
+
+            PdfWriter.getInstance(document, outputStream);
             document.open();
 
             Font fontTitle = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
@@ -51,8 +52,13 @@ public class PdfServiceImpl implements PdfService {
                 }
             }
             document.close();
+            return outputStream.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
+        } finally {
+            // 这里是额外加一个，不可以直接移动过来
+            document.close();
         }
 
     }
