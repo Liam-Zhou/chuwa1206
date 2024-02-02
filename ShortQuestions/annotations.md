@@ -2,197 +2,381 @@
    1. File name: **annotations.md**
    2. you'd better also list a **code example** under the annotations.
 
-- Annotations used by **entity**
+# Annotations used by **entity**
 
-  - @Entity
+- @Entity
 
-  Used at a class level and mark the POJO class as a persistent entity that can be stored in tables in a database
+Used at a class level and mark the POJO class as a persistent entity that can be stored in tables in a database
 
-  ```
-   @Entity
-   public class Post
-  ```
+```
+ @Entity
+ public class Post
+```
 
-  - @Table
+- @Table
 
-  Used to specify the table used to persist the data in the database
+Used to specify the table used to persist the data in the database
 
-  ```
-  @Table(
-        name = "posts"
-  )
-  ```
+```
+@Table(
+      name = "posts"
+)
+```
 
-  - @UniqueConstraint
+- @UniqueConstraint
 
-  Used to annotate multiple unique keys in the table level
+Used to annotate multiple unique keys in the table level
 
-  ```
-  @UniqueConstraint(columnNames = {"title"})
-  ```
+```
+@UniqueConstraint(columnNames = {"title"})
+```
 
-  - @Id
+- @Id
 
-  Used to denote the primary key column
+Used to denote the primary key column
 
-  ```
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
-  ```
+```
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private long id;
+```
 
-  - @GeneratedValue
+- @GeneratedValue
 
-  Used to specify the primary key generation strategy
+Used to specify the primary key generation strategy
 
-  ```
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  ```
+```
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+```
 
-  - @Column
+- @Column
 
-  Used to customize the mapping between entity field and database column
+Used to customize the mapping between entity field and database column
 
-  ```
-   @Column(name = "title", nullable = false)
-   private String title;
-  ```
+```
+ @Column(name = "title", nullable = false)
+ private String title;
+```
 
-  - @CreationTimestamp
+- @CreationTimestamp
 
-  Used to track creation time of the record and persist into the database
+Used to track creation time of the record and persist into the database
 
-  ```
-   @CreationTimestamp
-   private LocalDateTime createDateTime;
-  ```
+```
+ @CreationTimestamp
+ private LocalDateTime createDateTime;
+```
 
-  - @UpdateTimestamp
+- @UpdateTimestamp
 
-  ```
-   @UpdateTimestamp
-   private LocalDateTime updateDateTime;
-  ```
+```
+ @UpdateTimestamp
+ private LocalDateTime updateDateTime;
+```
 
-  Used to track latest update time of the record and persist into the database
+Used to track latest update time of the record and persist into the database
 
-  - @NamedQuery
+- @NamedQuery
 
-  Creates a JPQL statement in the entity class that can be used by the EntityManager in repository to query data from database.
+Creates a JPQL statement in the entity class that can be used by the EntityManager in repository to query data from database.
 
-  ```
-    @NamedQuery(name="Post.getAll", query="select p from Post p")
-  ```
+```
+  @NamedQuery(name="Post.getAll", query="select p from Post p")
+```
 
-- Annotations used by **controller**
+# Annotations used by **controller**
 
-  - @RestController
+- @RestController
 
-  @Controller + @ResponseBody, used to create RESTful web services using Spring MVC
+@Controller + @ResponseBody, used to create RESTful web services using Spring MVC
 
-  ```
-  @RestController
-  @RequestMapping("/api/v1/posts")
-  public class PostController
-  ```
+```
+@RestController
+@RequestMapping("/api/v1/posts")
+public class PostController
+```
 
-  - @RequestMapping
+- @RequestMapping
 
-  Maps requests to controller methods
+Maps requests to controller methods
 
-  ```
-  @RestController
-  @RequestMapping("/api/v1/posts")
-  public class PostController
-  ```
+```
+@RestController
+@RequestMapping("/api/v1/posts")
+public class PostController
+```
 
-  - @Autowired
+- @PostMapping (@GetMapping, @PutMapping, @DeleteMapping)
 
-  Used to inject Beans into Beans
+Maps URLs to handlers that receive and process data submitted through POST requests
 
-  ```
-  @Autowired
-  private PostService postService;
-  ```
+```
+@PostMapping
+public ResponseEntity<PostDto> createPost(@RequestBody PostDto postDto) {}
+```
 
-  - @PostMapping (@GetMapping, @PutMapping, @DeleteMapping)
+- @Service
 
-  Maps URLs to handlers that receive and process data submitted through POST requests
+A version of @Component to denote a service class
 
-  ```
-  @PostMapping
-  public ResponseEntity<PostDto> createPost(@RequestBody PostDto postDto) {}
-  ```
+```
+@Service
+public class PostServiceImpl implements PostService {}
+```
 
-  - @Service
+- @RequestBody
 
-  A version of @Component to denote a service class
+Captures the request body and convert it to DTO
 
-  ```
-  @Service
-  public class PostServiceImpl implements PostService {}
-  ```
+```
+public ResponseEntity<PostDto> createPost(@RequestBody PostDto postDto)
+```
 
-  - @RequestBody
+- @RequestParam
 
-  Captures the request body and convert it to DTO
+maps request parameters to controller parameters
 
-  ```
-  public ResponseEntity<PostDto> createPost(@RequestBody PostDto postDto)
-  ```
+```
+@RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo
+```
 
-  - @RequestParam
+- @PathVariable
 
-  maps request parameters to controller parameters
+maps path variables to controller parameters
 
-  ```
-  @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo
-  ```
+```
+public ResponseEntity<PostDto> getPostById(@PathVariable(name = "id") long id)
+```
 
-  - @PathVariable
+# Annotations used by **repository**
 
-  maps path variables to controller parameters
+- @Transactional
 
-  ```
-  public ResponseEntity<PostDto> getPostById(@PathVariable(name = "id") long id)
-  ```
+Used to mark a class or a method. Any database operation performed within the class or method marked as transactional will be performed within a transaction.
 
-- Annotations used by **repository**
+```
+@Transactional
+public class PostJPQLRepositoryImpl implements PostJPQLRepository
+```
 
-  - @Transactional
+- @PersistenceContext
 
-  Used to mark a class or a method. Any database operation performed within the class or method marked as transactional will be performed within a transaction.
+Used to inject EntityManager.
 
-  ```
-  @Transactional
-  public class PostJPQLRepositoryImpl implements PostJPQLRepository
-  ```
+```
+@PersistenceContext
+EntityManager entityManager;
+```
 
-  - @PersistenceContext
+- @Query
 
-  Used to inject EntityManager.
+Used in Spring JPA to define customized JPQL and SQL queries.
 
-  ```
-  @PersistenceContext
-  EntityManager entityManager;
-  ```
+```
+@Query("select p from Post p where p.id = :key or p.title = :title")
+Post getPostByIDOrTitleWithJPQLNamedParameters(@Param("key") Long id,
+                                                @Param("title") String title);
+```
 
-  - @Query
+- @Param
 
-  Used in Spring JPA to define customized JPQL and SQL queries.
+Maps input parameters to named placeholders in the query above.
 
-  ```
-  @Query("select p from Post p where p.id = :key or p.title = :title")
-  Post getPostByIDOrTitleWithJPQLNamedParameters(@Param("key") Long id,
-                                                  @Param("title") String title);
-  ```
+```
+@Query("select p from Post p where p.id = :key or p.title = :title")
+Post getPostByIDOrTitleWithJPQLNamedParameters(@Param("key") Long id,
+                                                @Param("title") String title);
+```
 
-  - @Param
+# Annotations used by **dependency injection**
 
-  Maps input parameters to named placeholders in the query above.
+- @Autowired
+- @Resource
+- @Inject
 
-  ```
-  @Query("select p from Post p where p.id = :key or p.title = :title")
-  Post getPostByIDOrTitleWithJPQLNamedParameters(@Param("key") Long id,
-                                                  @Param("title") String title);
-  ```
+Used to inject Beans into Beans
+
+```
+@Autowired
+private PostService postService;
+```
+
+- @Component
+
+Allows Spring to detect our custom beans to inject into the framework
+
+```
+@Component
+public class ComponentExample {
+}
+```
+
+- @Service
+
+A component annotation that marks the current class being service component
+
+```
+@Service
+public class PostService {
+}
+```
+
+- @Repository
+
+A component annotation that marks the current class being persistance component, acting as database
+
+```
+@Repository
+public interface PostRepository extends JpaRepository {
+}
+```
+
+- @Controller
+
+A component annotation that marks the current class being Controller component
+
+```
+@Controller
+public class ControllerExample {
+}
+```
+
+- @ControllerAdvice
+
+Allows handling exceptions across the whole application in one global handling component
+
+```
+@ControllerAdvice
+public class GlobalExceptionHandler
+```
+
+- @Bean
+
+Applied on a method to specify that it returns a bean to be managed by the Spring context
+
+```
+@Bean
+public ModelMapper modelMapper() {
+    return new ModelMapper();
+}
+```
+
+- @ComponentScan
+
+Used by Spring framework for auto-detecting and registering spring-managed components within a specified package or a set of packages.
+
+```
+@Configuration
+@ComponentScan
+public class SpringComponentScanApp
+```
+
+- @SpringBootApplication
+
+Combination of @Configuration, @EnableAutoConfiguration, and @ComponentScan
+
+```
+@SpringBootApplication
+public class BankStatementApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(BankStatementApplication.class, args);
+	}
+}
+```
+
+- @Configuration
+
+declares a class as the source for bean definitions
+
+```
+@Configuration
+public class Configuration {
+}
+```
+
+- @Primary
+
+indicates that a bean should be given preference when multiple beans are candidates to be autowired to a single-valued dependency
+
+```
+@Bean
+@Primary
+public MovieCatalog firstMovieCatalog() { ... }
+```
+
+- @Qualifier
+
+to resolve the ambiguity by specifying which bean should be autowired when there are multiple beans of the same type
+
+```
+@Autowired
+@Qualifier("fooFormatter")
+private Formatter formatter;
+```
+
+# Annotations used by **cookie**
+
+- @CookieValue
+
+retrieves cookie with specified key
+
+```
+@CookieValue(value = "prev") String prev
+```
+
+# Annotations used by **testing**
+
+- @Mock
+
+Creates a fake instance to be injected into instance annotated by @InjectMocks. Has to have predefined actions.
+
+```
+@Mock
+private PostRepository postRepositoryMock;
+```
+
+- @Spy
+
+Creates a fake instance to be injected into instance annotated by @InjectMocks. If no actions defined, will call the actual method.
+
+```
+@Spy
+private ModelMapper modelMapper;
+```
+
+- @InjectMocks
+
+Can be injected by fake instances annotated by @Mock and @Spy
+
+```
+@InjectMocks
+private PostServiceImpl postService;
+```
+
+- @SpringBootTest
+
+Set up application testing context
+
+```
+@SpringBootTest
+class RedbookApplicationTests
+```
+
+- @ExtendWith
+
+Used to register extensions for annotated class, interface, method, field, and parameter
+
+```
+@ExtendWith(MockitoExtension.class)
+```
+
+- @BeforeAll, @BeforeEach, @Test, @AfterEach, @AfterAll
+
+Junit 5 lifecycle
+
+```
+@BeforeAll
+static void beforeAll() {
+    logger.info("START test");
+}
+```
