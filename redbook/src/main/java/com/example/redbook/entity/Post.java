@@ -14,6 +14,7 @@ import java.util.List;
 //@CassandraTable(keyspace = "post", name = "post")
 @Entity
 @Table(name = "posts", uniqueConstraints = {@UniqueConstraint(columnNames = {"title"})})
+@NamedQuery(name = "Post.getAll", query = "SELECT p FROM Post p")
 public class Post {
 
     @Id
