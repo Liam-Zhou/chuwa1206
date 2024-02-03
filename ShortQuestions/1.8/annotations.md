@@ -245,5 +245,29 @@ Run around the method execution, combine all three advices above.
 # @Scheduled
 @Scheduled is a method-level annotation used to mark a method to be scheduled. You can define the schedule in several ways, including fixed-rate, fixed-delay, or cron expressions.
 
+# @Transactional
+@Transactional tells Spring that the method should be executed within a transactional context.
 
+# @Mock
+The @Mock annotation is used to declare and create mock instances of a given class or interface.
 
+# @Spy
+@Spy is an annotation used in unit testing, particularly with the Mockito testing framework in Java. It is used to create a spy instance of a class. Spies are a special type of mock object where the default behavior is to execute the real underlying method in the class being spied upon.
+
+# @InjectMocks
+This annotation is used to automatically inject mock or spy objects into the tested class.
+
+# @Test
+It is used to denote that a method is a test method.
+
+# @BeforeAll
+Execute the annotated method once before all the test methods.
+
+# @AfterAll
+Execute the annotated method once after all the test methods.
+
+# @BeforeEach
+Execute the annotated method before each test method.
+
+# @AfterEach
+Execute the annotated method after each test method.
