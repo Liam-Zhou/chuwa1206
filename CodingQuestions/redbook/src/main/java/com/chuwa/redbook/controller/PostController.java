@@ -4,6 +4,7 @@ import com.chuwa.redbook.payload.PostDto;
 import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.services.PostService;
 import com.chuwa.redbook.util.AppConstants;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class PostController {
     @Autowired
     private PostService postService;
     @PostMapping
-    public ResponseEntity<PostDto> createPost(@RequestBody PostDto postDto){
+    public ResponseEntity<PostDto> createPost(@Valid @RequestBody PostDto postDto){
         return new ResponseEntity<>(this.postService.createPost(postDto), HttpStatus.CREATED);
     }
 
@@ -39,7 +40,7 @@ public class PostController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PostDto> updatePostById(@RequestBody PostDto postDto, @PathVariable(name="id") long id){
+    public ResponseEntity<PostDto> updatePostById(@Valid @RequestBody PostDto postDto, @PathVariable(name="id") long id){
         PostDto postResponse = this.postService.updatePost(postDto, id);
 
         return ResponseEntity.ok(postResponse);

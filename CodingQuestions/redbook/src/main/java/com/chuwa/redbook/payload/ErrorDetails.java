@@ -5,16 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommentDto {
-
-    private long id;
-    private String name;
-    private String email;
-    private String body;
-
-
+public class ErrorDetails {
+    private Date timestamp;
+    private String message;
+    private String details;
 }
