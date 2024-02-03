@@ -18,11 +18,13 @@ import java.util.stream.Collectors;
 
 @Service
 public class CommentServiceImpl implements CommentService {
-    @Autowired
-    private CommentRepository commentRepository;
+    private final CommentRepository commentRepository;
+    private final PostRepository postRepository;
 
-    @Autowired
-    private PostRepository postRepository;
+    public CommentServiceImpl(CommentRepository commentRepository, PostRepository postRepository) {
+        this.commentRepository = commentRepository;
+        this.postRepository = postRepository;
+    }
 
     @Override
     public CommentDto createComment(long postId, CommentDto commentDto) {
