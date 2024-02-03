@@ -5,7 +5,6 @@ import com.chuwa.redbook.entities.Post;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDto;
 import com.chuwa.redbook.payload.PostResponse;
-import graphql.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,13 +19,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
-import java.lang.module.ResolutionException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class PostServiceImplTest {
@@ -108,6 +104,7 @@ class PostServiceImplTest {
     @Test
     public void testUpdatePost() {
         String description = "updated - " + post.getDescription();
+        post.setDescription(description);
         postDto.setDescription(description);
 
         // deep copy

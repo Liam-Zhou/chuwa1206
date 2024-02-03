@@ -6,6 +6,7 @@ import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDto;
 import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.service.PostService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,37 +22,40 @@ public class PostServiceImpl implements PostService {
     @Autowired
     private PostRepository postRepository;
 
-    private PostDto convertEntityToDTO(Post saved) {
-        PostDto response = new PostDto();
-        response.setId(saved.getId());
-        response.setTitle(saved.getTitle());
-        response.setDescription(saved.getDescription());
-        response.setContent(saved.getContent());
-        return response;
-    }
+    @Autowired
+    private ModelMapper modelMapper;
 
-    private Post convertDTOtoEntity(PostDto postDto) {
-        Post tobeSaved = new Post();
-        tobeSaved.setTitle(postDto.getTitle());
-        tobeSaved.setDescription(postDto.getDescription());
-        tobeSaved.setContent(postDto.getContent());
-        return tobeSaved;
-    }
+//    private PostDto convertEntityToDTO(Post saved) {
+//        PostDto response = new PostDto();
+//        response.setId(saved.getId());
+//        response.setTitle(saved.getTitle());
+//        response.setDescription(saved.getDescription());
+//        response.setContent(saved.getContent());
+//        return response;
+//    }
+//
+//    private Post convertDTOtoEntity(PostDto postDto) {
+//        Post tobeSaved = new Post();
+//        tobeSaved.setTitle(postDto.getTitle());
+//        tobeSaved.setDescription(postDto.getDescription());
+//        tobeSaved.setContent(postDto.getContent());
+//        return tobeSaved;
+//    }
 
     @Override
     public PostDto createPost(PostDto postDto) {
         //from Entity to DTO
-        Post tobeSaved = convertDTOtoEntity(postDto);
+        Post tobeSaved = modelMapper.map(postDto, Post.class);
         // save in repo
         Post saved = this.postRepository.save(tobeSaved);
         //from DTO to Entity
-        return convertEntityToDTO(saved);
+        return modelMapper.map(saved, PostDto.class);
     }
 
     @Override
     public List<PostDto> getAllPosts() {
         return this.postRepository.findAll()
-                .stream().map(this::convertEntityToDTO)
+                .stream().map(post -> modelMapper.map(post, PostDto.class))
                 .collect(Collectors.toList());
     }
 
@@ -77,25 +81,24 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDto getPostById(long id) {
-        return convertEntityToDTO(this.postRepository.findById(id).orElseThrow(
-                () -> new ResourceNotFoundException("Post", "id", id)
-        ));
+        return modelMapper.map(this.postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id)), PostDto.class);
     }
 
     @Override
     public PostDto updatePost(PostDto postDto, long id) {
-        Post toBeUpdatePost = this.postRepository.findById(id).orElseThrow(
-                () -> new ResourceNotFoundException("Post", "id", id)
-        );
+        Post toBeUpdatePost = this.postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
         if (postDto.getContent() != null) toBeUpdatePost.setContent(postDto.getContent());
         if (postDto.getDescription() != null) toBeUpdatePost.setDescription(postDto.getDescription());
         if (postDto.getTitle() != null) toBeUpdatePost.setTitle(postDto.getTitle());
         Post updatePost = this.postRepository.save(toBeUpdatePost);
-        return convertEntityToDTO(updatePost);
+        return modelMapper.map(updatePost, PostDto.class);
     }
 
     @Override
-    public void deletePostById(long id) { this.postRepository.deleteById(id); }
+    public void deletePostById(long id) {
+        Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
+        postRepository.delete(post);
+    }
 
     private PostDto mapToDTO(Post post) {
         PostDto postDto = new PostDto();
@@ -105,14 +108,5 @@ public class PostServiceImpl implements PostService {
         postDto.setContent(post.getContent());
 
         return postDto;
-    }
-
-    private Post mapToEntity(PostDto postDto){
-        Post post = new Post();
-        post.setTitle(postDto.getTitle());
-        post.setDescription(postDto.getDescription());
-        post.setContent(postDto.getContent());
-
-        return post;
     }
 }
