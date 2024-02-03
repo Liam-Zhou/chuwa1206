@@ -6,6 +6,7 @@ import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDto;
 import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.service.PostService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,6 +22,9 @@ public class PostServiceImpl implements PostService {
     @Autowired
     private PostRepository postRepository;
 
+    @Autowired
+    private ModelMapper modelMapper;
+
     @Override
     public PostDto createPost(PostDto postDto) {
         // 把payload转换成entity，这样才能dao去把该数据存到数据库中。
@@ -35,7 +39,8 @@ public class PostServiceImpl implements PostService {
         // 此时已成功把request body的信息传递给entity
 
         // covert DTO to Entity
-        Post post = mapToEntity(postDto);
+        Post post = modelMapper.map(postDto, Post.class);
+        //Post post = mapToEntity(postDto);
 
         // 调用Dao的save 方法，将entity的数据存储到数据库MySQL
         // save()会返回存储在数据库中的数据
@@ -48,9 +53,9 @@ public class PostServiceImpl implements PostService {
 //        postResponse.setDescription(savedPost.getDescription());
 //        postResponse.setContent(savedPost.getContent());
 
-        PostDto postResponse = mapToDTO(savedPost);
-
-        return postResponse;
+        //PostDto postResponse = mapToDTO(savedPost);
+        return modelMapper.map(savedPost, PostDto.class);
+        //return postResponse;
     }
 
     /**
@@ -60,7 +65,8 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<PostDto> getAllPost() {
         List<Post> posts = postRepository.findAll();
-        List<PostDto> postDtos = posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
+        List<PostDto> postDtos = posts.stream().map(post -> modelMapper.map(post, PostDto.class)).collect(Collectors.toList());
+        //List<PostDto> postDtos = posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
         return postDtos;
     }
 
@@ -78,7 +84,8 @@ public class PostServiceImpl implements PostService {
 
         Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
 
-        return mapToDTO(post);
+        return modelMapper.map(post, PostDto.class);
+        //return mapToDTO(post);
     }
 
     @Override
@@ -90,7 +97,9 @@ public class PostServiceImpl implements PostService {
         post.setContent(postDto.getContent());
 
         Post updatePost = postRepository.save(post);
-        return mapToDTO(updatePost);
+
+        return modelMapper.map(updatePost, PostDto.class);
+        //return mapToDTO(updatePost);
     }
 
     @Override
@@ -115,7 +124,8 @@ public class PostServiceImpl implements PostService {
 
         // get content for page abject
         List<Post> posts = pagePosts.getContent();
-        List<PostDto> postDtos = posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
+        List<PostDto> postDtos = posts.stream().map(post -> modelMapper.map(post, PostDto.class)).collect(Collectors.toList());
+        //List<PostDto> postDtos = posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
 
         PostResponse postResponse = new PostResponse();
         postResponse.setContent(postDtos);
@@ -127,22 +137,22 @@ public class PostServiceImpl implements PostService {
         return postResponse;
     }
 
-    private PostDto mapToDTO(Post post) {
-        PostDto postDto = new PostDto();
-        postDto.setId(post.getId());
-        postDto.setTitle(post.getTitle());
-        postDto.setDescription(post.getDescription());
-        postDto.setContent(post.getContent());
-
-        return postDto;
-    }
-
-    private Post mapToEntity(PostDto postDto){
-        Post post = new Post();
-        post.setTitle(postDto.getTitle());
-        post.setDescription(postDto.getDescription());
-        post.setContent(postDto.getContent());
-
-        return post;
-    }
+//    private PostDto mapToDTO(Post post) {
+//        PostDto postDto = new PostDto();
+//        postDto.setId(post.getId());
+//        postDto.setTitle(post.getTitle());
+//        postDto.setDescription(post.getDescription());
+//        postDto.setContent(post.getContent());
+//
+//        return postDto;
+//    }
+//
+//    private Post mapToEntity(PostDto postDto){
+//        Post post = new Post();
+//        post.setTitle(postDto.getTitle());
+//        post.setDescription(postDto.getDescription());
+//        post.setContent(postDto.getContent());
+//
+//        return post;
+//    }
 }

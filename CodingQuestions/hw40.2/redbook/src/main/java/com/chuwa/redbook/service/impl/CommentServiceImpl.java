@@ -7,6 +7,7 @@ import com.chuwa.redbook.exception.BlogAPIException;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.CommentDto;
 import com.chuwa.redbook.service.CommentService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -24,9 +25,13 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private PostRepository postRepository;
 
+    @Autowired
+    private ModelMapper modelMapper;
+
     @Override
     public CommentDto createComment(long postId, CommentDto commentDto) {
-        Comment comment = mapToEntity(commentDto);
+        Comment comment = modelMapper.map(commentDto, Comment.class);
+        //Comment comment = mapToEntity(commentDto);
         // retrieve post entity by id
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new ResourceNotFoundException("Post", "id", postId));
@@ -34,10 +39,12 @@ public class CommentServiceImpl implements CommentService {
         // TODO: explain
         comment.setPost(post);
 
+
         // comment entity to DB
         Comment savedComment = commentRepository.save(comment);
+        return modelMapper.map(savedComment, CommentDto.class);
 
-        return mapToDto(savedComment);
+        //return mapToDto(savedComment);
     }
 
     @Override
@@ -46,7 +53,8 @@ public class CommentServiceImpl implements CommentService {
         List<Comment> comments = commentRepository.findByPostId(postId);
 
         // convert list of comment entities to list of comment dto's
-        return comments.stream().map(comment -> mapToDto(comment)).collect(Collectors.toList());
+        return comments.stream().map(comment -> modelMapper.map(comment, CommentDto.class)).collect(Collectors.toList());
+        //return comments.stream().map(comment -> mapToDto(comment)).collect(Collectors.toList());
     }
 
     @Override
@@ -64,7 +72,8 @@ public class CommentServiceImpl implements CommentService {
             throw new BlogAPIException(HttpStatus.BAD_REQUEST, "Comment does not belong to post");
         }
 
-        return mapToDto(comment);
+        return modelMapper.map(comment, CommentDto.class);
+        //return mapToDto(comment);
     }
 
     @Override
@@ -88,7 +97,8 @@ public class CommentServiceImpl implements CommentService {
 
         Comment updatedComment = commentRepository.save(comment);
 
-        return mapToDto(updatedComment);
+        return modelMapper.map(updatedComment, CommentDto.class);
+        //return mapToDto(updatedComment);
     }
 
     @Override
@@ -108,23 +118,23 @@ public class CommentServiceImpl implements CommentService {
         commentRepository.delete(comment);
     }
 
-    private CommentDto mapToDto(Comment comment) {
-        CommentDto commentDto = new CommentDto();
-        commentDto.setId(comment.getId());
-        commentDto.setName(comment.getName());
-        commentDto.setEmail(comment.getEmail());
-        commentDto.setBody(comment.getBody());
-
-        return commentDto;
-    }
-
-    private Comment mapToEntity(CommentDto commentDto) {
-        Comment comment = new Comment();
-        comment.setId(commentDto.getId());
-        comment.setName(commentDto.getName());
-        comment.setEmail(commentDto.getEmail());
-        comment.setBody(commentDto.getBody());
-
-        return comment;
-    }
+//    private CommentDto mapToDto(Comment comment) {
+//        CommentDto commentDto = new CommentDto();
+//        commentDto.setId(comment.getId());
+//        commentDto.setName(comment.getName());
+//        commentDto.setEmail(comment.getEmail());
+//        commentDto.setBody(comment.getBody());
+//
+//        return commentDto;
+//    }
+//
+//    private Comment mapToEntity(CommentDto commentDto) {
+//        Comment comment = new Comment();
+//        comment.setId(commentDto.getId());
+//        comment.setName(commentDto.getName());
+//        comment.setEmail(commentDto.getEmail());
+//        comment.setBody(commentDto.getBody());
+//
+//        return comment;
+//    }
 }
