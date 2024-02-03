@@ -16,6 +16,13 @@ public class AccountDto {
         this.accountNumber = accountNumber;
     }
 
+    public AccountDto(Long id, long userId, String routingNumber, String accountNumber) {
+        this.id = id;
+        this.userId = userId;
+        this.routingNumber = routingNumber;
+        this.accountNumber = accountNumber;
+    }
+
     public AccountDto() {
 
     }

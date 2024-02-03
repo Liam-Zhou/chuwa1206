@@ -60,7 +60,7 @@ public class UserController {
         return  ResponseEntity.ok(userDto);
     }
 
-    private void logCookieInfo(Cookie cookie) {
+    public void logCookieInfo(Cookie cookie) {
         log.info("Cookie Name: {}, Value: {}, Domain: {}, Path: {}, Max Age: {}, Secure: {}, HttpOnly: {}",
                 cookie.getName(), cookie.getValue(), cookie.getDomain(), cookie.getPath(),
                 cookie.getMaxAge(), cookie.getSecure(), cookie.isHttpOnly());
