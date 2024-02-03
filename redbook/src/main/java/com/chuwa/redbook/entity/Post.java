@@ -89,7 +89,4 @@ public class Post {
     @UpdateTimestamp
     private LocalDateTime updateDateTime;
 
-    @ManyToOne
-    @JoinColumn(name = "author")
-    private Author author;
 }
