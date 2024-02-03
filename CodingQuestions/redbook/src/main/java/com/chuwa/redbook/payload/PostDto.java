@@ -1,5 +1,8 @@
 package com.chuwa.redbook.payload;
 
+import lombok.Builder;
+
+@Builder
 public class PostDto {
     private long id;
     private String title;
