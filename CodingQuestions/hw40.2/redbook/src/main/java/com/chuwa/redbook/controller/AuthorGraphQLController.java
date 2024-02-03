@@ -1,9 +1,13 @@
 package com.chuwa.redbook.controller;
 
+import com.chuwa.redbook.payload.AuthorDto;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
+import com.chuwa.redbook.service.AuthorService;
+
+import java.util.List;
 
 @Controller
 public class AuthorGraphQLController {
