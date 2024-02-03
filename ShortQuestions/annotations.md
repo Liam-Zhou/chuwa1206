@@ -380,3 +380,13 @@ static void beforeAll() {
     logger.info("START test");
 }
 ```
+
+# Annotations used by **micro service**
+
+- @EnableEurekaServer
+
+Enables eureka server
+
+- @EnableCircuitBreaker
+
+Enables circuit breaker
