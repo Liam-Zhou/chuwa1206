@@ -19,6 +19,10 @@ public class Account {
     @OneToOne(mappedBy = "account")
     private UserProfile userProfile;
 
+    public Account() {
+
+    }
+
     public Long getAccountId() {
         return accountId;
     }
@@ -89,5 +93,10 @@ public class Account {
 
     @UpdateTimestamp
     private LocalDateTime updateDateTime;
+
+    public Account(int rountingNumber, int accountNumber) {
+        this.rountingNumber = rountingNumber;
+        this.accountNumber = accountNumber;
+    }
 
 }

@@ -24,6 +24,10 @@ public class Transaction {
 
     private int amount;
 
+    public Transaction() {
+
+    }
+
     public int getAmount() {
         return amount;
     }
@@ -88,5 +92,12 @@ public class Transaction {
 
     @UpdateTimestamp
     private LocalDateTime updateDateTime;
+
+    public Transaction(Account account, LocalDateTime date, int amount, String description) {
+        this.account = account;
+        this.date = date;
+        this.amount = amount;
+        this.description = description;
+    }
 
 }

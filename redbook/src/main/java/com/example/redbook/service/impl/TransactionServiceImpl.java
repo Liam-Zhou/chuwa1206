@@ -29,7 +29,6 @@ public class TransactionServiceImpl implements TransactionService {
         this.userProfileService = userProfileService;
     }
 
-
     @Override
     public UserTransactionDto getUserTransactions(long userId, LocalDateTime from, LocalDateTime to) {
         UserAccountDto userAccount = userProfileService.getAccount(userId);

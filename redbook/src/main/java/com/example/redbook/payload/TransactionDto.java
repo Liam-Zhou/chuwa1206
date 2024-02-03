@@ -31,6 +31,10 @@ public class TransactionDto {
         this.amount = amount;
     }
 
+    public TransactionDto() {
+        // No-argument constructor
+    }
+
     public void setAmount(int amount) {
         this.amount = amount;
     }
