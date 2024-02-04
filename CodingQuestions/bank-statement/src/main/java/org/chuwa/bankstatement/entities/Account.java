@@ -20,6 +20,16 @@ public class Account {
     @Column(name="routingNumber", nullable = false)
     private String routingNumber;
 
+    public Account(long accId, User user, String routingNumber, String accountNumber) {
+        this.accId = accId;
+        this.user = user;
+        this.routingNumber = routingNumber;
+        this.accountNumber = accountNumber;
+    }
+
+    public Account() {
+    }
+
     @Column(name="accountNumber", nullable = false)
     private String accountNumber;
 

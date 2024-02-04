@@ -22,6 +22,17 @@ public class User {
     @Column(name="addr", nullable = false)
     private String addr;
 
+    public User() {
+    }
+
+    public User(long userId, String name, String addr, String phone, String email) {
+        this.userId = userId;
+        this.name = name;
+        this.addr = addr;
+        this.phone = phone;
+        this.email = email;
+    }
+
     @Column(name="phone", nullable = false)
     private String phone;
 

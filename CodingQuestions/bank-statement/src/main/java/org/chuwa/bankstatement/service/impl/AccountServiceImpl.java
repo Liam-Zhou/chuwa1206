@@ -19,8 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -45,12 +43,10 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public BankStatement getStatement(Long userId, Integer startMonth, Integer endMonth) {
-        User user = userRepository.findById(userId).orElseThrow(
-                () -> new ResourceNotFoundException("User", "User not Found", userId)
-        );
-        Account account = Optional.ofNullable(user.getAccount()).orElseThrow(
-                () -> new ResourceNotFoundException("Account", "Account not Found with User", userId)
-        );
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "User not Found", userId));
+        Account account = Optional.ofNullable(user.getAccount())
+                .orElseThrow(() -> new ResourceNotFoundException("Account", "Account not Found with User", userId));
         List<TxnDto> txns = txnRepository.findAllByAccountAndDateBetween(account, startMonth, endMonth).stream()
                 .map(this::convertFromTxntoTxnDto).collect(Collectors.toList());
         return new BankStatement(user.getName(), user.getAddr(), account.getAccountNumber(), txns);
@@ -80,16 +76,11 @@ public class AccountServiceImpl implements AccountService {
             document.add(endMonthParagraph);
             document.add(transactionsParagraph);
             logger.info("statement pdf created");
-        } finally {
-            if (document.isOpen()) {
-                document.close();
-                logger.debug("make sure document is closed");
-            }
-        }
+        } finally { if (document.isOpen()) { document.close(); }}
         return outputStream;
     }
 
-    private TxnDto convertFromTxntoTxnDto(Txn saved) {
+    public TxnDto convertFromTxntoTxnDto(Txn saved) {
         TxnDto txnDto = new TxnDto();
         txnDto.setTxnId(saved.getTxnId());
         txnDto.setAccountId(saved.getAccount().getAccId());
