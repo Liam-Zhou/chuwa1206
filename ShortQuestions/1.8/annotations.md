@@ -271,3 +271,9 @@ Execute the annotated method before each test method.
 
 # @AfterEach
 Execute the annotated method after each test method.
+
+# @EnableEurekaServer
+@EnableEurekaServer is an annotation used in Java with Spring Boot applications to indicate that the application should act as a Eureka Server.
+
+# @LoadBalanced
+The @LoadBalanced annotation is used to mark a Spring RestTemplate or a WebClient bean as one that should use Ribbon (if Ribbon is on the classpath) for client-side load balancing.
