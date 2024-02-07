@@ -5,8 +5,8 @@ import com.chuwa.transaction.entity.UserProfile;
 import com.chuwa.transaction.exception.ResourceNotFoundException;
 import com.chuwa.transaction.payload.UserProfileDto;
 import com.chuwa.transaction.service.UserProfileService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,18 +15,23 @@ import java.util.stream.Collectors;
 @Service
 public class UserProfileImpl implements UserProfileService {
     private final UserProfileRepository userProfileRepository;
+    private final ModelMapper modelMapper;
 
-
-    public UserProfileImpl(UserProfileRepository userProfileRepository) {
+    @Autowired
+    public UserProfileImpl(UserProfileRepository userProfileRepository, ModelMapper modelMapper) {
         this.userProfileRepository = userProfileRepository;
+        this.modelMapper = modelMapper;
     }
+
 
 
     @Override
     public UserProfileDto createUserProfile(UserProfileDto userProfileDto) {
-        UserProfile toBeSaved = convertDtoToEntity(userProfileDto);
+        UserProfile toBeSaved = modelMapper.map(userProfileDto, UserProfile.class);
+                //convertDtoToEntity(userProfileDto);
         UserProfile saved = this.userProfileRepository.save(toBeSaved);
-        UserProfileDto response = convertEntityToDto(saved);
+        UserProfileDto response = modelMapper.map(saved, UserProfileDto.class);
+                // convertEntityToDto(saved);
         return response;
     }
 
@@ -47,7 +52,8 @@ public class UserProfileImpl implements UserProfileService {
             user.setPhone(userProfileDto.getPhone());
 
         UserProfile saved = this.userProfileRepository.save(user);
-        UserProfileDto response = convertEntityToDto(saved);
+        UserProfileDto response = modelMapper.map(saved, UserProfileDto.class);
+                // convertEntityToDto(saved);
         return response;
     }
 
@@ -60,7 +66,9 @@ public class UserProfileImpl implements UserProfileService {
     @Override
     public List<UserProfileDto> getAllUserProfiles() {
         List<UserProfile> users = this.userProfileRepository.findAll();
-        List<UserProfileDto> response = users.stream().map(user -> (convertEntityToDto(user))).collect(Collectors.toList());
+        List<UserProfileDto> response = users.stream()
+                .map(user -> (modelMapper.map(user, UserProfileDto.class)))
+                .collect(Collectors.toList());
         return response;
     }
 
@@ -75,27 +83,28 @@ public class UserProfileImpl implements UserProfileService {
     public UserProfileDto getUserProfileById(long userId) {
         UserProfile users = userProfileRepository.findById(userId).orElseThrow(()->new ResourceNotFoundException("UserProfile", "userProfileId", userId));
 
-        return convertEntityToDto(users);
+        return modelMapper.map(users, UserProfileDto.class);
+                //convertEntityToDto(users);
     }
 
-    private UserProfileDto convertEntityToDto(UserProfile saved) {
-        UserProfileDto response = new UserProfileDto();
-        response.setUserId(saved.getId());
-        response.setAddress(saved.getAddress());
-        response.setEmail(saved.getEmail());
-        response.setName(saved.getName());
-        response.setPhone(saved.getPhone());
+//    private UserProfileDto convertEntityToDto(UserProfile saved) {
+//        UserProfileDto response = new UserProfileDto();
+//        response.setUserId(saved.getId());
+//        response.setAddress(saved.getAddress());
+//        response.setEmail(saved.getEmail());
+//        response.setName(saved.getName());
+//        response.setPhone(saved.getPhone());
+//
+//
+//        return response;
+//    }
 
-
-        return response;
-    }
-
-    private UserProfile convertDtoToEntity(UserProfileDto userProfileDto) {
-        UserProfile toBeSaved = new UserProfile();
-        toBeSaved.setAddress(userProfileDto.getAddress());
-        toBeSaved.setEmail(userProfileDto.getEmail());
-        toBeSaved.setName(userProfileDto.getName());
-        toBeSaved.setPhone(userProfileDto.getPhone());
-        return toBeSaved;
-    }
+//    private UserProfile convertDtoToEntity(UserProfileDto userProfileDto) {
+//        UserProfile toBeSaved = new UserProfile();
+//        toBeSaved.setAddress(userProfileDto.getAddress());
+//        toBeSaved.setEmail(userProfileDto.getEmail());
+//        toBeSaved.setName(userProfileDto.getName());
+//        toBeSaved.setPhone(userProfileDto.getPhone());
+//        return toBeSaved;
+//    }
 }
