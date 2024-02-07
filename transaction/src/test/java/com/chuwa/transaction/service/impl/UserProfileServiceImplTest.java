@@ -7,11 +7,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
+import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,18 +21,25 @@ import java.util.Optional;
 @ExtendWith(MockitoExtension.class)
 public class UserProfileServiceImplTest {
     private static final Logger logger = LoggerFactory.getLogger(UserProfileServiceImplTest.class);
+
     @Mock
     private UserProfileRepository userProfileRepositoryMock;
+
+    @Spy
+    private ModelMapper modelMapper;
 
     @InjectMocks
     private UserProfileImpl userProfileServiceImpl;
 
     private UserProfileDto userProfileDto;
     private UserProfile userProfile;
+
     @BeforeEach
     void setUp() {
-         this.userProfileDto = new UserProfileDto(1L, "name", "address", "phone", "email");
-         this.userProfile = new UserProfile(1L, "name", "address", "phone", "email");
+//        ModelMapper modelMapper = new ModelMapper();
+        logger.info("Setting up the test data");
+        this.userProfile = new UserProfile(1L, "name", "address", "phone", "email");
+        this.userProfileDto = modelMapper.map(userProfile, UserProfileDto.class);
     }
 
     @Test
@@ -120,7 +125,7 @@ public class UserProfileServiceImplTest {
     }
 
     @Test
-    public void testDeleteUser() {
+    public void testDeleteUserById() {
 //        Mockito.when(userProfileRepositoryMock.findById(ArgumentMatchers.anyLong()))
 //                .thenReturn(Optional.ofNullable(userProfile));
 
