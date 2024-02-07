@@ -1,4 +1,4 @@
-package com.chuwa.transaction.service.impl;
+package com.chuwa.transaction.integration;
 
 import com.chuwa.transaction.payload.BankStatementDto;
 import com.chuwa.transaction.payload.UserProfileDto;
@@ -24,9 +24,9 @@ public class BankStatementServiceIntegrationTest {
     void createBankstatementIntegrationTest() {
         // Mock data
         long userId = 1;
-        String month = "1";
+        String month = "2";
         UserProfileDto mockUserProfile = new UserProfileDto();
-        mockUserProfile.setName("name1");
+        mockUserProfile.setName("ModdleMapper name");
         mockUserProfile.setAddress("address");
         int monthNumber = Integer.parseInt(month);
 
