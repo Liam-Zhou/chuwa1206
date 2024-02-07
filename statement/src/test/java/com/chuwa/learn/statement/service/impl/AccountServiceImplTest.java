@@ -4,6 +4,7 @@ import com.chuwa.learn.statement.dao.AccountRepoitory;
 import com.chuwa.learn.statement.dao.UserRepository;
 import com.chuwa.learn.statement.entity.Account;
 import com.chuwa.learn.statement.entity.User;
+import com.chuwa.learn.statement.exception.ResourceNotFoundException;
 import com.chuwa.learn.statement.payload.AccountDto;
 import com.chuwa.learn.statement.payload.UserDto;
 import com.chuwa.learn.statement.service.AccountService;
@@ -71,5 +72,12 @@ class AccountServiceImplTest {
         Assertions.assertEquals(result.getAccountNumber(),accountDto.getAccountNumber());
         Assertions.assertEquals(result.getUserId(),accountDto.getUserId());
         Assertions.assertEquals(result.getAccountId(),accountDto.getAccountId());
+    }
+
+    @Test
+    void testGetAccountByIdNotFound(){
+        long nonExistentUserId = 999L;
+
+        Assertions.assertThrows(ResourceNotFoundException.class, () -> accountService.getAccountById(nonExistentUserId));
     }
 }
