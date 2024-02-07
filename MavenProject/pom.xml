@@ -11,6 +11,7 @@
     <modules>
         <module>java-core</module>
         <module>HW3DesignPattern</module>
+        <module>KafkaHelloWorld</module>
     </modules>
 
     <properties>
