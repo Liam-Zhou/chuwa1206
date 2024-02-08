@@ -2,6 +2,7 @@ package com.chuwa.learn.statement.service.impl;
 
 import com.chuwa.learn.statement.dao.TransactionRepository;
 import com.chuwa.learn.statement.entity.Transaction;
+import com.chuwa.learn.statement.exception.ResourceNotFoundException;
 import com.chuwa.learn.statement.payload.TransactionDto;
 import com.chuwa.learn.statement.service.TransactionService;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 @Slf4j
 @Service
@@ -28,8 +30,12 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public List<TransactionDto> getTransactions(long id, LocalDateTime startDate, LocalDateTime endDate) {
-        return transactionRepository.findByAccountIdAndDateBetween(id,startDate,endDate)
-                .stream().map(this::entityToDto).collect(Collectors.toList());
+        List<Transaction> transactions = transactionRepository.findByAccountIdAndDateBetween(id, startDate, endDate);
+
+        if (transactions.isEmpty()) {
+            throw new ResourceNotFoundException("Account", "id", id);
+        }
+        return transactions.stream().map(this::entityToDto).collect(Collectors.toList());
     }
 
 

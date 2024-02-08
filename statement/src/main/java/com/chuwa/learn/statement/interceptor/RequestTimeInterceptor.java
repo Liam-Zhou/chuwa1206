@@ -29,9 +29,5 @@ public class RequestTimeInterceptor implements HandlerInterceptor {
         logger.info("Request URL: {} - Time Taken: {} ms", request.getRequestURI(), elapsedTime);
     }
 
-    // 在整个请求处理完毕后执行
-    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        // You can add additional logic if needed
-    }
+
 }

@@ -2,6 +2,7 @@ package com.chuwa.learn.statement.service.impl;
 
 import com.chuwa.learn.statement.dao.UserRepository;
 import com.chuwa.learn.statement.entity.User;
+import com.chuwa.learn.statement.exception.ResourceNotFoundException;
 import com.chuwa.learn.statement.payload.UserDto;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
@@ -64,6 +65,7 @@ public class UserServiceImplTest {
 
     }
 
+
     @Test
     public void testGetUserById() {
         // Arrange
@@ -83,5 +85,14 @@ public class UserServiceImplTest {
         Assertions.assertEquals(result.getPhone(),userDto.getPhone());
         Assertions.assertEquals(result.getId(),userDto.getId());
 
+    }
+
+    @Test
+    public void testGetUserByIdNotFound() {
+        // Given
+        long nonExistentUserId = 999L;
+
+        // When, Then
+        Assertions.assertThrows(ResourceNotFoundException.class, () -> userService.getUserById(nonExistentUserId));
     }
 }
