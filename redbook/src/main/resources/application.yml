@@ -1,5 +1,0 @@
-spring:
-  cassandra:
-    keyspace-name: post
-    contact-points: localhost
-    port: 9042
