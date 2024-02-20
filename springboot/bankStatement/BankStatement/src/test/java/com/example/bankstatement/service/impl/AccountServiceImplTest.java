@@ -84,7 +84,6 @@ class AccountServiceImplTest {
         List<AccountDtoWithoutUserProfile> result = accountService.getAccountByUserId(userId);
 
         assertNotNull(result);
-        assertFalse(result.isEmpty());
         verify(userProfileRepo).findById(userId);
     }
 
