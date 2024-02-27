@@ -22,5 +22,6 @@ public class MongoBlogApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		this.postService.createGroceryItems();
 		this.postService.showAllGroceryItems();
+		this.postService.searchItemByCategory("snacks");
 	}
 }

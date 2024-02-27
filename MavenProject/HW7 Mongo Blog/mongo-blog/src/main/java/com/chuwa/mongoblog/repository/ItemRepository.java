@@ -15,7 +15,7 @@ public interface ItemRepository extends MongoRepository<GroceryItem, String> {
     //defining a custom query to find GroceryItem documents based on the category field while
     // specifying the fields to be included in the result.
     @Query(value = "{category: ?0}", fields = "{'name' :  1, 'quantity' :  true}")
-    List<GroceryItem> findAll(String category);
+    List<GroceryItem> findCate(String category);
 
 
     public long count();
